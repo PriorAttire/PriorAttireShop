@@ -1,407 +1,562 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Coach Bag Raffle</title>
+  <title>Prior Attire | Vintage Coach</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-
-<style>
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-body{
-    font-family:'Inter', sans-serif;
-    background:#dfaad5;
-    color:#333;
-    font-weight:400;
-    letter-spacing:.2px;
-}
-
-/* HERO */
-.hero{
-    background:#9cd4d1;
-    color:white;
-    text-align:center;
-    padding:60px 20px;
-}
-
-.hero h1{
-    font-family:'Cormorant Garamond', serif;
-    font-size:3.2rem;
-    font-weight:600;
-    letter-spacing:1px;
-    margin-bottom:10px;
-}
-
-.hero p{
-    font-size:1.1rem;
-    opacity:.9;
-    font-weight:400;
-}
-
-/* DEPOP BUTTON */
-.depop-link{
-    display:inline-block;
-    margin-top:15px;
-    padding:10px 18px;
-    background:#f5cdc9;
-    color:#bf918f;
-    text-decoration:none;
-    border-radius:8px;
-    font-weight:500;
-    transition:.3s;
-    font-family:'Inter', sans-serif;
-}
-
-.depop-link:hover{
-    background:#ff69b4;
-    color:white;
-}
-
-/* CONTAINER */
-.container{
-    max-width:1200px;
-    margin:auto;
-    padding:40px 20px;
-}
-
-/* PRODUCT */
-.product{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:40px;
-    align-items:center;
-}
-
-/* IMAGE */
-.image-box{
-    width:100%;
-    background:#fff;
-    border-radius:15px;
-    overflow:hidden;
-}
-
-.image-box img{
-    width:100%;
-    height:auto;
-    display:block;
-    object-fit:contain;
-}
-
-/* BOX */
-.price-box{
-    background:white;
-    padding:25px;
-    border-radius:15px;
-    box-shadow:0 5px 20px rgba(0,0,0,.12);
-}
-
-/* SPOTS */
-.spots{
-    background:#e9ffe9;
-    color:#008000;
-    padding:15px;
-    border-radius:10px;
-    margin:20px 0;
-    font-weight:500;
-}
-
-/* COUNTDOWN */
-.countdown{
-    display:flex;
-    gap:10px;
-    margin:20px 0;
-    flex-wrap:wrap;
-}
-
-.time{
-    background:#9cd4d1;
-    color:white;
-    padding:15px;
-    border-radius:10px;
-    min-width:80px;
-    text-align:center;
-    font-family:'Inter', sans-serif;
-    font-weight:500;
-}
-
-.time span{
-    display:block;
-    font-size:1.6rem;
-    font-weight:600;
-}
-
-/* BUTTONS */
-.btn{
-    display:block;
-    width:100%;
-    text-align:center;
-    padding:15px;
-    color:white;
-    text-decoration:none;
-    border-radius:10px;
-    margin-top:10px;
-    transition:.3s;
-    background:#9cd4d1;
-    font-family:'Inter', sans-serif;
-    font-weight:500;
-}
-
-.btn:hover{
-    background:#d63384;
-}
-
-/* CASHAPP BUTTON (HOT PINK) */
-.cashapp-btn{
-    background:#ff69b4 !important;
-}
-
-.cashapp-btn:hover{
-    background:#ff1493 !important;
-}
-
-/* CONFIRM SPOT BUTTON (LIGHT GREEN) */
-.confirm-btn{
-    width:100%;
-    padding:15px;
-    margin-top:10px;
-    background:#90ee90;
-    color:#0b5d0b;
-    border:none;
-    border-radius:10px;
-    font-size:16px;
-    cursor:pointer;
-    font-weight:600;
-    transition:.3s;
-    font-family:'Inter', sans-serif;
-}
-
-.confirm-btn:hover{
-    background:#76e576;
-}
-
-/* INFO */
-.info{
-    margin-top:40px;
-    background:white;
-    padding:25px;
-    border-radius:15px;
-    font-family:'Inter', sans-serif;
-    font-weight:400;
-}
-
-.info h2{
-    font-family:'Cormorant+Garamond', serif;
-    font-weight:600;
-}
-
-/* SPOT BOX */
-.spot-box{
-    margin-top:30px;
-    background:white;
-    padding:25px;
-    border-radius:15px;
-    box-shadow:0 5px 15px rgba(0,0,0,.1);
-    font-family:'Inter', sans-serif;
-    font-weight:400;
-}
-
-/* FOOTER */
-footer{
-    text-align:center;
-    padding:30px;
-    color:#666;
-    font-family:'Inter', sans-serif;
-    font-weight:400;
-}
-
-/* MOBILE */
-@media(max-width:768px){
-    .product{
-        grid-template-columns:1fr;
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
-    .hero h1{
-        font-size:2.4rem;
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7eeee;
+      color: #3f3434;
+      line-height: 1.5;
     }
-}
 
-</style>
+    header {
+      background: #9cd4d1;
+      text-align: center;
+      padding: 45px 20px 35px;
+    }
+
+    .brand {
+      font-family: Georgia, serif;
+      font-size: 48px;
+      letter-spacing: 2px;
+      color: white;
+      margin-bottom: 8px;
+    }
+
+    .tagline {
+      color: white;
+      font-size: 15px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    nav {
+      background: white;
+      padding: 15px;
+      text-align: center;
+      border-bottom: 1px solid #eadada;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    nav a {
+      color: #6d5959;
+      text-decoration: none;
+      margin: 0 12px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #bf918f;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 50px 20px 35px;
+    }
+
+    .hero h1 {
+      font-family: Georgia, serif;
+      font-size: 36px;
+      color: #594949;
+      margin-bottom: 12px;
+    }
+
+    .hero p {
+      max-width: 600px;
+      margin: auto;
+      color: #766565;
+      font-size: 16px;
+    }
+
+    .shop-button {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 13px 28px;
+      background: #bf918f;
+      color: white;
+      text-decoration: none;
+      border-radius: 25px;
+      font-weight: bold;
+    }
+
+    .shop-button:hover {
+      opacity: 0.85;
+    }
+
+    .section-title {
+      text-align: center;
+      font-family: Georgia, serif;
+      font-size: 30px;
+      margin: 25px 0 30px;
+      color: #594949;
+    }
+
+    .products {
+      max-width: 1100px;
+      margin: auto;
+      padding: 0 20px 60px;
+
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 25px;
+    }
+
+    .product {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(80, 50, 50, 0.08);
+      transition: transform 0.2s ease;
+    }
+
+    .product:hover {
+      transform: translateY(-4px);
+    }
+
+    .product-image {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      display: block;
+      background: #eee;
+    }
+
+    .product-info {
+      padding: 20px;
+      text-align: center;
+    }
+
+    .product-name {
+      font-family: Georgia, serif;
+      font-size: 21px;
+      margin-bottom: 7px;
+      color: #514343;
+    }
+
+    .product-description {
+      font-size: 13px;
+      color: #817070;
+      margin-bottom: 12px;
+    }
+
+    .price {
+      font-size: 20px;
+      font-weight: bold;
+      color: #bf918f;
+      margin-bottom: 15px;
+    }
+
+    .buy-button {
+      display: inline-block;
+      background: #9cd4d1;
+      color: #294d4b;
+      text-decoration: none;
+      padding: 11px 24px;
+      border-radius: 22px;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .buy-button:hover {
+      opacity: 0.85;
+    }
+
+    .about {
+      background: white;
+      padding: 55px 25px;
+      text-align: center;
+    }
+
+    .about h2 {
+      font-family: Georgia, serif;
+      font-size: 30px;
+      margin-bottom: 15px;
+      color: #594949;
+    }
+
+    .about p {
+      max-width: 650px;
+      margin: auto;
+      color: #766565;
+    }
+
+    .socials {
+      padding: 45px 20px;
+      text-align: center;
+    }
+
+    .socials h2 {
+      font-family: Georgia, serif;
+      margin-bottom: 20px;
+      font-size: 27px;
+    }
+
+    .social-button {
+      display: inline-block;
+      text-decoration: none;
+      padding: 11px 20px;
+      margin: 5px;
+      border-radius: 22px;
+      background: white;
+      color: #675757;
+      border: 1px solid #decaca;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .social-button:hover {
+      background: #f5cdc9;
+    }
+
+    footer {
+      background: #9cd4d1;
+      text-align: center;
+      color: white;
+      padding: 30px 20px;
+      font-size: 13px;
+    }
+
+    footer strong {
+      font-family: Georgia, serif;
+      font-size: 18px;
+    }
+
+    @media (max-width: 600px) {
+
+      .brand {
+        font-size: 38px;
+      }
+
+      .hero h1 {
+        font-size: 29px;
+      }
+
+      nav a {
+        margin: 0 6px;
+        font-size: 12px;
+      }
+
+      .product-image {
+        height: 280px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<section class="hero">
-    <h1>Coach Bag Raffle</h1>
-    <p>Prize pick of 1 Vintage Coach Bag</p>
+  <!-- =========================
+       HEADER
+  ========================== -->
 
-    <a class="depop-link" href="https://www.depop.com/prior_attire/" target="_blank">
-        Shop My Depop
+  <header>
+    <div class="brand">Prior Attire</div>
+    <div class="tagline">Vintage Coach • Pre-Loved Finds • Curated With Love</div>
+  </header>
+
+
+  <!-- =========================
+       NAVIGATION
+  ========================== -->
+
+  <nav>
+    <a href="#shop">Shop</a>
+    <a href="#about">About</a>
+    <a href="#socials">Follow</a>
+  </nav>
+
+
+  <!-- =========================
+       HERO
+  ========================== -->
+
+  <section class="hero">
+
+    <h1>Vintage Coach Finds</h1>
+
+    <p>
+      Carefully selected vintage Coach bags, accessories,
+      charms and unique closet finds.
+    </p>
+
+    <a href="#shop" class="shop-button">
+      Shop Current Items
     </a>
-</section>
 
-<div class="container">
+  </section>
 
-<div class="product">
 
-    <div class="image-box">
-        <img src="IMG_1781.png" alt="Coach Bag">
+  <!-- =========================
+       SHOP
+       COPY A PRODUCT BOX TO ADD
+       MORE ITEMS
+  ========================== -->
+
+  <section id="shop">
+
+    <h2 class="section-title">Available Now</h2>
+
+    <div class="products">
+
+
+      <!-- PRODUCT 1 -->
+
+      <div class="product">
+
+        <!-- CHANGE THIS IMAGE URL -->
+        <img
+          class="product-image"
+          src="https://placehold.co/600x700?text=Upload+Coach+Photo"
+          alt="Vintage Coach Bag"
+        >
+
+        <div class="product-info">
+
+          <!-- CHANGE ITEM NAME -->
+          <div class="product-name">
+            Vintage Coach Bag
+          </div>
+
+          <!-- CHANGE DESCRIPTION -->
+          <div class="product-description">
+            Beautiful pre-loved vintage Coach piece.
+          </div>
+
+          <!-- CHANGE PRICE -->
+          <div class="price">
+            $125
+          </div>
+
+          <!-- CHANGE LINK TO YOUR LISTING -->
+          <a
+            class="buy-button"
+            href="https://www.depop.com/prior_attire/"
+            target="_blank"
+          >
+            View & Buy
+          </a>
+
+        </div>
+      </div>
+
+
+      <!-- PRODUCT 2 -->
+
+      <div class="product">
+
+        <img
+          class="product-image"
+          src="https://placehold.co/600x700?text=Upload+Coach+Photo"
+          alt="Vintage Coach Soho"
+        >
+
+        <div class="product-info">
+
+          <div class="product-name">
+            Coach Soho
+          </div>
+
+          <div class="product-description">
+            Classic vintage Coach Soho style.
+          </div>
+
+          <div class="price">
+            $95
+          </div>
+
+          <a
+            class="buy-button"
+            href="https://www.depop.com/prior_attire/"
+            target="_blank"
+          >
+            View & Buy
+          </a>
+
+        </div>
+      </div>
+
+
+      <!-- PRODUCT 3 -->
+
+      <div class="product">
+
+        <img
+          class="product-image"
+          src="https://placehold.co/600x700?text=Upload+Coach+Photo"
+          alt="Vintage Coach Accessory"
+        >
+
+        <div class="product-info">
+
+          <div class="product-name">
+            Vintage Coach Accessory
+          </div>
+
+          <div class="product-description">
+            Unique vintage Coach accessory.
+          </div>
+
+          <div class="price">
+            $35
+          </div>
+
+          <a
+            class="buy-button"
+            href="https://www.depop.com/prior_attire/"
+            target="_blank"
+          >
+            View & Buy
+          </a>
+
+        </div>
+      </div>
+
+
+      <!-- PRODUCT 4 -->
+
+      <div class="product">
+
+        <img
+          class="product-image"
+          src="https://placehold.co/600x700?text=Upload+Coach+Photo"
+          alt="Vintage Coach Charm"
+        >
+
+        <div class="product-info">
+
+          <div class="product-name">
+            Vintage Coach Charm
+          </div>
+
+          <div class="product-description">
+            Cute collectible Coach charm.
+          </div>
+
+          <div class="price">
+            $25
+          </div>
+
+          <a
+            class="buy-button"
+            href="https://www.depop.com/prior_attire/"
+            target="_blank"
+          >
+            View & Buy
+          </a>
+
+        </div>
+      </div>
+
+
     </div>
 
-    <div class="price-box">
+  </section>
 
-        <h2>Preloved Vintage Coach Prizes</h2>
 
-        <p>Bags are raffled as-is. Inquire for condition details.</p>
-        
-        <p>Both authentic Coach handbags.</p>
+  <!-- =========================
+       ABOUT
+  ========================== -->
 
-        <br>
+  <section class="about" id="about">
 
-        <h3>$10 per 1 spot or $20 when you buy 3</h3>
+    <h2>About Prior Attire</h2>
 
-        <div class="spots">
-            Only <span id="spotsLeft">30</span> Spots Remaining
-        </div>
+    <p>
+      Welcome to Prior Attire — a curated collection of
+      vintage Coach pieces and unique pre-loved finds.
+      Every item is selected with vintage lovers and
+      collectors in mind.
+    </p>
 
-        <h3>Drawing Ends In:</h3>
+  </section>
 
-        <div class="countdown">
-            <div class="time"><span id="days">0</span>Days</div>
-            <div class="time"><span id="hours">0</span>Hours</div>
-            <div class="time"><span id="minutes">0</span>Minutes</div>
-            <div class="time"><span id="seconds">0</span>Seconds</div>
-        </div>
 
-        <a href="https://cash.app/$priorattire" class="btn cashapp-btn">
-            Enter with Cash App
-        </a>
+  <!-- =========================
+       SOCIAL MEDIA
+  ========================== -->
 
-    </div>
+  <section class="socials" id="socials">
 
-</div>
+    <h2>Follow Prior Attire</h2>
 
-<div class="info">
-    <h2>How It Works</h2>
-    <br>
-    <p>1. Request a spot on Messenger.</p>
-    <p>2. Send screenshot of payment.</p>
-    <p>3. Choose your spot number.</p>
-    <p>4. You receive confirmation.</p>
-    <p>5. Your entry is recorded.</p>
-    <p>6. Winner is selected after countdown ends or spots fill.</p>
-</div>
+    <!-- DEPOP -->
 
-<div class="spot-box">
+    <a
+      class="social-button"
+      href="https://www.depop.com/prior_attire/"
+      target="_blank"
+    >
+      Depop
+    </a>
 
-<h2>Spot Reservation</h2>
 
-<p style="margin-bottom:10px;">
-Click below to request a spot. You will confirm your number through Messenger.
-</p>
+    <!-- INSTAGRAM -->
 
-<a href="https://m.me/61586747224418?text=Hi%20I%20would%20like%20a%20raffle%20spot"
-class="btn">
-Request Spot on Messenger
-</a>
+    <a
+      class="social-button"
+      href="https://www.instagram.com/prior_attire/"
+      target="_blank"
+    >
+      Instagram
+    </a>
 
-<input
-type="number"
-id="spotNumber"
-placeholder="Enter Spot Number"
-min="1"
-max="100"
-style="width:100%;padding:12px;margin-top:15px;border-radius:8px;border:1px solid #ccc;font-family:Inter;font-weight:500;">
 
-<button onclick="confirmSpot()" class="confirm-btn">
-Confirm Spot
-</button>
+    <!-- TIKTOK -->
 
-<p id="status" style="margin-top:10px;font-weight:500;"></p>
+    <a
+      class="social-button"
+      href="https://www.tiktok.com/@priorattire7"
+      target="_blank"
+    >
+      TikTok
+    </a>
 
-</div>
 
-</div>
+    <!-- FACEBOOK -->
 
-<footer>
- ~Prior Attire Bag Raffle~
-</footer>
+    <a
+      class="social-button"
+      href="https://m.facebook.com/profile.php?id=61586747224418"
+      target="_blank"
+    >
+      Facebook
+    </a>
 
-<script>
+  </section>
 
-// same script unchanged
-let spotsLeft = localStorage.getItem("spotsLeft");
 
-if (spotsLeft === null) {
-    spotsLeft = 30;
-    localStorage.setItem("spotsLeft", spotsLeft);
-}
+  <!-- =========================
+       FOOTER
+  ========================== -->
 
-document.getElementById("spotsLeft").innerText = spotsLeft;
+  <footer>
 
-function confirmSpot() {
+    <strong>Prior Attire</strong>
 
-    const spot = document.getElementById('spotNumber').value;
-    const status = document.getElementById('status');
+    <br><br>
 
-    if (!spot) {
-        status.innerHTML = "⚠️ Enter a spot number.";
-        return;
-    }
+    Vintage Coach • Pre-Loved • Curated Finds
 
-    if (spotsLeft <= 0) {
-        status.innerHTML = "❌ Sold out.";
-        return;
-    }
+    <br><br>
 
-    spotsLeft--;
-    localStorage.setItem("spotsLeft", spotsLeft);
+    © 2026 Prior Attire. All rights reserved.
 
-    document.getElementById("spotsLeft").innerText = spotsLeft;
+  </footer>
 
-    status.innerHTML = "✅ Spot confirmed! Sending to Messenger...";
-
-    window.open(
-        `https://m.me/61586747224418?text=CONFIRMED ENTRY - Spot ${spot}`,
-        "_blank"
-    );
-}
-
-const raffleDate = new Date("July 11, 2026 12:00 PM").getTime();
-
-const countdown = setInterval(() => {
-
-const now = new Date().getTime();
-const distance = raffleDate - now;
-
-document.getElementById("days").innerHTML =
-Math.floor(distance/(1000*60*60*24));
-
-document.getElementById("hours").innerHTML =
-Math.floor((distance%(1000*60*60*24))/(1000*60*60));
-
-document.getElementById("minutes").innerHTML =
-Math.floor((distance%(1000*60*60))/(1000*60));
-
-document.getElementById("seconds").innerHTML =
-Math.floor((distance%(1000*60))/1000);
-
-if(distance < 0){
-clearInterval(countdown);
-document.querySelector(".countdown").innerHTML =
-"<h2>🎉 Drawing Closed!</h2>";
-}
-
-},1000);
-
-</script>
 
 </body>
 </html>
