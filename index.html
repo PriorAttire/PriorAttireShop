@@ -20,8 +20,6 @@
       line-height: 1.5;
     }
 
-    /* HEADER */
-
     header {
       background: #6b4b3e;
       text-align: center;
@@ -42,8 +40,6 @@
       letter-spacing: 2px;
       text-transform: uppercase;
     }
-
-    /* NAVIGATION */
 
     nav {
       background: #f9f3eb;
@@ -68,12 +64,9 @@
       color: #a06f5c;
     }
 
-    /* HERO */
-
     .hero {
       text-align: center;
       padding: 58px 20px 42px;
-      background: #eee3d7;
     }
 
     .hero h1 {
@@ -106,7 +99,22 @@
       background: #805745;
     }
 
-    /* SHOP */
+    .archive-button {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 11px 25px;
+      background: #e5d1c1;
+      color: #5b4034;
+      text-decoration: none;
+      border: 1px solid #cdb5a3;
+      border-radius: 25px;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .archive-button:hover {
+      background: #d5bca8;
+    }
 
     .section-title {
       text-align: center;
@@ -188,8 +196,6 @@
       background: #5d4034;
     }
 
-    /* ABOUT */
-
     .about {
       background: #f9f3eb;
       padding: 58px 25px;
@@ -210,8 +216,6 @@
       margin: auto;
       color: #765f53;
     }
-
-    /* SOCIALS */
 
     .socials {
       padding: 48px 20px;
@@ -243,8 +247,6 @@
       background: #e5d1c1;
     }
 
-    /* FOOTER */
-
     footer {
       background: #6b4b3e;
       text-align: center;
@@ -258,8 +260,6 @@
       font-size: 19px;
       color: #fff8f0;
     }
-
-    /* MOBILE */
 
     @media (max-width: 600px) {
 
@@ -285,8 +285,6 @@
 
 <body>
 
-  <!-- HEADER -->
-
   <header>
     <div class="brand">Prior Attire</div>
 
@@ -296,16 +294,13 @@
   </header>
 
 
-  <!-- NAVIGATION -->
-
   <nav>
     <a href="#shop">Shop</a>
     <a href="#about">About</a>
+    <a href="sold.html">Sold Archive</a>
     <a href="#socials">Follow</a>
   </nav>
 
-
-  <!-- HERO -->
 
   <section class="hero">
 
@@ -320,10 +315,14 @@
       Shop Current Items
     </a>
 
+    <br>
+
+    <a href="sold.html" class="archive-button">
+      View Sold Items
+    </a>
+
   </section>
 
-
-  <!-- SHOP -->
 
   <section id="shop">
 
@@ -334,7 +333,7 @@
     <div class="products">
 
 
-      <!-- PRODUCT 1 — MINI SOHO -->
+      <!-- PRODUCT 1 — COACH VINTAGE BROWN MINI SOHO -->
 
       <div class="product">
 
@@ -370,7 +369,7 @@
       </div>
 
 
-      <!-- PRODUCT 2 — VALENTINE'S DAY SET -->
+      <!-- PRODUCT 2 — COACH Y2K ERA VALENTINE'S DAY SET -->
 
       <div class="product">
 
@@ -481,8 +480,6 @@
   </section>
 
 
-  <!-- ABOUT -->
-
   <section class="about" id="about">
 
     <h2>
@@ -498,8 +495,6 @@
 
   </section>
 
-
-  <!-- SOCIALS -->
 
   <section class="socials" id="socials">
 
@@ -542,13 +537,9 @@
   </section>
 
 
-  <!-- FOOTER -->
-
   <footer>
 
-    <strong>
-      Prior Attire
-    </strong>
+    <strong>Prior Attire</strong>
 
     <br><br>
 
