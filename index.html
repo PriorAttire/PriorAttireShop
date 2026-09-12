@@ -15,44 +15,49 @@
 
     body {
       font-family: Arial, sans-serif;
-      background: #f7eeee;
-      color: #3f3434;
+      background: #eee3d7;
+      color: #4a382f;
       line-height: 1.5;
     }
 
+    /* HEADER */
+
     header {
-      background: #9cd4d1;
+      background: #6b4b3e;
       text-align: center;
-      padding: 45px 20px 35px;
+      padding: 48px 20px 38px;
     }
 
     .brand {
       font-family: Georgia, serif;
       font-size: 48px;
       letter-spacing: 2px;
-      color: white;
+      color: #f9f1e8;
       margin-bottom: 8px;
     }
 
     .tagline {
-      color: white;
-      font-size: 15px;
+      color: #e8d7c7;
+      font-size: 14px;
       letter-spacing: 2px;
       text-transform: uppercase;
     }
 
+    /* NAVIGATION */
+
     nav {
-      background: white;
+      background: #f9f3eb;
       padding: 15px;
       text-align: center;
-      border-bottom: 1px solid #eadada;
+      border-bottom: 1px solid #d8c4b3;
       position: sticky;
       top: 0;
       z-index: 10;
+      box-shadow: 0 2px 8px rgba(70, 45, 35, 0.06);
     }
 
     nav a {
-      color: #6d5959;
+      color: #684c3f;
       text-decoration: none;
       margin: 0 12px;
       font-size: 14px;
@@ -60,71 +65,79 @@
     }
 
     nav a:hover {
-      color: #bf918f;
+      color: #a06f5c;
     }
+
+    /* HERO */
 
     .hero {
       text-align: center;
-      padding: 50px 20px 35px;
+      padding: 58px 20px 42px;
+      background: #eee3d7;
     }
 
     .hero h1 {
       font-family: Georgia, serif;
-      font-size: 36px;
-      color: #594949;
-      margin-bottom: 12px;
+      font-size: 38px;
+      color: #5b4034;
+      margin-bottom: 13px;
     }
 
     .hero p {
-      max-width: 600px;
+      max-width: 620px;
       margin: auto;
-      color: #766565;
+      color: #765f53;
       font-size: 16px;
     }
 
     .shop-button {
       display: inline-block;
-      margin-top: 25px;
-      padding: 13px 28px;
-      background: #bf918f;
-      color: white;
+      margin-top: 27px;
+      padding: 13px 29px;
+      background: #9b6f5b;
+      color: #fffaf5;
       text-decoration: none;
       border-radius: 25px;
       font-weight: bold;
+      box-shadow: 0 4px 10px rgba(91, 64, 52, 0.12);
     }
 
     .shop-button:hover {
-      opacity: 0.85;
+      background: #805745;
     }
+
+    /* SHOP */
 
     .section-title {
       text-align: center;
       font-family: Georgia, serif;
-      font-size: 30px;
-      margin: 25px 0 30px;
-      color: #594949;
+      font-size: 31px;
+      margin: 28px 0 30px;
+      color: #5b4034;
     }
 
     .products {
       max-width: 1100px;
       margin: auto;
-      padding: 0 20px 60px;
+      padding: 0 20px 65px;
 
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 25px;
+      gap: 28px;
     }
 
     .product {
-      background: white;
-      border-radius: 12px;
+      background: #fffaf5;
+      border-radius: 14px;
       overflow: hidden;
-      box-shadow: 0 4px 15px rgba(80, 50, 50, 0.08);
-      transition: transform 0.2s ease;
+      border: 1px solid #dfcdbd;
+      box-shadow: 0 5px 18px rgba(79, 54, 43, 0.10);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
     .product:hover {
       transform: translateY(-4px);
+      box-shadow: 0 8px 22px rgba(79, 54, 43, 0.15);
     }
 
     .product-image {
@@ -132,11 +145,11 @@
       height: 300px;
       object-fit: cover;
       display: block;
-      background: #eee;
+      background: #e2d3c5;
     }
 
     .product-info {
-      padding: 20px;
+      padding: 21px;
       text-align: center;
     }
 
@@ -144,65 +157,73 @@
       font-family: Georgia, serif;
       font-size: 21px;
       margin-bottom: 7px;
-      color: #514343;
+      color: #513a30;
     }
 
     .product-description {
       font-size: 13px;
-      color: #817070;
+      color: #806a5d;
       margin-bottom: 12px;
     }
 
     .price {
       font-size: 20px;
       font-weight: bold;
-      color: #bf918f;
+      color: #9b6f5b;
       margin-bottom: 15px;
     }
 
     .buy-button {
       display: inline-block;
-      background: #9cd4d1;
-      color: #294d4b;
+      background: #765344;
+      color: #fffaf5;
       text-decoration: none;
-      padding: 11px 24px;
+      padding: 11px 25px;
       border-radius: 22px;
       font-weight: bold;
       font-size: 14px;
     }
 
     .buy-button:hover {
-      opacity: 0.85;
+      background: #5d4034;
     }
 
+    /* ABOUT */
+
     .about {
-      background: white;
-      padding: 55px 25px;
+      background: #f9f3eb;
+      padding: 58px 25px;
       text-align: center;
+      border-top: 1px solid #dfcdbd;
+      border-bottom: 1px solid #dfcdbd;
     }
 
     .about h2 {
       font-family: Georgia, serif;
       font-size: 30px;
       margin-bottom: 15px;
-      color: #594949;
+      color: #5b4034;
     }
 
     .about p {
       max-width: 650px;
       margin: auto;
-      color: #766565;
+      color: #765f53;
     }
 
+    /* SOCIALS */
+
     .socials {
-      padding: 45px 20px;
+      padding: 48px 20px;
       text-align: center;
+      background: #eee3d7;
     }
 
     .socials h2 {
       font-family: Georgia, serif;
       margin-bottom: 20px;
       font-size: 27px;
+      color: #5b4034;
     }
 
     .social-button {
@@ -211,29 +232,34 @@
       padding: 11px 20px;
       margin: 5px;
       border-radius: 22px;
-      background: white;
-      color: #675757;
-      border: 1px solid #decaca;
+      background: #fffaf5;
+      color: #684c3f;
+      border: 1px solid #d8c4b3;
       font-size: 14px;
       font-weight: bold;
     }
 
     .social-button:hover {
-      background: #f5cdc9;
+      background: #e5d1c1;
     }
 
+    /* FOOTER */
+
     footer {
-      background: #9cd4d1;
+      background: #6b4b3e;
       text-align: center;
-      color: white;
-      padding: 30px 20px;
+      color: #f4e7da;
+      padding: 32px 20px;
       font-size: 13px;
     }
 
     footer strong {
       font-family: Georgia, serif;
-      font-size: 18px;
+      font-size: 19px;
+      color: #fff8f0;
     }
+
+    /* MOBILE */
 
     @media (max-width: 600px) {
 
@@ -242,7 +268,7 @@
       }
 
       .hero h1 {
-        font-size: 29px;
+        font-size: 30px;
       }
 
       nav a {
@@ -259,19 +285,18 @@
 
 <body>
 
-  <!-- =========================
-       HEADER
-  ========================== -->
+  <!-- HEADER -->
 
   <header>
     <div class="brand">Prior Attire</div>
-    <div class="tagline">Vintage Coach • Pre-Loved Finds • Curated With Love</div>
+
+    <div class="tagline">
+      Vintage Coach • Pre-Loved Finds • Curated With Love
+    </div>
   </header>
 
 
-  <!-- =========================
-       NAVIGATION
-  ========================== -->
+  <!-- NAVIGATION -->
 
   <nav>
     <a href="#shop">Shop</a>
@@ -280,9 +305,7 @@
   </nav>
 
 
-  <!-- =========================
-       HERO
-  ========================== -->
+  <!-- HERO -->
 
   <section class="hero">
 
@@ -300,54 +323,54 @@
   </section>
 
 
-  <!-- =========================
-       SHOP
-  ========================== -->
+  <!-- SHOP -->
 
   <section id="shop">
 
-    <h2 class="section-title">Available Now</h2>
+    <h2 class="section-title">
+      Available Now
+    </h2>
 
     <div class="products">
 
 
-    <!-- PRODUCT 1 — COACH VINTAGE BROWN MINI SOHO -->
+      <!-- PRODUCT 1 — MINI SOHO -->
 
-<div class="product">
+      <div class="product">
 
-  <img
-    class="product-image"
-    src="IMG_3241.jpeg"
-    alt="Coach Vintage Brown Mini Soho No. 18860"
-  >
+        <img
+          class="product-image"
+          src="IMG_3241.jpeg"
+          alt="Coach Vintage Brown Mini Soho No. 18860"
+        >
 
-  <div class="product-info">
+        <div class="product-info">
 
-    <div class="product-name">
-      Coach Vintage Brown Mini Soho
-    </div>
+          <div class="product-name">
+            Coach Vintage Brown Mini Soho
+          </div>
 
-    <div class="product-description">
-      Vintage Coach Mini Soho • No. 18860
-    </div>
+          <div class="product-description">
+            Vintage Coach Mini Soho • No. 18860
+          </div>
 
-    <div class="price">
-      $250
-    </div>
+          <div class="price">
+            $250
+          </div>
 
-    <a
-      class="buy-button"
-      href="https://www.depop.com/prior_attire/"
-      target="_blank"
-    >
-      View & Buy
-    </a>
+          <a
+            class="buy-button"
+            href="https://depop.app.link/COwNCKA5m6b"
+            target="_blank"
+          >
+            View & Buy
+          </a>
 
-  </div>
-</div>
+        </div>
+      </div>
 
 
-      <!-- PRODUCT 2 — COACH VALENTINE'S DAY SET -->
+      <!-- PRODUCT 2 — VALENTINE'S DAY SET -->
 
       <div class="product">
 
@@ -373,7 +396,7 @@
 
           <a
             class="buy-button"
-            href="https://www.depop.com/prior_attire/"
+            href="https://depop.app.link/DdT4O9sRb6b"
             target="_blank"
           >
             View & Buy
@@ -454,19 +477,17 @@
         </div>
       </div>
 
-
     </div>
-
   </section>
 
 
-  <!-- =========================
-       ABOUT
-  ========================== -->
+  <!-- ABOUT -->
 
   <section class="about" id="about">
 
-    <h2>About Prior Attire</h2>
+    <h2>
+      About Prior Attire
+    </h2>
 
     <p>
       Welcome to Prior Attire — a curated collection of
@@ -478,13 +499,13 @@
   </section>
 
 
-  <!-- =========================
-       SOCIAL MEDIA
-  ========================== -->
+  <!-- SOCIALS -->
 
   <section class="socials" id="socials">
 
-    <h2>Follow Prior Attire</h2>
+    <h2>
+      Follow Prior Attire
+    </h2>
 
     <a
       class="social-button"
@@ -521,13 +542,13 @@
   </section>
 
 
-  <!-- =========================
-       FOOTER
-  ========================== -->
+  <!-- FOOTER -->
 
   <footer>
 
-    <strong>Prior Attire</strong>
+    <strong>
+      Prior Attire
+    </strong>
 
     <br><br>
 
@@ -538,7 +559,6 @@
     © 2026 Prior Attire. All rights reserved.
 
   </footer>
-
 
 </body>
 </html>
