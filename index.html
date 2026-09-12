@@ -3,139 +3,322 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Prior Attire | Vintage Coach</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Coiny&family=DM+Sans:wght@400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css2?family=Coiny&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
+
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
+
     body {
       font-family: 'DM Sans', sans-serif;
       background: #241b18;
       color: #302522;
       overflow-x: hidden;
     }
+
     /* =========================
-       HEADER
+       SPARKLY HEADER
     ========================= */
+
     header {
       background:
         radial-gradient(circle at 20% 20%, #5a4034 0 3px, transparent 4px),
         radial-gradient(circle at 80% 70%, #5a4034 0 3px, transparent 4px),
         #1c1513;
+
       background-size: 35px 35px;
-      padding: 25px 20px 18px;
+      padding: 32px 20px 22px;
       text-align: center;
       border-bottom: 5px solid #8b6a5b;
       position: relative;
       overflow: hidden;
-      animation: headerGlow 5s ease-in-out infinite;
+      min-height: 215px;
     }
-    @keyframes headerGlow {
-      0%, 100% {
-        background-position: 0 0, 0 0;
-      }
-      50% {
-        background-position: 12px 8px, -10px -6px;
-      }
-    }
+
+    /* Soft moving glow */
+
     header::before {
-      content: "✦";
+      content: "";
       position: absolute;
-      left: 8%;
-      top: 20px;
-      font-size: 30px;
-      color: #b89b8c;
-      transform: rotate(-15deg);
-      animation: sparkleLeft 2.8s ease-in-out infinite;
+      width: 420px;
+      height: 180px;
+      left: 50%;
+      top: 0;
+      transform: translateX(-50%);
+      background: radial-gradient(
+        ellipse,
+        rgba(214,193,182,0.14),
+        transparent 68%
+      );
+      animation: glowMove 5s ease-in-out infinite;
+      pointer-events: none;
     }
-    header::after {
-      content: "★";
-      position: absolute;
-      right: 8%;
-      bottom: 15px;
-      font-size: 25px;
-      color: #a88778;
-      transform: rotate(15deg);
-      animation: sparkleRight 3.2s ease-in-out infinite;
-    }
-    @keyframes sparkleLeft {
+
+    @keyframes glowMove {
       0%, 100% {
-        opacity: 0.45;
-        transform: rotate(-15deg) scale(0.9);
+        opacity: 0.35;
+        transform: translateX(-50%) scale(0.9);
       }
+
       50% {
         opacity: 1;
-        transform: rotate(8deg) scale(1.2);
+        transform: translateX(-50%) scale(1.15);
       }
     }
-    @keyframes sparkleRight {
-      0%, 100% {
-        opacity: 0.5;
-        transform: rotate(15deg) scale(0.9);
+
+    /* =========================
+       FLOATING SPARKLES
+    ========================= */
+
+    .sparkles {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .sparkle {
+      position: absolute;
+      color: #d6c1b6;
+      font-size: 22px;
+      line-height: 1;
+      opacity: 0;
+      text-shadow:
+        0 0 5px #b89b8c,
+        0 0 12px #765446;
+
+      animation: sparkleFloat 4s ease-in-out infinite;
+    }
+
+    .sparkle:nth-child(1) {
+      left: 9%;
+      top: 25px;
+      font-size: 24px;
+      animation-delay: 0s;
+    }
+
+    .sparkle:nth-child(2) {
+      left: 18%;
+      top: 105px;
+      font-size: 15px;
+      animation-delay: 1.2s;
+    }
+
+    .sparkle:nth-child(3) {
+      left: 30%;
+      top: 28px;
+      font-size: 13px;
+      animation-delay: 2.2s;
+    }
+
+    .sparkle:nth-child(4) {
+      right: 9%;
+      top: 32px;
+      font-size: 26px;
+      animation-delay: 0.7s;
+    }
+
+    .sparkle:nth-child(5) {
+      right: 19%;
+      top: 110px;
+      font-size: 15px;
+      animation-delay: 1.8s;
+    }
+
+    .sparkle:nth-child(6) {
+      right: 31%;
+      top: 25px;
+      font-size: 13px;
+      animation-delay: 2.8s;
+    }
+
+    .sparkle:nth-child(7) {
+      left: 5%;
+      top: 145px;
+      font-size: 13px;
+      animation-delay: 3s;
+    }
+
+    .sparkle:nth-child(8) {
+      right: 5%;
+      top: 145px;
+      font-size: 14px;
+      animation-delay: 1.5s;
+    }
+
+    @keyframes sparkleFloat {
+      0% {
+        opacity: 0;
+        transform: translateY(12px) scale(0.4) rotate(0deg);
       }
-      50% {
+
+      25% {
         opacity: 1;
-        transform: rotate(-8deg) scale(1.2);
+        transform: translateY(0) scale(1.2) rotate(45deg);
+      }
+
+      50% {
+        opacity: 0.75;
+        transform: translateY(-8px) scale(0.9) rotate(90deg);
+      }
+
+      75% {
+        opacity: 1;
+        transform: translateY(-2px) scale(1.25) rotate(135deg);
+      }
+
+      100% {
+        opacity: 0;
+        transform: translateY(-14px) scale(0.4) rotate(180deg);
       }
     }
+
+    /* =========================
+       LOGO
+    ========================= */
+
+    .logo-area {
+      position: relative;
+      display: inline-block;
+      z-index: 3;
+    }
+
     .logo {
       font-family: 'Coiny', cursive;
       font-size: clamp(42px, 10vw, 72px);
       color: #d6c1b6;
       letter-spacing: 2px;
+      line-height: 1;
+
       text-shadow:
         3px 3px 0 #5b4035,
         6px 6px 0 #17100e;
-      line-height: 1;
+
       display: inline-block;
-      animation: logoFloat 3.5s ease-in-out infinite;
-      transform-origin: center;
+
+      animation: logoSparkle 2.8s ease-in-out infinite;
     }
-    @keyframes logoFloat {
+
+    @keyframes logoSparkle {
       0%, 100% {
-        transform: translateY(0) rotate(0deg);
-        text-shadow:
-          3px 3px 0 #5b4035,
-          6px 6px 0 #17100e;
+        transform: scale(1) rotate(0deg);
+        filter: brightness(1);
       }
-      50% {
-        transform: translateY(-5px) rotate(-1deg);
-        text-shadow:
-          4px 5px 0 #5b4035,
-          7px 8px 0 #17100e;
+
+      45% {
+        transform: scale(1.035) rotate(-1deg);
+        filter: brightness(1.12);
+      }
+
+      55% {
+        transform: scale(1.02) rotate(1deg);
+        filter: brightness(1.18);
+      }
+
+      70% {
+        transform: scale(1) rotate(0deg);
+        filter: brightness(1);
       }
     }
+
+    /* Little sparkles directly around logo */
+
+    .logo-star {
+      position: absolute;
+      color: #c7afa1;
+      font-size: 18px;
+      text-shadow: 0 0 9px #b89b8c;
+      animation: logoStar 2s ease-in-out infinite;
+    }
+
+    .logo-star.one {
+      left: -28px;
+      top: 5px;
+      animation-delay: 0.3s;
+    }
+
+    .logo-star.two {
+      right: -28px;
+      top: 38px;
+      animation-delay: 1s;
+    }
+
+    .logo-star.three {
+      left: 18px;
+      bottom: -20px;
+      font-size: 13px;
+      animation-delay: 1.5s;
+    }
+
+    .logo-star.four {
+      right: 20px;
+      top: -17px;
+      font-size: 13px;
+      animation-delay: 0.7s;
+    }
+
+    @keyframes logoStar {
+      0%, 100% {
+        opacity: 0.25;
+        transform: scale(0.5) rotate(0deg);
+      }
+
+      50% {
+        opacity: 1;
+        transform: scale(1.35) rotate(90deg);
+      }
+    }
+
+    /* =========================
+       TAGLINE
+    ========================= */
+
     .tagline {
+      position: relative;
+      z-index: 3;
       color: #c7b2a6;
       font-size: 14px;
       letter-spacing: 2px;
-      margin-top: 8px;
+      margin-top: 10px;
       text-transform: uppercase;
-      animation: taglineFade 3.5s ease-in-out infinite;
+
+      animation: taglineGlow 3s ease-in-out infinite;
     }
-    @keyframes taglineFade {
+
+    @keyframes taglineGlow {
       0%, 100% {
-        opacity: 0.75;
+        opacity: 0.72;
       }
+
       50% {
         opacity: 1;
       }
     }
+
     /* =========================
        NAV
     ========================= */
+
     nav {
+      position: relative;
+      z-index: 4;
       display: flex;
       justify-content: center;
       gap: 12px;
       flex-wrap: wrap;
       margin-top: 18px;
     }
+
     nav a {
       text-decoration: none;
       color: #302522;
@@ -147,23 +330,29 @@
       box-shadow: 4px 4px 0 #5b4035;
       transition: 0.2s ease;
     }
+
     nav a:hover {
       transform: translateY(-2px);
       background: #ddd0c8;
       box-shadow: 5px 5px 0 #3b2922;
     }
+
     /* =========================
        HERO
     ========================= */
+
     .hero {
       text-align: center;
       padding: 65px 20px 55px;
+
       background:
         radial-gradient(circle, rgba(193,164,148,0.12) 1px, transparent 2px),
         linear-gradient(135deg, #4a342c, #2a201d 60%, #392824);
+
       background-size: 18px 18px, cover;
       color: #f0e5de;
     }
+
     .hero h1 {
       font-family: 'Coiny', cursive;
       font-size: clamp(40px, 9vw, 70px);
@@ -173,6 +362,7 @@
         7px 7px 0 #18110f;
       margin-bottom: 18px;
     }
+
     .hero p {
       max-width: 650px;
       margin: auto;
@@ -180,6 +370,7 @@
       line-height: 1.7;
       color: #d8c7be;
     }
+
     .hero-buttons {
       margin-top: 28px;
       display: flex;
@@ -187,6 +378,7 @@
       gap: 15px;
       flex-wrap: wrap;
     }
+
     .hero-button {
       display: inline-block;
       text-decoration: none;
@@ -197,25 +389,31 @@
       box-shadow: 5px 5px 0 #17100e;
       transition: 0.2s ease;
     }
+
     .shop-button {
       background: #b99a89;
       color: #211815;
     }
+
     .archive-button {
       background: #6c4f43;
       color: #f5ebe5;
     }
+
     .hero-button:hover {
       transform: translateY(-3px);
       box-shadow: 7px 7px 0 #17100e;
     }
+
     /* =========================
        PRODUCTS
     ========================= */
+
     .shop-section {
       padding: 55px 20px;
       background: #c4afa3;
     }
+
     .section-title {
       text-align: center;
       font-family: 'Coiny', cursive;
@@ -224,6 +422,7 @@
       margin-bottom: 35px;
       text-shadow: 3px 3px 0 #96766a;
     }
+
     .products {
       max-width: 1100px;
       margin: auto;
@@ -231,6 +430,7 @@
       grid-template-columns: repeat(2, 1fr);
       gap: 28px;
     }
+
     .product-card {
       background: #eee5df;
       border: 3px solid #211815;
@@ -241,6 +441,7 @@
         0 0 0 3px #96776a;
       position: relative;
     }
+
     .product-card::after {
       content: "✦";
       position: absolute;
@@ -250,10 +451,12 @@
       color: #96766a;
       z-index: 3;
     }
+
     .product-image-link {
       display: block;
       text-decoration: none;
     }
+
     .product-image {
       width: 100%;
       height: 315px;
@@ -262,14 +465,17 @@
       border-bottom: 3px solid #211815;
       transition: 0.25s ease;
     }
+
     .product-image-link:hover .product-image {
       transform: scale(1.02);
       filter: brightness(0.92);
     }
+
     .product-info {
       padding: 22px;
       text-align: center;
     }
+
     .product-name {
       display: block;
       text-decoration: none;
@@ -279,25 +485,31 @@
       margin-bottom: 12px;
       line-height: 1.2;
     }
+
     .product-name:hover {
       color: #765446;
     }
+
     /* =========================
-       CREED + CONDITION
+       PRODUCT DETAILS
     ========================= */
+
     .details {
       margin-bottom: 18px;
       color: #59463e;
       font-size: 14px;
       line-height: 1.8;
     }
+
     .details span {
       display: block;
     }
+
     .details strong {
       color: #382722;
       font-weight: 700;
     }
+
     .buy-button {
       display: inline-block;
       text-decoration: none;
@@ -310,14 +522,17 @@
       box-shadow: 4px 4px 0 #211815;
       transition: 0.2s ease;
     }
+
     .buy-button:hover {
       background: #4b342c;
       transform: translateY(-2px);
       box-shadow: 6px 6px 0 #211815;
     }
+
     /* =========================
        ABOUT
     ========================= */
+
     .about {
       padding: 60px 20px;
       background:
@@ -326,12 +541,14 @@
       background-size: 16px 16px;
       text-align: center;
     }
+
     .about h2 {
       font-family: 'Coiny', cursive;
       font-size: 40px;
       color: #382722;
       margin-bottom: 18px;
     }
+
     .about p {
       max-width: 700px;
       margin: auto;
@@ -339,26 +556,31 @@
       color: #59463e;
       font-size: 16px;
     }
+
     /* =========================
        SOCIALS
     ========================= */
+
     .socials {
       padding: 45px 20px;
       text-align: center;
       background: #382722;
     }
+
     .socials h2 {
       font-family: 'Coiny', cursive;
       color: #d9c4b9;
       font-size: 32px;
       margin-bottom: 22px;
     }
+
     .social-links {
       display: flex;
       justify-content: center;
       gap: 12px;
       flex-wrap: wrap;
     }
+
     .social-links a {
       text-decoration: none;
       background: #bda497;
@@ -370,13 +592,16 @@
       box-shadow: 4px 4px 0 #17100e;
       transition: 0.2s ease;
     }
+
     .social-links a:hover {
       background: #dfd0c8;
       transform: translateY(-2px);
     }
+
     /* =========================
        FOOTER
     ========================= */
+
     footer {
       text-align: center;
       padding: 28px 20px;
@@ -385,6 +610,7 @@
       font-size: 13px;
       position: relative;
     }
+
     footer::before {
       content: "★  ✦  ★  ✦  ★";
       display: block;
@@ -393,286 +619,500 @@
       margin-bottom: 10px;
       letter-spacing: 5px;
     }
+
     /* =========================
        MOBILE
     ========================= */
+
     @media (max-width: 600px) {
+
       header {
-        padding: 22px 15px 17px;
+        padding: 28px 15px 18px;
+        min-height: 205px;
       }
+
       .logo {
         font-size: 47px;
       }
+
+      .logo-star.one {
+        left: -20px;
+      }
+
+      .logo-star.two {
+        right: -20px;
+      }
+
       .tagline {
         font-size: 11px;
       }
+
       nav {
         gap: 8px;
       }
+
       nav a {
         padding: 8px 13px;
         font-size: 13px;
       }
+
       .hero {
         padding: 48px 18px;
       }
+
       .hero h1 {
         font-size: 43px;
       }
+
       .hero p {
         font-size: 15px;
       }
+
       .products {
         grid-template-columns: 1fr;
         gap: 25px;
       }
+
       .product-image {
         height: 330px;
       }
+
       .shop-section {
         padding: 45px 16px;
       }
+
       .section-title {
         font-size: 38px;
       }
+
       .about {
         padding: 50px 20px;
       }
+
       .about h2 {
         font-size: 34px;
       }
+
+      .sparkle:nth-child(2),
+      .sparkle:nth-child(5) {
+        display: none;
+      }
+
     }
+
     /* =========================
-       REDUCE MOTION ACCESSIBILITY
+       ACCESSIBILITY
     ========================= */
+
     @media (prefers-reduced-motion: reduce) {
+
       header,
       .logo,
       .tagline,
-      header::before,
-      header::after {
+      .sparkle,
+      .logo-star {
         animation: none;
       }
+
     }
+
   </style>
 </head>
+
 <body>
-  <!-- HEADER -->
+
+  <!-- =========================
+       HEADER
+  ========================= -->
+
   <header>
-    <div class="logo">Prior Attire</div>
+
+    <div class="sparkles">
+
+      <span class="sparkle">✦</span>
+      <span class="sparkle">✧</span>
+      <span class="sparkle">✦</span>
+      <span class="sparkle">★</span>
+      <span class="sparkle">✧</span>
+      <span class="sparkle">✦</span>
+      <span class="sparkle">✧</span>
+      <span class="sparkle">★</span>
+
+    </div>
+
+    <div class="logo-area">
+
+      <span class="logo-star one">✦</span>
+      <span class="logo-star two">✧</span>
+      <span class="logo-star three">✦</span>
+      <span class="logo-star four">✧</span>
+
+      <div class="logo">
+        Prior Attire
+      </div>
+
+    </div>
+
     <div class="tagline">
       Vintage Coach • Y2K Finds • Curated Closet
     </div>
+
     <nav>
       <a href="#shop">Shop</a>
       <a href="sold.html">Archive</a>
-      <a href="https://www.depop.com/prior_attire/" target="_blank" rel="noopener">
-        Depop
-      </a>
-    </nav>
-  </header>
-  <!-- HERO -->
-  <section class="hero">
-    <h1>Vintage Coach</h1>
-    <p>
-      Curated vintage Coach bags, charms, accessories &amp; nostalgic Y2K finds.
-      Shop current pieces below or browse the archive for past favorites.
-    </p>
-    <div class="hero-buttons">
-      <a
-        class="hero-button shop-button"
-        href="#shop">
-        SHOP CURRENT
-      </a>
-      <a
-        class="hero-button archive-button"
-        href="sold.html">
-        VIEW ARCHIVE
-      </a>
-    </div>
-  </section>
-  <!-- SHOP -->
-  <section class="shop-section" id="shop">
-    <h2 class="section-title">
-      Current Finds ✦
-    </h2>
-    <div class="products">
-      <!-- PRODUCT 1 -->
-      <article class="product-card">
-        <a
-          class="product-image-link"
-          href="https://www.depop.com/products/prior9attire-coach-vintage-brown-mini-soho-e822/"
-          target="_blank"
-          rel="noopener">
-          <img
-            class="product-image"
-            src="IMG_3241.jpeg"
-            alt="Coach Vintage Brown Mini Soho">
-        </a>
-        <div class="product-info">
-          <a
-            class="product-name"
-            href="https://www.depop.com/products/prior9attire-coach-vintage-brown-mini-soho-e822/"
-            target="_blank"
-            rel="noopener">
-            Coach Vintage Brown Mini Soho
-          </a>
-          <div class="details">
-            <span><strong>Creed No.:</strong> 18860</span>
-            <span><strong>Condition:</strong> Good Condition</span>
-          </div>
-          <a
-            class="buy-button"
-            href="https://www.depop.com/products/prior9attire-coach-vintage-brown-mini-soho-e822/"
-            target="_blank"
-            rel="noopener">
-            VIEW &amp; BUY
-          </a>
-        </div>
-      </article>
-      <!-- PRODUCT 2 -->
-      <article class="product-card">
-        <a
-          class="product-image-link"
-          href="https://www.depop.com/products/prior_astire-bag-in-good-condition-some-5929/"
-          target="_blank"
-          rel="noopener">
-          <img
-            class="product-image"
-            src="IMG_6187.jpeg"
-            alt="Coach Y2K Era Valentine's Day Set">
-        </a>
-        <div class="product-info">
-          <a
-            class="product-name"
-            href="https://www.depop.com/products/prior_astire-bag-in-good-condition-some-5929/"
-            target="_blank"
-            rel="noopener">
-            Coach Y2K Valentine's Day Set
-          </a>
-          <div class="details">
-            <span><strong>Creed No.:</strong> 42349</span>
-            <span><strong>Condition:</strong> Good Condition</span>
-          </div>
-          <a
-            class="buy-button"
-            href="https://www.depop.com/products/prior_astire-bag-in-good-condition-some-5929/"
-            target="_blank"
-            rel="noopener">
-            VIEW &amp; BUY
-          </a>
-        </div>
-      </article>
-      <!-- PRODUCT 3 -->
-      <article class="product-card">
-        <a
-          class="product-image-link"
-          href="https://www.depop.com/prior_attire/"
-          target="_blank"
-          rel="noopener">
-          <img
-            class="product-image"
-            src="https://placehold.co/600x700?text=Upload+Coach+Photo"
-            alt="Vintage Coach Accessory">
-        </a>
-        <div class="product-info">
-          <a
-            class="product-name"
-            href="https://www.depop.com/prior_attire/"
-            target="_blank"
-            rel="noopener">
-            Vintage Coach Accessory
-          </a>
-          <div class="details">
-            <span><strong>Creed No.:</strong> Add Creed No.</span>
-            <span><strong>Condition:</strong> Add Condition</span>
-          </div>
-          <a
-            class="buy-button"
-            href="https://www.depop.com/prior_attire/"
-            target="_blank"
-            rel="noopener">
-            VIEW &amp; BUY
-          </a>
-        </div>
-      </article>
-      <!-- PRODUCT 4 -->
-      <article class="product-card">
-        <a
-          class="product-image-link"
-          href="https://www.depop.com/prior_attire/"
-          target="_blank"
-          rel="noopener">
-          <img
-            class="product-image"
-            src="https://placehold.co/600x700?text=Upload+Coach+Photo"
-            alt="Vintage Coach Charm">
-        </a>
-        <div class="product-info">
-          <a
-            class="product-name"
-            href="https://www.depop.com/prior_attire/"
-            target="_blank"
-            rel="noopener">
-            Vintage Coach Charm
-          </a>
-          <div class="details">
-            <span><strong>Creed No.:</strong> Add Creed No.</span>
-            <span><strong>Condition:</strong> Add Condition</span>
-          </div>
-          <a
-            class="buy-button"
-            href="https://www.depop.com/prior_attire/"
-            target="_blank"
-            rel="noopener">
-            VIEW &amp; BUY
-          </a>
-        </div>
-      </article>
-    </div>
-  </section>
-  <!-- ABOUT -->
-  <section class="about">
-    <h2>About Prior Attire</h2>
-    <p>
-      Prior Attire is a curated vintage closet focused on classic Coach,
-      Y2K nostalgia, unique accessories, and pieces with plenty of personality.
-      Every item is handpicked with vintage lovers and collectors in mind.
-    </p>
-  </section>
-  <!-- SOCIALS -->
-  <section class="socials">
-    <h2>Follow Prior Attire</h2>
-    <div class="social-links">
       <a
         href="https://www.depop.com/prior_attire/"
         target="_blank"
         rel="noopener">
         Depop
       </a>
+    </nav>
+
+  </header>
+
+
+  <!-- =========================
+       HERO
+  ========================= -->
+
+  <section class="hero">
+
+    <h1>Vintage Coach</h1>
+
+    <p>
+      Curated vintage Coach bags, charms, accessories &amp; nostalgic Y2K finds.
+      Shop current pieces below or browse the archive for past favorites.
+    </p>
+
+    <div class="hero-buttons">
+
+      <a
+        class="hero-button shop-button"
+        href="#shop">
+        SHOP CURRENT
+      </a>
+
+      <a
+        class="hero-button archive-button"
+        href="sold.html">
+        VIEW ARCHIVE
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       SHOP
+  ========================= -->
+
+  <section class="shop-section" id="shop">
+
+    <h2 class="section-title">
+      Current Finds ✦
+    </h2>
+
+    <div class="products">
+
+
+      <!-- PRODUCT 1 -->
+
+      <article class="product-card">
+
+        <a
+          class="product-image-link"
+          href="https://www.depop.com/products/prior9attire-coach-vintage-brown-mini-soho-e822/"
+          target="_blank"
+          rel="noopener">
+
+          <img
+            class="product-image"
+            src="IMG_3241.jpeg"
+            alt="Coach Vintage Brown Mini Soho">
+
+        </a>
+
+        <div class="product-info">
+
+          <a
+            class="product-name"
+            href="https://www.depop.com/products/prior9attire-coach-vintage-brown-mini-soho-e822/"
+            target="_blank"
+            rel="noopener">
+
+            Coach Vintage Brown Mini Soho
+
+          </a>
+
+          <div class="details">
+
+            <span>
+              <strong>Creed No.:</strong> 18860
+            </span>
+
+            <span>
+              <strong>Condition:</strong> Good Condition
+            </span>
+
+          </div>
+
+          <a
+            class="buy-button"
+            href="https://www.depop.com/products/prior9attire-coach-vintage-brown-mini-soho-e822/"
+            target="_blank"
+            rel="noopener">
+
+            VIEW &amp; BUY
+
+          </a>
+
+        </div>
+
+      </article>
+
+
+      <!-- PRODUCT 2 -->
+
+      <article class="product-card">
+
+        <a
+          class="product-image-link"
+          href="https://www.depop.com/products/prior_astire-bag-in-good-condition-some-5929/"
+          target="_blank"
+          rel="noopener">
+
+          <img
+            class="product-image"
+            src="IMG_6187.jpeg"
+            alt="Coach Y2K Era Valentine's Day Set">
+
+        </a>
+
+        <div class="product-info">
+
+          <a
+            class="product-name"
+            href="https://www.depop.com/products/prior_astire-bag-in-good-condition-some-5929/"
+            target="_blank"
+            rel="noopener">
+
+            Coach Y2K Valentine's Day Set
+
+          </a>
+
+          <div class="details">
+
+            <span>
+              <strong>Creed No.:</strong> 42349
+            </span>
+
+            <span>
+              <strong>Condition:</strong> Good Condition
+            </span>
+
+          </div>
+
+          <a
+            class="buy-button"
+            href="https://www.depop.com/products/prior_astire-bag-in-good-condition-some-5929/"
+            target="_blank"
+            rel="noopener">
+
+            VIEW &amp; BUY
+
+          </a>
+
+        </div>
+
+      </article>
+
+
+      <!-- PRODUCT 3 -->
+
+      <article class="product-card">
+
+        <a
+          class="product-image-link"
+          href="https://www.depop.com/prior_attire/"
+          target="_blank"
+          rel="noopener">
+
+          <img
+            class="product-image"
+            src="https://placehold.co/600x700?text=Upload+Coach+Photo"
+            alt="Vintage Coach Accessory">
+
+        </a>
+
+        <div class="product-info">
+
+          <a
+            class="product-name"
+            href="https://www.depop.com/prior_attire/"
+            target="_blank"
+            rel="noopener">
+
+            Vintage Coach Accessory
+
+          </a>
+
+          <div class="details">
+
+            <span>
+              <strong>Creed No.:</strong> Add Creed No.
+            </span>
+
+            <span>
+              <strong>Condition:</strong> Add Condition
+            </span>
+
+          </div>
+
+          <a
+            class="buy-button"
+            href="https://www.depop.com/prior_attire/"
+            target="_blank"
+            rel="noopener">
+
+            VIEW &amp; BUY
+
+          </a>
+
+        </div>
+
+      </article>
+
+
+      <!-- PRODUCT 4 -->
+
+      <article class="product-card">
+
+        <a
+          class="product-image-link"
+          href="https://www.depop.com/prior_attire/"
+          target="_blank"
+          rel="noopener">
+
+          <img
+            class="product-image"
+            src="https://placehold.co/600x700?text=Upload+Coach+Photo"
+            alt="Vintage Coach Charm">
+
+        </a>
+
+        <div class="product-info">
+
+          <a
+            class="product-name"
+            href="https://www.depop.com/prior_attire/"
+            target="_blank"
+            rel="noopener">
+
+            Vintage Coach Charm
+
+          </a>
+
+          <div class="details">
+
+            <span>
+              <strong>Creed No.:</strong> Add Creed No.
+            </span>
+
+            <span>
+              <strong>Condition:</strong> Add Condition
+            </span>
+
+          </div>
+
+          <a
+            class="buy-button"
+            href="https://www.depop.com/prior_attire/"
+            target="_blank"
+            rel="noopener">
+
+            VIEW &amp; BUY
+
+          </a>
+
+        </div>
+
+      </article>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       ABOUT
+  ========================= -->
+
+  <section class="about">
+
+    <h2>About Prior Attire</h2>
+
+    <p>
+      Prior Attire is a curated vintage closet focused on classic Coach,
+      Y2K nostalgia, unique accessories, and pieces with plenty of personality.
+      Every item is handpicked with vintage lovers and collectors in mind.
+    </p>
+
+  </section>
+
+
+  <!-- =========================
+       SOCIALS
+  ========================= -->
+
+  <section class="socials">
+
+    <h2>Follow Prior Attire</h2>
+
+    <div class="social-links">
+
+      <a
+        href="https://www.depop.com/prior_attire/"
+        target="_blank"
+        rel="noopener">
+        Depop
+      </a>
+
       <a
         href="https://www.instagram.com/prior_attire/"
         target="_blank"
         rel="noopener">
         Instagram
       </a>
+
       <a
         href="https://www.tiktok.com/@priorattire7"
         target="_blank"
         rel="noopener">
         TikTok
       </a>
+
       <a
         href="https://m.facebook.com/profile.php?id=61586747224418"
         target="_blank"
         rel="noopener">
         Facebook
       </a>
+
     </div>
+
   </section>
-  <!-- FOOTER -->
+
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
+
   <footer>
+
     © 2026 Prior Attire • Vintage Coach &amp; Curated Finds
+
   </footer>
+
 </body>
 </html>
