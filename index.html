@@ -6,322 +6,919 @@
 
   <title>Prior Attire | Vintage Coach</title>
 
+  <!-- Y2K Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Coiny&family=DM+Sans:wght@400;500;700&family=Pacifico&display=swap" rel="stylesheet">
+
   <style>
+
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
 
-    body {
-      font-family: Arial, sans-serif;
-      background: #eee3d7;
-      color: #4a382f;
-      line-height: 1.5;
+    html {
+      scroll-behavior: smooth;
     }
 
+    body {
+      font-family: "DM Sans", sans-serif;
+      color: #351d32;
+      line-height: 1.5;
+      overflow-x: hidden;
+
+      background:
+        radial-gradient(circle at 15% 20%, rgba(255,255,255,.8) 0 2px, transparent 3px),
+        radial-gradient(circle at 80% 35%, rgba(255,255,255,.7) 0 2px, transparent 3px),
+        linear-gradient(135deg, #f8b4d3, #d9b7f3 48%, #9de6d2);
+
+      background-size: 55px 55px, 75px 75px, auto;
+    }
+
+    /* =========================
+       HEADER
+    ========================== */
+
     header {
-      background: #6b4b3e;
+      position: relative;
+      overflow: hidden;
       text-align: center;
-      padding: 48px 20px 38px;
+
+      padding: 58px 20px 48px;
+
+      background: #1d1520;
+
+      border-bottom: 6px solid #ff55ae;
+
+      box-shadow: 0 7px 0 #774583;
+    }
+
+    /* Leopard print */
+    header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+
+      background-image:
+        radial-gradient(ellipse at center, #bd8b55 0 22%, transparent 24%),
+        radial-gradient(ellipse at center, #4a3026 0 15%, transparent 17%);
+
+      background-size: 55px 42px, 55px 42px;
+      background-position: 0 0, 14px 10px;
+
+      opacity: .18;
+      pointer-events: none;
+    }
+
+    .star {
+      position: absolute;
+
+      color: white;
+
+      font-size: 30px;
+
+      text-shadow:
+        0 0 5px white,
+        0 0 12px #ff55ae,
+        0 0 22px #ff55ae;
+
+      animation: sparkle 2s infinite ease-in-out;
+    }
+
+    .star.one {
+      left: 8%;
+      top: 25px;
+    }
+
+    .star.two {
+      right: 10%;
+      top: 55px;
+      font-size: 40px;
+      animation-delay: .5s;
+    }
+
+    .star.three {
+      left: 18%;
+      bottom: 25px;
+      font-size: 20px;
+      animation-delay: 1s;
+    }
+
+    .star.four {
+      right: 20%;
+      bottom: 18px;
+      font-size: 22px;
+      animation-delay: 1.5s;
+    }
+
+    @keyframes sparkle {
+
+      0%, 100% {
+        transform: scale(1) rotate(0deg);
+        opacity: .75;
+      }
+
+      50% {
+        transform: scale(1.35) rotate(15deg);
+        opacity: 1;
+      }
+
     }
 
     .brand {
-      font-family: Georgia, serif;
-      font-size: 48px;
+      position: relative;
+      z-index: 2;
+
+      font-family: "Coiny", cursive;
+
+      font-size: clamp(48px, 10vw, 78px);
+
       letter-spacing: 2px;
-      color: #f9f1e8;
-      margin-bottom: 8px;
+
+      color: #ff65b5;
+
+      -webkit-text-stroke: 2px #fff4fa;
+
+      text-shadow:
+        4px 4px 0 #7b4187,
+        7px 7px 0 #241526,
+        0 0 18px rgba(255, 71, 171, .8);
+
+      margin-bottom: 10px;
     }
 
     .tagline {
-      color: #e8d7c7;
-      font-size: 14px;
+      position: relative;
+      z-index: 2;
+
+      color: white;
+
+      font-weight: 700;
+
+      font-size: 13px;
+
       letter-spacing: 2px;
+
       text-transform: uppercase;
     }
 
+    /* =========================
+       NAVIGATION
+    ========================== */
+
     nav {
-      background: #f9f3eb;
-      padding: 15px;
-      text-align: center;
-      border-bottom: 1px solid #d8c4b3;
       position: sticky;
       top: 0;
-      z-index: 10;
-      box-shadow: 0 2px 8px rgba(70, 45, 35, 0.06);
+      z-index: 50;
+
+      padding: 13px 10px;
+
+      text-align: center;
+
+      background: #ff78be;
+
+      border-bottom: 4px solid #29162b;
+
+      box-shadow: 0 5px 0 rgba(255,255,255,.7);
     }
 
     nav a {
-      color: #684c3f;
+      display: inline-block;
+
+      color: #29162b;
+
       text-decoration: none;
-      margin: 0 12px;
-      font-size: 14px;
-      font-weight: bold;
+
+      margin: 4px 7px;
+
+      padding: 6px 13px;
+
+      font-family: "Coiny", cursive;
+
+      font-size: 13px;
+
+      background: #fff5fb;
+
+      border: 2px solid #29162b;
+
+      border-radius: 20px;
+
+      box-shadow: 3px 3px 0 #7b3c7e;
+
+      transition: .2s ease;
     }
 
     nav a:hover {
-      color: #a06f5c;
+      transform: translate(-2px, -2px) rotate(-2deg);
+
+      background: #baff70;
+
+      box-shadow: 5px 5px 0 #29162b;
     }
 
+    /* =========================
+       HERO
+    ========================== */
+
     .hero {
+      position: relative;
+
       text-align: center;
-      padding: 58px 20px 42px;
+
+      padding: 65px 20px 50px;
+    }
+
+    .hero::before {
+      content: "★";
+
+      position: absolute;
+
+      left: 5%;
+      top: 45px;
+
+      font-size: 75px;
+
+      color: #ffff68;
+
+      text-shadow:
+        4px 4px 0 #ff42a5;
+
+      transform: rotate(-15deg);
+    }
+
+    .hero::after {
+      content: "★";
+
+      position: absolute;
+
+      right: 6%;
+      bottom: 35px;
+
+      font-size: 65px;
+
+      color: #8effd1;
+
+      text-shadow:
+        4px 4px 0 #7e3f8c;
+
+      transform: rotate(18deg);
     }
 
     .hero h1 {
-      font-family: Georgia, serif;
-      font-size: 38px;
-      color: #5b4034;
-      margin-bottom: 13px;
+      position: relative;
+
+      display: inline-block;
+
+      font-family: "Coiny", cursive;
+
+      font-size: clamp(35px, 7vw, 52px);
+
+      color: white;
+
+      -webkit-text-stroke: 1.5px #3c2038;
+
+      text-shadow:
+        4px 4px 0 #ff45a8,
+        7px 7px 0 #653b7e;
+
+      margin-bottom: 16px;
     }
 
     .hero p {
-      max-width: 620px;
+      position: relative;
+      z-index: 2;
+
+      max-width: 650px;
+
       margin: auto;
-      color: #765f53;
+
+      color: #351f31;
+
       font-size: 16px;
+
+      font-weight: 700;
+
+      background: rgba(255,255,255,.82);
+
+      border: 3px solid #351f31;
+
+      border-radius: 22px;
+
+      padding: 15px 20px;
+
+      box-shadow:
+        5px 5px 0 #ff4eaa;
+    }
+
+    /* =========================
+       BUTTONS
+    ========================== */
+
+    .shop-button,
+    .archive-button {
+      display: inline-block;
+
+      text-decoration: none;
+
+      font-family: "Coiny", cursive;
+
+      transition: .2s ease;
     }
 
     .shop-button {
-      display: inline-block;
-      margin-top: 27px;
-      padding: 13px 29px;
-      background: #9b6f5b;
-      color: #fffaf5;
-      text-decoration: none;
-      border-radius: 25px;
-      font-weight: bold;
-      box-shadow: 0 4px 10px rgba(91, 64, 52, 0.12);
+      position: relative;
+      z-index: 2;
+
+      margin-top: 31px;
+
+      padding: 14px 28px;
+
+      color: #241425;
+
+      background: #baff6c;
+
+      border: 3px solid #241425;
+
+      border-radius: 30px;
+
+      box-shadow:
+        5px 5px 0 #ff3ca3,
+        9px 9px 0 #70417e;
+
+      font-size: 16px;
     }
 
     .shop-button:hover {
-      background: #805745;
+      transform: translate(-3px, -3px) rotate(-2deg);
+
+      box-shadow:
+        8px 8px 0 #ff3ca3,
+        12px 12px 0 #70417e;
     }
 
     .archive-button {
-      display: inline-block;
-      margin-top: 12px;
-      padding: 11px 25px;
-      background: #e5d1c1;
-      color: #5b4034;
-      text-decoration: none;
-      border: 1px solid #cdb5a3;
+      margin-top: 22px;
+
+      padding: 12px 24px;
+
+      color: white;
+
+      background: #744484;
+
+      border: 3px solid #291629;
+
       border-radius: 25px;
-      font-weight: bold;
+
+      box-shadow: 4px 4px 0 #291629;
+
       font-size: 14px;
     }
 
     .archive-button:hover {
-      background: #d5bca8;
+      background: #ff4daa;
+
+      transform: rotate(2deg);
     }
+
+    /* =========================
+       SECTION TITLE
+    ========================== */
 
     .section-title {
+      position: relative;
+
       text-align: center;
-      font-family: Georgia, serif;
-      font-size: 31px;
-      margin: 28px 0 30px;
-      color: #5b4034;
+
+      font-family: "Coiny", cursive;
+
+      font-size: clamp(30px, 6vw, 43px);
+
+      color: white;
+
+      -webkit-text-stroke: 1.5px #2d192c;
+
+      text-shadow:
+        4px 4px 0 #ff48a8,
+        7px 7px 0 #694181;
+
+      margin: 25px 0 35px;
     }
 
+    .section-title::before {
+      content: "✦";
+
+      color: #ffff5e;
+
+      margin-right: 13px;
+    }
+
+    .section-title::after {
+      content: "✦";
+
+      color: #8fffd4;
+
+      margin-left: 13px;
+    }
+
+    /* =========================
+       PRODUCT GRID
+    ========================== */
+
     .products {
-      max-width: 1100px;
+      max-width: 1150px;
+
       margin: auto;
-      padding: 0 20px 65px;
+
+      padding: 0 20px 75px;
 
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 28px;
+
+      grid-template-columns:
+        repeat(auto-fit, minmax(245px, 1fr));
+
+      gap: 32px;
     }
 
     .product {
-      background: #fffaf5;
-      border-radius: 14px;
+      position: relative;
+
+      background: #fff8fc;
+
+      border: 4px solid #2d192c;
+
+      border-radius: 22px;
+
       overflow: hidden;
-      border: 1px solid #dfcdbd;
-      box-shadow: 0 5px 18px rgba(79, 54, 43, 0.10);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+      box-shadow:
+        7px 7px 0 #ff4eaa,
+        11px 11px 0 #68407a;
+
+      transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+    }
+
+    .product::before {
+      content: "★";
+
+      position: absolute;
+
+      z-index: 5;
+
+      right: 12px;
+      top: 10px;
+
+      color: #ffff58;
+
+      font-size: 27px;
+
+      text-shadow:
+        2px 2px 0 #2d192c,
+        0 0 8px #ff54ad;
     }
 
     .product:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 22px rgba(79, 54, 43, 0.15);
+      transform: translateY(-8px) rotate(-1deg);
+
+      box-shadow:
+        10px 12px 0 #ff4eaa,
+        15px 17px 0 #68407a;
     }
 
     .product-image {
       width: 100%;
-      height: 300px;
+
+      height: 315px;
+
       object-fit: cover;
+
       display: block;
-      background: #e2d3c5;
+
+      background: #ead4e8;
+
+      border-bottom: 4px solid #2d192c;
     }
 
     .product-info {
-      padding: 21px;
+      padding: 23px 20px 25px;
+
       text-align: center;
     }
 
     .product-name {
-      font-family: Georgia, serif;
+      font-family: "Coiny", cursive;
+
       font-size: 21px;
-      margin-bottom: 7px;
-      color: #513a30;
+
+      color: #43213d;
+
+      margin-bottom: 8px;
     }
 
     .product-description {
       font-size: 13px;
-      color: #806a5d;
-      margin-bottom: 12px;
+
+      font-weight: 500;
+
+      color: #71556d;
+
+      margin-bottom: 13px;
     }
 
     .price {
-      font-size: 20px;
-      font-weight: bold;
-      color: #9b6f5b;
-      margin-bottom: 15px;
+      display: inline-block;
+
+      font-family: "Coiny", cursive;
+
+      font-size: 22px;
+
+      color: white;
+
+      background: #ff4ba8;
+
+      border: 3px solid #2d192c;
+
+      border-radius: 16px;
+
+      padding: 4px 13px;
+
+      margin-bottom: 18px;
+
+      box-shadow: 3px 3px 0 #70417e;
     }
 
     .buy-button {
-      display: inline-block;
-      background: #765344;
-      color: #fffaf5;
+      display: block;
+
+      background: #7c48a0;
+
+      color: white;
+
       text-decoration: none;
-      padding: 11px 25px;
-      border-radius: 22px;
-      font-weight: bold;
+
+      padding: 12px 20px;
+
+      border: 3px solid #2d192c;
+
+      border-radius: 25px;
+
+      font-family: "Coiny", cursive;
+
       font-size: 14px;
+
+      box-shadow: 4px 4px 0 #ff4ba8;
+
+      transition: .2s ease;
     }
 
     .buy-button:hover {
-      background: #5d4034;
+      background: #a8ff65;
+
+      color: #251527;
+
+      transform: translate(-2px, -2px);
+
+      box-shadow: 6px 6px 0 #ff4ba8;
     }
+
+    /* =========================
+       ABOUT
+    ========================== */
 
     .about {
-      background: #f9f3eb;
-      padding: 58px 25px;
+      position: relative;
+
+      padding: 65px 25px;
+
       text-align: center;
-      border-top: 1px solid #dfcdbd;
-      border-bottom: 1px solid #dfcdbd;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(255,255,255,.45) 1px,
+          transparent 2px
+        );
+
+      background-size: 15px 15px;
+
+      border-top: 5px solid #2d192c;
+
+      border-bottom: 5px solid #2d192c;
+
+      box-shadow:
+        inset 0 8px 0 #ff64b5,
+        inset 0 -8px 0 #aaff6b;
     }
 
-    .about h2 {
-      font-family: Georgia, serif;
-      font-size: 30px;
-      margin-bottom: 15px;
-      color: #5b4034;
+    .about h2,
+    .socials h2 {
+      font-family: "Coiny", cursive;
+
+      font-size: 34px;
+
+      color: white;
+
+      -webkit-text-stroke: 1.5px #2d192c;
+
+      text-shadow:
+        4px 4px 0 #ff45a8,
+        6px 6px 0 #69417e;
+
+      margin-bottom: 18px;
     }
 
     .about p {
-      max-width: 650px;
+      max-width: 680px;
+
       margin: auto;
-      color: #765f53;
+
+      color: #362032;
+
+      font-size: 15px;
+
+      font-weight: 600;
+
+      background: #fff8fc;
+
+      border: 3px solid #2d192c;
+
+      border-radius: 22px;
+
+      padding: 20px;
+
+      box-shadow: 5px 5px 0 #ff4ba8;
     }
 
+    /* =========================
+       SOCIALS
+    ========================== */
+
     .socials {
-      padding: 48px 20px;
+      padding: 58px 20px;
+
       text-align: center;
-      background: #eee3d7;
+
+      background: #9ce8d3;
     }
 
     .socials h2 {
-      font-family: Georgia, serif;
-      margin-bottom: 20px;
-      font-size: 27px;
-      color: #5b4034;
+      color: white;
     }
 
     .social-button {
       display: inline-block;
+
       text-decoration: none;
-      padding: 11px 20px;
-      margin: 5px;
-      border-radius: 22px;
-      background: #fffaf5;
-      color: #684c3f;
-      border: 1px solid #d8c4b3;
+
+      padding: 12px 21px;
+
+      margin: 7px;
+
+      border-radius: 24px;
+
+      background: #fff8fc;
+
+      color: #352033;
+
+      border: 3px solid #2d192c;
+
+      font-family: "Coiny", cursive;
+
       font-size: 14px;
-      font-weight: bold;
+
+      box-shadow: 4px 4px 0 #ff4ba8;
+
+      transition: .2s ease;
     }
 
     .social-button:hover {
-      background: #e5d1c1;
+      background: #ffff69;
+
+      transform:
+        translate(-2px, -2px)
+        rotate(-2deg);
+
+      box-shadow:
+        6px 6px 0 #7a4384;
     }
 
+    /* =========================
+       FOOTER
+    ========================== */
+
     footer {
-      background: #6b4b3e;
+      position: relative;
+
+      background: #201522;
+
       text-align: center;
-      color: #f4e7da;
-      padding: 32px 20px;
+
+      color: #fceaf7;
+
+      padding: 38px 20px;
+
       font-size: 13px;
+
+      border-top: 5px solid #ff55ad;
     }
 
     footer strong {
-      font-family: Georgia, serif;
-      font-size: 19px;
-      color: #fff8f0;
+      font-family: "Coiny", cursive;
+
+      font-size: 25px;
+
+      color: #ff65b4;
+
+      -webkit-text-stroke: 1px white;
+
+      text-shadow:
+        3px 3px 0 #70417e;
     }
+
+    footer::before {
+      content: "✦  ★  ✧  ★  ✦  ★  ✧  ★  ✦";
+
+      display: block;
+
+      color: #ffff65;
+
+      font-size: 17px;
+
+      margin-bottom: 15px;
+
+      letter-spacing: 8px;
+    }
+
+    /* =========================
+       MOBILE
+    ========================== */
 
     @media (max-width: 600px) {
 
-      .brand {
-        font-size: 38px;
+      header {
+        padding: 48px 15px 40px;
       }
 
-      .hero h1 {
-        font-size: 30px;
+      .brand {
+        font-size: 47px;
+      }
+
+      .tagline {
+        font-size: 10px;
+        letter-spacing: 1.5px;
+      }
+
+      nav {
+        padding: 9px 5px;
       }
 
       nav a {
-        margin: 0 6px;
-        font-size: 12px;
+        font-size: 11px;
+
+        padding: 5px 10px;
+
+        margin: 3px;
+      }
+
+      .hero {
+        padding: 55px 17px 45px;
+      }
+
+      .hero::before,
+      .hero::after {
+        opacity: .5;
+
+        font-size: 45px;
+      }
+
+      .hero h1 {
+        font-size: 34px;
+      }
+
+      .hero p {
+        font-size: 14px;
+      }
+
+      .products {
+        padding-left: 17px;
+
+        padding-right: 17px;
+
+        gap: 28px;
       }
 
       .product-image {
-        height: 280px;
+        height: 300px;
       }
+
+      .section-title {
+        font-size: 30px;
+      }
+
+      .about h2,
+      .socials h2 {
+        font-size: 29px;
+      }
+
+      .social-button {
+        font-size: 13px;
+      }
+
     }
+
   </style>
 </head>
 
 <body>
 
+
+  <!-- =========================
+       HEADER
+  ========================== -->
+
   <header>
-    <div class="brand">Prior Attire</div>
+
+    <div class="star one">✦</div>
+
+    <div class="star two">★</div>
+
+    <div class="star three">✧</div>
+
+    <div class="star four">✦</div>
+
+    <div class="brand">
+      Prior Attire
+    </div>
 
     <div class="tagline">
       Vintage Coach • Pre-Loved Finds • Curated With Love
     </div>
+
   </header>
 
 
+  <!-- =========================
+       NAVIGATION
+  ========================== -->
+
   <nav>
-    <a href="#shop">Shop</a>
-    <a href="#about">About</a>
-    <a href="#socials">Follow</a>
+
+    <a href="#shop">
+      ★ SHOP
+    </a>
+
+    <a href="#about">
+      ABOUT
+    </a>
+
+    <a href="#socials">
+      FOLLOW
+    </a>
+
   </nav>
 
 
+  <!-- =========================
+       HERO
+  ========================== -->
+
   <section class="hero">
 
-    <h1>Vintage Coach Finds</h1>
+    <h1>
+      Vintage Coach Finds
+    </h1>
 
     <p>
       Carefully selected vintage Coach bags, accessories,
       charms and unique closet finds.
     </p>
 
-    <a href="#shop" class="shop-button">
-      Shop Current Items
+    <a
+      href="#shop"
+      class="shop-button"
+    >
+      ✦ SHOP CURRENT ITEMS ✦
     </a>
 
     <br>
 
-    <a href="sold.html" class="archive-button">
-      View Sold Items
+    <a
+      href="sold.html"
+      class="archive-button"
+    >
+      ★ VIEW SOLD ITEMS ★
     </a>
 
   </section>
 
+
+  <!-- =========================
+       SHOP
+  ========================== -->
 
   <section id="shop">
 
@@ -332,7 +929,7 @@
     <div class="products">
 
 
-      <!-- PRODUCT 1 — COACH VINTAGE BROWN MINI SOHO -->
+      <!-- PRODUCT 1 -->
 
       <div class="product">
 
@@ -360,15 +957,17 @@
             class="buy-button"
             href="https://depop.app.link/COwNCKA5m6b"
             target="_blank"
+            rel="noopener"
           >
-            View & Buy
+            ✦ VIEW & BUY ✦
           </a>
 
         </div>
+
       </div>
 
 
-      <!-- PRODUCT 2 — COACH Y2K ERA VALENTINE'S DAY SET -->
+      <!-- PRODUCT 2 -->
 
       <div class="product">
 
@@ -396,11 +995,13 @@
             class="buy-button"
             href="https://depop.app.link/DdT4O9sRb6b"
             target="_blank"
+            rel="noopener"
           >
-            View & Buy
+            ✦ VIEW & BUY ✦
           </a>
 
         </div>
+
       </div>
 
 
@@ -432,11 +1033,13 @@
             class="buy-button"
             href="https://www.depop.com/prior_attire/"
             target="_blank"
+            rel="noopener"
           >
-            View & Buy
+            ✦ VIEW & BUY ✦
           </a>
 
         </div>
+
       </div>
 
 
@@ -468,77 +1071,105 @@
             class="buy-button"
             href="https://www.depop.com/prior_attire/"
             target="_blank"
+            rel="noopener"
           >
-            View & Buy
+            ✦ VIEW & BUY ✦
           </a>
 
         </div>
+
       </div>
 
+
     </div>
+
   </section>
 
 
-  <section class="about" id="about">
+  <!-- =========================
+       ABOUT
+  ========================== -->
+
+  <section
+    class="about"
+    id="about"
+  >
 
     <h2>
-      About Prior Attire
+      ★ About Prior Attire ★
     </h2>
 
     <p>
       Welcome to Prior Attire — a curated collection of
       vintage Coach pieces and unique pre-loved finds.
       Every item is selected with vintage lovers and
-      collectors in mind.
+      collectors in mind. ✦
     </p>
 
   </section>
 
 
-  <section class="socials" id="socials">
+  <!-- =========================
+       SOCIALS
+  ========================== -->
+
+  <section
+    class="socials"
+    id="socials"
+  >
 
     <h2>
-      Follow Prior Attire
+      ✧ Follow Prior Attire ✧
     </h2>
 
     <a
       class="social-button"
       href="https://www.depop.com/prior_attire/"
       target="_blank"
+      rel="noopener"
     >
-      Depop
+      💗 Depop
     </a>
 
     <a
       class="social-button"
       href="https://www.instagram.com/prior_attire/"
       target="_blank"
+      rel="noopener"
     >
-      Instagram
+      ✦ Instagram
     </a>
 
     <a
       class="social-button"
       href="https://www.tiktok.com/@priorattire7"
       target="_blank"
+      rel="noopener"
     >
-      TikTok
+      ★ TikTok
     </a>
 
     <a
       class="social-button"
       href="https://m.facebook.com/profile.php?id=61586747224418"
       target="_blank"
+      rel="noopener"
     >
-      Facebook
+      🦋 Facebook
     </a>
 
   </section>
 
 
+  <!-- =========================
+       FOOTER
+  ========================== -->
+
   <footer>
 
-    <strong>Prior Attire</strong>
+    <strong>
+      Prior Attire
+    </strong>
 
     <br><br>
 
@@ -549,6 +1180,7 @@
     © 2026 Prior Attire. All rights reserved.
 
   </footer>
+
 
 </body>
 </html>
