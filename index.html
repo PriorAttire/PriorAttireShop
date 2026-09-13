@@ -8,26 +8,14 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
   <link href="https://fonts.googleapis.com/css2?family=Coiny&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <!-- Always open page at the top -->
-  <script>
-    if ("scrollRestoration" in history) {
-      history.scrollRestoration = "manual";
-    }
-
-    window.addEventListener("load", function () {
-      window.scrollTo(0, 0);
-    });
-
-    window.addEventListener("pageshow", function () {
-      window.scrollTo(0, 0);
-    });
-  </script>
 
   <style>
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
     html {
@@ -35,142 +23,322 @@
     }
 
     body {
-      margin: 0;
-      background: #2b211d;
-      color: #f5e9df;
-      font-family: "DM Sans", sans-serif;
+      font-family: 'DM Sans', sans-serif;
+      background: #241b18;
+      color: #302522;
+      overflow-x: hidden;
     }
 
     /* =========================
-       ORIGINAL BROWN Y2K HEADER
+       SPARKLY HEADER
     ========================= */
 
     header {
+      background:
+        radial-gradient(circle at 20% 20%, #5a4034 0 3px, transparent 4px),
+        radial-gradient(circle at 80% 70%, #5a4034 0 3px, transparent 4px),
+        #1c1513;
+      background-size: 35px 35px;
+      padding: 32px 20px 22px;
+      text-align: center;
+      border-bottom: 5px solid #8b6a5b;
       position: relative;
       overflow: hidden;
-      background: #9c7965;
-      padding: 30px 20px 26px;
-      text-align: center;
+      min-height: 215px;
     }
 
-    /* Glitter layer */
-
-    header::before,
-    header::after {
+    header::before {
       content: "";
       position: absolute;
-      inset: -100px;
+      width: 420px;
+      height: 180px;
+      left: 50%;
+      top: 0;
+      transform: translateX(-50%);
+      background: radial-gradient(
+        ellipse,
+        rgba(214,193,182,0.14),
+        transparent 68%
+      );
+      animation: glowMove 5s ease-in-out infinite;
       pointer-events: none;
-      background-image:
-        radial-gradient(circle, rgba(255,255,255,.95) 0 1px, transparent 2px),
-        radial-gradient(circle, rgba(255,225,205,.8) 0 1px, transparent 2px),
-        radial-gradient(circle, rgba(255,255,255,.7) 0 1px, transparent 2px);
-      background-size: 75px 75px, 105px 105px, 135px 135px;
-      background-position: 10px 15px, 40px 70px, 80px 25px;
-      animation: glitterMove 8s linear infinite;
-      opacity: .7;
     }
 
-    header::after {
-      animation-duration: 5s;
-      animation-direction: reverse;
-      opacity: .45;
-    }
-
-    @keyframes glitterMove {
-      from {
-        transform: translate(0, 0);
-      }
-
-      to {
-        transform: translate(55px, 35px);
-      }
-    }
-
-    /* Only the movement of the words has changed */
-
-    .brand {
-      position: relative;
-      z-index: 2;
-      display: inline-block;
-      margin: 0;
-      font-family: Georgia, serif;
-      font-size: 48px;
-      font-weight: normal;
-      color: white;
-      letter-spacing: 2px;
-
-      animation:
-        priorAttireFloat 3.5s ease-in-out infinite,
-        priorAttireGlow 2.5s ease-in-out infinite alternate;
-    }
-
-    @keyframes priorAttireFloat {
+    @keyframes glowMove {
       0%, 100% {
-        transform: translateY(0) rotate(0deg);
-      }
-
-      25% {
-        transform: translateY(-4px) rotate(-.5deg);
+        opacity: 0.35;
+        transform: translateX(-50%) scale(0.9);
       }
 
       50% {
-        transform: translateY(2px) rotate(.5deg);
+        opacity: 1;
+        transform: translateX(-50%) scale(1.15);
+      }
+    }
+
+    /* =========================
+       FLOATING SPARKLES
+    ========================= */
+
+    .sparkles {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .sparkle {
+      position: absolute;
+      color: #d6c1b6;
+      font-size: 22px;
+      line-height: 1;
+      opacity: 0;
+      text-shadow:
+        0 0 5px #b89b8c,
+        0 0 12px #765446;
+      animation: sparkleFloat 4s ease-in-out infinite;
+    }
+
+    .sparkle:nth-child(1) {
+      left: 9%;
+      top: 25px;
+      font-size: 24px;
+      animation-delay: 0s;
+    }
+
+    .sparkle:nth-child(2) {
+      left: 18%;
+      top: 105px;
+      font-size: 15px;
+      animation-delay: 1.2s;
+    }
+
+    .sparkle:nth-child(3) {
+      left: 30%;
+      top: 28px;
+      font-size: 13px;
+      animation-delay: 2.2s;
+    }
+
+    .sparkle:nth-child(4) {
+      right: 9%;
+      top: 32px;
+      font-size: 26px;
+      animation-delay: 0.7s;
+    }
+
+    .sparkle:nth-child(5) {
+      right: 19%;
+      top: 110px;
+      font-size: 15px;
+      animation-delay: 1.8s;
+    }
+
+    .sparkle:nth-child(6) {
+      right: 31%;
+      top: 25px;
+      font-size: 13px;
+      animation-delay: 2.8s;
+    }
+
+    .sparkle:nth-child(7) {
+      left: 5%;
+      top: 145px;
+      font-size: 13px;
+      animation-delay: 3s;
+    }
+
+    .sparkle:nth-child(8) {
+      right: 5%;
+      top: 145px;
+      font-size: 14px;
+      animation-delay: 1.5s;
+    }
+
+    @keyframes sparkleFloat {
+      0% {
+        opacity: 0;
+        transform: translateY(12px) scale(0.4) rotate(0deg);
+      }
+
+      25% {
+        opacity: 1;
+        transform: translateY(0) scale(1.2) rotate(45deg);
+      }
+
+      50% {
+        opacity: 0.75;
+        transform: translateY(-8px) scale(0.9) rotate(90deg);
       }
 
       75% {
-        transform: translateY(-3px) rotate(-.3deg);
+        opacity: 1;
+        transform: translateY(-2px) scale(1.25) rotate(135deg);
+      }
+
+      100% {
+        opacity: 0;
+        transform: translateY(-14px) scale(0.4) rotate(180deg);
       }
     }
 
-    @keyframes priorAttireGlow {
-      from {
-        text-shadow:
-          0 0 2px rgba(255,255,255,.3);
+    /* =========================
+       LOGO
+    ========================= */
+
+    .logo-area {
+      position: relative;
+      display: inline-block;
+      z-index: 3;
+    }
+
+    .logo {
+      font-family: 'Coiny', cursive;
+      font-size: clamp(42px, 10vw, 72px);
+      color: #d6c1b6;
+      letter-spacing: 2px;
+      line-height: 1;
+
+      text-shadow:
+        3px 3px 0 #5b4035,
+        6px 6px 0 #17100e;
+
+      display: inline-block;
+
+      animation: priorAttireMove 3.6s ease-in-out infinite;
+      transform-origin: center;
+    }
+
+    /* NEW: only the words Prior Attire move */
+    @keyframes priorAttireMove {
+      0%, 100% {
+        transform: translateX(0) translateY(0) rotate(0deg) scale(1);
+        filter: brightness(1);
       }
 
-      to {
-        text-shadow:
-          0 0 5px rgba(255,255,255,.7),
-          0 0 12px rgba(255,220,200,.45);
+      20% {
+        transform: translateX(-3px) translateY(-2px) rotate(-1deg) scale(1.01);
+        filter: brightness(1.08);
+      }
+
+      40% {
+        transform: translateX(4px) translateY(1px) rotate(1deg) scale(1.035);
+        filter: brightness(1.16);
+      }
+
+      55% {
+        transform: translateX(-2px) translateY(-1px) rotate(-0.5deg) scale(1.02);
+        filter: brightness(1.12);
+      }
+
+      75% {
+        transform: translateX(3px) translateY(0) rotate(0.5deg) scale(1.01);
+        filter: brightness(1.05);
       }
     }
+
+    .logo-star {
+      position: absolute;
+      color: #c7afa1;
+      font-size: 18px;
+      text-shadow: 0 0 9px #b89b8c;
+      animation: logoStar 2s ease-in-out infinite;
+    }
+
+    .logo-star.one {
+      left: -28px;
+      top: 5px;
+      animation-delay: 0.3s;
+    }
+
+    .logo-star.two {
+      right: -28px;
+      top: 38px;
+      animation-delay: 1s;
+    }
+
+    .logo-star.three {
+      left: 18px;
+      bottom: -20px;
+      font-size: 13px;
+      animation-delay: 1.5s;
+    }
+
+    .logo-star.four {
+      right: 20px;
+      top: -17px;
+      font-size: 13px;
+      animation-delay: 0.7s;
+    }
+
+    @keyframes logoStar {
+      0%, 100% {
+        opacity: 0.25;
+        transform: scale(0.5) rotate(0deg);
+      }
+
+      50% {
+        opacity: 1;
+        transform: scale(1.35) rotate(90deg);
+      }
+    }
+
+    /* =========================
+       TAGLINE
+    ========================= */
 
     .tagline {
       position: relative;
-      z-index: 2;
-      color: white;
-      font-size: 13px;
-      font-weight: 600;
+      z-index: 3;
+      color: #c7b2a6;
+      font-size: 14px;
       letter-spacing: 2px;
-      margin-top: 8px;
+      margin-top: 10px;
       text-transform: uppercase;
+
+      animation: taglineGlow 3s ease-in-out infinite;
     }
+
+    @keyframes taglineGlow {
+      0%, 100% {
+        opacity: 0.72;
+      }
+
+      50% {
+        opacity: 1;
+      }
+    }
+
+    /* =========================
+       NAV
+    ========================= */
 
     nav {
       position: relative;
-      z-index: 2;
-      margin-top: 20px;
+      z-index: 4;
       display: flex;
       justify-content: center;
+      gap: 12px;
       flex-wrap: wrap;
-      gap: 10px;
+      margin-top: 18px;
     }
 
     nav a {
       text-decoration: none;
-      color: #46342d;
-      background: #ead6c9;
-      padding: 9px 16px;
-      border-radius: 30px;
-      font-size: 13px;
+      color: #302522;
+      background: #c8afa1;
+      padding: 9px 18px;
+      border-radius: 25px;
+      border: 2px solid #17100e;
       font-weight: 700;
-      transition: .25s ease;
+      box-shadow: 4px 4px 0 #5b4035;
+      transition: 0.2s ease;
     }
 
     nav a:hover {
       transform: translateY(-2px);
-      background: #f5e5dc;
+      background: #ddd0c8;
+      box-shadow: 5px 5px 0 #3b2922;
     }
 
     /* =========================
@@ -180,73 +348,113 @@
     .hero {
       text-align: center;
       padding: 65px 20px 55px;
-      background: #332621;
+
+      background:
+        radial-gradient(circle, rgba(193,164,148,0.12) 1px, transparent 2px),
+        linear-gradient(135deg, #4a342c, #2a201d 60%, #392824);
+
+      background-size: 18px 18px, cover;
+      color: #f0e5de;
     }
 
     .hero h1 {
-      font-family: "Coiny", cursive;
-      font-size: clamp(42px, 8vw, 72px);
-      margin: 0;
-      color: #e4bba5;
-      line-height: 1;
+      font-family: 'Coiny', cursive;
+      font-size: clamp(40px, 9vw, 70px);
+      color: #eee2da;
+      text-shadow:
+        4px 4px 0 #765446,
+        7px 7px 0 #18110f;
+      margin-bottom: 18px;
     }
 
     .hero p {
-      margin: 18px auto 0;
-      max-width: 600px;
-      color: #d7c0b3;
-      font-size: 16px;
+      max-width: 650px;
+      margin: auto;
+      font-size: 17px;
       line-height: 1.7;
+      color: #d8c7be;
+    }
+
+    .hero-buttons {
+      margin-top: 28px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .hero-button {
+      display: inline-block;
+      text-decoration: none;
+      font-family: 'Coiny', cursive;
+      padding: 14px 25px;
+      border-radius: 30px;
+      border: 3px solid #17100e;
+      box-shadow: 5px 5px 0 #17100e;
+      transition: 0.2s ease;
+    }
+
+    .shop-button {
+      background: #b99a89;
+      color: #211815;
+    }
+
+    .archive-button {
+      background: #6c4f43;
+      color: #f5ebe5;
+    }
+
+    .hero-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 7px 7px 0 #17100e;
     }
 
     /* =========================
-       SECTIONS
+       PRODUCTS
     ========================= */
 
-    .section {
-      max-width: 1100px;
-      margin: auto;
+    .shop-section {
       padding: 55px 20px;
+      background: #c4afa3;
     }
 
     .section-title {
       text-align: center;
+      font-family: 'Coiny', cursive;
+      font-size: clamp(32px, 7vw, 50px);
+      color: #382722;
       margin-bottom: 35px;
+      text-shadow: 3px 3px 0 #96766a;
     }
-
-    .section-title h2 {
-      font-family: "Coiny", cursive;
-      color: #e4bba5;
-      font-size: 34px;
-      margin: 0;
-    }
-
-    .section-title p {
-      color: #cbb3a5;
-      margin-top: 8px;
-    }
-
-    /* =========================
-       PRODUCT GRID
-    ========================= */
 
     .products {
+      max-width: 1100px;
+      margin: auto;
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 25px;
+      gap: 28px;
     }
 
-    /* =========================
-       PRODUCT CARD
-       ORIGINAL SIZE PRESERVED
-    ========================= */
-
-    .product {
-      background: #3b2b25;
-      border: 1px solid #5a4338;
-      border-radius: 18px;
+    .product-card {
+      background: #eee5df;
+      border: 3px solid #211815;
+      border-radius: 20px;
       overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0,0,0,.22);
+      box-shadow:
+        8px 8px 0 #5b4035,
+        0 0 0 3px #96776a;
+      position: relative;
+    }
+
+    .product-card::after {
+      content: "✦";
+      position: absolute;
+      top: 12px;
+      right: 15px;
+      font-size: 25px;
+      color: #96766a;
+      z-index: 5;
+      pointer-events: none;
     }
 
     /* =========================
@@ -256,109 +464,100 @@
     .carousel {
       position: relative;
       width: 100%;
+      height: 315px;
       overflow: hidden;
-      background: #241b18;
+      border-bottom: 3px solid #211815;
       touch-action: pan-y;
     }
 
     .carousel-track {
       display: flex;
       width: 100%;
-      transition: transform .35s ease;
+      height: 100%;
+      transition: transform 0.35s ease;
     }
 
     .carousel-slide {
       min-width: 100%;
       width: 100%;
+      height: 100%;
+      position: relative;
       cursor: zoom-in;
-      user-select: none;
-      -webkit-user-drag: none;
     }
 
-    /*
-      3:4 photo ratio only.
-      The product card itself is NOT resized.
-    */
-
-    .carousel-slide img {
-      display: block;
+    .product-image {
       width: 100%;
-      aspect-ratio: 3 / 4;
+      height: 315px;
       object-fit: cover;
+      display: block;
+      transition: 0.25s ease;
       user-select: none;
       -webkit-user-drag: none;
     }
 
-    /* Small circular carousel bubbles */
-
-    .dots {
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 10px;
-      z-index: 5;
-
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 5px;
+    .carousel-slide:hover .product-image {
+      transform: scale(1.02);
+      filter: brightness(0.92);
     }
 
-    .dot {
-      width: 6px;
-      height: 6px;
-      min-width: 6px;
-      padding: 0;
-      margin: 0;
-      border: 0;
-      border-radius: 50%;
-      background: rgba(255,255,255,.55);
-      cursor: pointer;
-      transition: .2s ease;
-    }
-
-    .dot.active {
-      width: 7px;
-      height: 7px;
-      min-width: 7px;
-      background: white;
-    }
-
-    .arrow {
+    .carousel-arrow {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      z-index: 5;
-
-      width: 32px;
-      height: 32px;
-
-      border: none;
+      width: 36px;
+      height: 36px;
       border-radius: 50%;
-
-      background: rgba(40,28,23,.68);
-      color: white;
-
-      font-size: 20px;
-      line-height: 1;
-
+      border: 2px solid #211815;
+      background: rgba(238,229,223,0.86);
+      color: #382722;
+      font-size: 22px;
+      font-weight: bold;
+      z-index: 4;
+      cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
+      box-shadow: 2px 2px 0 #5b4035;
+      transition: 0.2s ease;
+    }
 
+    .carousel-arrow:hover {
+      background: #fff8f4;
+      transform: translateY(-50%) scale(1.05);
+    }
+
+    .carousel-prev {
+      left: 10px;
+    }
+
+    .carousel-next {
+      right: 10px;
+    }
+
+    .carousel-dots {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 7px;
+      z-index: 4;
+    }
+
+    .carousel-dot {
+      width: 7px;
+      height: 7px;
+      padding: 0;
+      border-radius: 50%;
+      border: 1px solid #211815;
+      background: rgba(238,229,223,0.55);
       cursor: pointer;
+      transition: 0.2s ease;
     }
 
-    .arrow:hover {
-      background: rgba(40,28,23,.9);
-    }
-
-    .arrow-left {
-      left: 9px;
-    }
-
-    .arrow-right {
-      right: 9px;
+    .carousel-dot.active {
+      background: #5b4035;
+      transform: scale(1.25);
     }
 
     /* =========================
@@ -366,61 +565,161 @@
     ========================= */
 
     .product-info {
-      padding: 20px;
+      padding: 22px;
+      text-align: center;
     }
 
-    .product-info h3 {
-      margin: 0 0 13px;
-      font-size: 19px;
-      color: #f4e8dc;
+    .product-name {
+      display: block;
+      text-decoration: none;
+      font-family: 'Coiny', cursive;
+      color: #382722;
+      font-size: 23px;
+      margin-bottom: 12px;
+      line-height: 1.2;
+    }
+
+    .product-name:hover {
+      color: #765446;
     }
 
     .details {
-      display: grid;
-      gap: 7px;
+      margin-bottom: 18px;
+      color: #59463e;
       font-size: 14px;
-      color: #d2beb2;
-      line-height: 1.5;
+      line-height: 1.8;
+    }
+
+    .details span {
+      display: block;
     }
 
     .details strong {
-      color: #f0ddd0;
+      color: #382722;
+      font-weight: 700;
+    }
+
+    .button-row {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .buy-button,
+    .contact-button {
+      display: inline-block;
+      text-decoration: none;
+      padding: 12px 18px;
+      border-radius: 25px;
+      font-family: 'Coiny', cursive;
+      border: 3px solid #211815;
+      box-shadow: 4px 4px 0 #211815;
+      transition: 0.2s ease;
+    }
+
+    .buy-button {
+      background: #6d5145;
+      color: #f7eee9;
+    }
+
+    .contact-button {
+      background: #bda497;
+      color: #261b18;
+    }
+
+    .buy-button:hover,
+    .contact-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 6px 6px 0 #211815;
+    }
+
+    .buy-button:hover {
+      background: #4b342c;
+    }
+
+    .contact-button:hover {
+      background: #dfd0c8;
     }
 
     /* =========================
-       BUTTONS
+       FULL SCREEN PHOTO VIEWER
     ========================= */
 
-    .product-buttons {
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(17,11,9,0.96);
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 25px;
+    }
+
+    .lightbox.open {
       display: flex;
-      gap: 9px;
-      margin-top: 18px;
     }
 
-    .product-button {
-      flex: 1;
-      text-align: center;
-      text-decoration: none;
-      padding: 11px 8px;
-      border-radius: 9px;
-      font-size: 13px;
-      font-weight: 700;
-      transition: .25s ease;
+    .lightbox-image {
+      max-width: 92vw;
+      max-height: 88vh;
+      object-fit: contain;
+      border: 3px solid #c8afa1;
+      border-radius: 12px;
+      box-shadow: 0 0 30px rgba(200,175,161,0.22);
+      user-select: none;
     }
 
-    .depop-button {
-      background: #e6c6bc;
-      color: #513b35;
+    .lightbox-close {
+      position: fixed;
+      top: 18px;
+      right: 20px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 2px solid #c8afa1;
+      background: #382722;
+      color: #eee5df;
+      font-size: 28px;
+      cursor: pointer;
+      z-index: 10001;
     }
 
-    .messenger-button {
-      background: #9dbda8;
-      color: #273d31;
+    .lightbox-arrow {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 2px solid #c8afa1;
+      background: #382722;
+      color: #eee5df;
+      font-size: 27px;
+      cursor: pointer;
+      z-index: 10001;
     }
 
-    .product-button:hover {
-      transform: translateY(-2px);
-      filter: brightness(1.06);
+    .lightbox-prev {
+      left: 18px;
+    }
+
+    .lightbox-next {
+      right: 18px;
+    }
+
+    .lightbox-counter {
+      position: fixed;
+      bottom: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #d6c1b6;
+      font-size: 14px;
+      z-index: 10001;
+      background: rgba(56,39,34,0.8);
+      padding: 7px 13px;
+      border-radius: 20px;
     }
 
     /* =========================
@@ -428,26 +727,27 @@
     ========================= */
 
     .about {
-      background: #332520;
+      padding: 60px 20px;
+      background:
+        radial-gradient(circle, rgba(91,64,53,0.13) 1px, transparent 2px),
+        #e0d3cc;
+      background-size: 16px 16px;
       text-align: center;
     }
 
-    .about-inner {
-      max-width: 700px;
-      margin: auto;
-    }
-
     .about h2 {
-      font-family: "Coiny", cursive;
-      color: #e4bba5;
-      font-size: 32px;
-      margin-top: 0;
+      font-family: 'Coiny', cursive;
+      font-size: 40px;
+      color: #382722;
+      margin-bottom: 18px;
     }
 
     .about p {
-      color: #d5c1b5;
+      max-width: 700px;
+      margin: auto;
       line-height: 1.8;
-      font-size: 15px;
+      color: #59463e;
+      font-size: 16px;
     }
 
     /* =========================
@@ -455,37 +755,39 @@
     ========================= */
 
     .socials {
-      text-align: center;
       padding: 45px 20px;
-      background: #2b211d;
+      text-align: center;
+      background: #382722;
     }
 
     .socials h2 {
-      font-family: "Coiny", cursive;
-      color: #e4bba5;
-      margin-top: 0;
+      font-family: 'Coiny', cursive;
+      color: #d9c4b9;
+      font-size: 32px;
+      margin-bottom: 22px;
     }
 
-    .social-buttons {
+    .social-links {
       display: flex;
       justify-content: center;
+      gap: 12px;
       flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 20px;
     }
 
-    .social-buttons a {
+    .social-links a {
       text-decoration: none;
-      padding: 10px 17px;
-      border-radius: 30px;
-      background: #ead6c9;
-      color: #47352e;
-      font-size: 13px;
+      background: #bda497;
+      color: #261b18;
+      border: 2px solid #17100e;
+      padding: 11px 20px;
+      border-radius: 25px;
       font-weight: 700;
-      transition: .25s ease;
+      box-shadow: 4px 4px 0 #17100e;
+      transition: 0.2s ease;
     }
 
-    .social-buttons a:hover {
+    .social-links a:hover {
+      background: #dfd0c8;
       transform: translateY(-2px);
     }
 
@@ -495,179 +797,132 @@
 
     footer {
       text-align: center;
-      padding: 25px 20px;
-      background: #211916;
-      color: #a99184;
-      font-size: 12px;
-    }
-
-    /* =========================
-       FULL-SIZE PHOTO VIEWER
-    ========================= */
-
-    .lightbox {
-      position: fixed;
-      inset: 0;
-      z-index: 9999;
-
-      display: none;
-      align-items: center;
-      justify-content: center;
-
-      padding: 20px;
-
-      background: rgba(12,9,8,.96);
-    }
-
-    .lightbox.show {
-      display: flex;
-    }
-
-    .lightbox-content {
+      padding: 28px 20px;
+      background: #1b1311;
+      color: #a99185;
+      font-size: 13px;
       position: relative;
-
-      width: 100%;
-      height: 100%;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      overflow: hidden;
-      touch-action: pan-y;
     }
 
-    .lightbox-image {
-      max-width: 92vw;
-      max-height: 90vh;
-
-      width: auto;
-      height: auto;
-
-      object-fit: contain;
-
-      user-select: none;
-      -webkit-user-drag: none;
-    }
-
-    .close-lightbox {
-      position: fixed;
-      top: 18px;
-      right: 20px;
-      z-index: 10001;
-
-      width: 43px;
-      height: 43px;
-
-      border: none;
-      border-radius: 50%;
-
-      background: rgba(255,255,255,.14);
-      color: white;
-
-      font-size: 27px;
-      cursor: pointer;
-    }
-
-    .lightbox-arrow {
-      position: fixed;
-      top: 50%;
-      transform: translateY(-50%);
-      z-index: 10001;
-
-      width: 46px;
-      height: 46px;
-
-      border: none;
-      border-radius: 50%;
-
-      background: rgba(255,255,255,.14);
-      color: white;
-
-      font-size: 27px;
-      cursor: pointer;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .lightbox-left {
-      left: 15px;
-    }
-
-    .lightbox-right {
-      right: 15px;
-    }
-
-    .lightbox-dots {
-      position: fixed;
-      bottom: 20px;
-      left: 0;
-      right: 0;
-
-      display: flex;
-      justify-content: center;
-      gap: 6px;
-
-      z-index: 10001;
-    }
-
-    .lightbox-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: rgba(255,255,255,.4);
-    }
-
-    .lightbox-dot.active {
-      background: white;
-    }
-
-    body.lightbox-open {
-      overflow: hidden;
+    footer::before {
+      content: "★  ✦  ★  ✦  ★";
+      display: block;
+      color: #765446;
+      font-size: 18px;
+      margin-bottom: 10px;
+      letter-spacing: 5px;
     }
 
     /* =========================
        MOBILE
     ========================= */
 
-    @media (max-width: 700px) {
+    @media (max-width: 600px) {
 
-      .brand {
-        font-size: 39px;
+      header {
+        padding: 28px 15px 18px;
+        min-height: 205px;
+      }
+
+      .logo {
+        font-size: 47px;
+      }
+
+      .logo-star.one {
+        left: -20px;
+      }
+
+      .logo-star.two {
+        right: -20px;
       }
 
       .tagline {
-        font-size: 10px;
-        letter-spacing: 1.4px;
+        font-size: 11px;
+      }
+
+      nav {
+        gap: 8px;
+      }
+
+      nav a {
+        padding: 8px 13px;
+        font-size: 13px;
       }
 
       .hero {
-        padding: 50px 18px 45px;
+        padding: 48px 18px;
+      }
+
+      .hero h1 {
+        font-size: 43px;
+      }
+
+      .hero p {
+        font-size: 15px;
       }
 
       .products {
         grid-template-columns: 1fr;
+        gap: 25px;
       }
 
-      .product-buttons {
-        flex-direction: row;
+      .carousel,
+      .product-image {
+        height: 330px;
       }
 
-      .product-button {
-        font-size: 12px;
+      .shop-section {
+        padding: 45px 16px;
       }
 
-      .lightbox-image {
-        max-width: 96vw;
-        max-height: 84vh;
+      .section-title {
+        font-size: 38px;
+      }
+
+      .about {
+        padding: 50px 20px;
+      }
+
+      .about h2 {
+        font-size: 34px;
+      }
+
+      .sparkle:nth-child(2),
+      .sparkle:nth-child(5) {
+        display: none;
+      }
+
+      .button-row {
+        gap: 8px;
+      }
+
+      .buy-button,
+      .contact-button {
+        padding: 11px 15px;
+        font-size: 14px;
       }
 
       .lightbox-arrow {
-        width: 39px;
-        height: 39px;
-        font-size: 22px;
+        width: 42px;
+        height: 42px;
+      }
+
+      .lightbox-prev {
+        left: 8px;
+      }
+
+      .lightbox-next {
+        right: 8px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      header,
+      .logo,
+      .tagline,
+      .sparkle,
+      .logo-star {
+        animation: none;
       }
     }
   </style>
@@ -681,8 +936,28 @@
 
   <header>
 
-    <div class="brand">
-      Prior Attire
+    <div class="sparkles">
+      <span class="sparkle">✦</span>
+      <span class="sparkle">✧</span>
+      <span class="sparkle">✦</span>
+      <span class="sparkle">★</span>
+      <span class="sparkle">✧</span>
+      <span class="sparkle">✦</span>
+      <span class="sparkle">✧</span>
+      <span class="sparkle">★</span>
+    </div>
+
+    <div class="logo-area">
+
+      <span class="logo-star one">✦</span>
+      <span class="logo-star two">✧</span>
+      <span class="logo-star three">✦</span>
+      <span class="logo-star four">✧</span>
+
+      <div class="logo">
+        Prior Attire
+      </div>
+
     </div>
 
     <div class="tagline">
@@ -692,7 +967,10 @@
     <nav>
       <a href="#shop">Shop</a>
       <a href="sold.html">Archive</a>
-      <a href="https://www.depop.com/prior_attire/" target="_blank" rel="noopener">
+      <a
+        href="https://www.depop.com/prior_attire/"
+        target="_blank"
+        rel="noopener">
         Depop
       </a>
     </nav>
@@ -709,9 +987,25 @@
     <h1>Vintage Coach</h1>
 
     <p>
-      Carefully curated vintage Coach bags and nostalgic Y2K finds,
-      selected for lovers of timeless pieces with a little personality.
+      Curated vintage Coach bags, charms, accessories &amp; nostalgic Y2K finds.
+      Shop current pieces below or browse the archive for past favorites.
     </p>
+
+    <div class="hero-buttons">
+
+      <a
+        class="hero-button shop-button"
+        href="#shop">
+        SHOP CURRENT
+      </a>
+
+      <a
+        class="hero-button archive-button"
+        href="sold.html">
+        VIEW ARCHIVE
+      </a>
+
+    </div>
 
   </section>
 
@@ -720,34 +1014,30 @@
        SHOP
   ========================= -->
 
-  <section class="section" id="shop">
+  <section class="shop-section" id="shop">
 
-    <div class="section-title">
-
-      <h2>Current Finds</h2>
-
-      <p>
-        Shop the latest pieces from Prior Attire.
-      </p>
-
-    </div>
-
+    <h2 class="section-title">
+      Current Finds ✦
+    </h2>
 
     <div class="products">
 
 
       <!-- =========================
-           LISTING 1
+           PRODUCT 1
       ========================= -->
 
-      <article class="product">
+      <article class="product-card">
 
-        <div class="carousel" data-carousel>
+        <div
+          class="carousel"
+          data-index="0">
 
           <div class="carousel-track">
 
             <div class="carousel-slide">
               <img
+                class="product-image"
                 src="IMG_3241(1).jpeg"
                 alt="Coach Vintage Brown Mini Soho"
                 draggable="false">
@@ -755,6 +1045,7 @@
 
             <div class="carousel-slide">
               <img
+                class="product-image"
                 src="IMG_3243(2).jpeg"
                 alt="Coach Vintage Brown Mini Soho"
                 draggable="false">
@@ -762,6 +1053,7 @@
 
             <div class="carousel-slide">
               <img
+                class="product-image"
                 src="IMG_3247(1).jpeg"
                 alt="Coach Vintage Brown Mini Soho"
                 draggable="false">
@@ -769,60 +1061,57 @@
 
           </div>
 
-          <button
-            class="arrow arrow-left"
-            type="button"
-            aria-label="Previous photo">
-            ‹
-          </button>
+          <button class="carousel-arrow carousel-prev" type="button">‹</button>
+          <button class="carousel-arrow carousel-next" type="button">›</button>
 
-          <button
-            class="arrow arrow-right"
-            type="button"
-            aria-label="Next photo">
-            ›
-          </button>
-
-          <div class="dots"></div>
+          <div class="carousel-dots">
+            <button class="carousel-dot active" type="button"></button>
+            <button class="carousel-dot" type="button"></button>
+            <button class="carousel-dot" type="button"></button>
+          </div>
 
         </div>
 
-
         <div class="product-info">
 
-          <h3>
+          <a
+            class="product-name"
+            href="https://www.depop.com/products/prior9attire-coach-vintage-brown-mini-soho-e822/"
+            target="_blank"
+            rel="noopener">
+
             Coach Vintage Brown Mini Soho
-          </h3>
+
+          </a>
 
           <div class="details">
 
-            <div>
+            <span>
               <strong>Coach Creed No.</strong> 18860
-            </div>
+            </span>
 
-            <div>
+            <span>
               <strong>Condition:</strong> Good Condition
-            </div>
+            </span>
 
           </div>
 
-
-          <div class="product-buttons">
+          <div class="button-row">
 
             <a
-              class="product-button depop-button"
+              class="buy-button"
               href="https://www.depop.com/products/prior9attire-coach-vintage-brown-mini-soho-e822/"
               target="_blank"
               rel="noopener">
-              View on Depop
+              VIEW &amp; BUY
             </a>
 
             <a
-              class="product-button messenger-button"
+              class="contact-button"
               href="https://m.me/61586747224418"
               target="_blank"
               rel="noopener">
-              Contact Me
+              CONTACT ME
             </a>
 
           </div>
@@ -833,17 +1122,20 @@
 
 
       <!-- =========================
-           LISTING 2
+           PRODUCT 2
       ========================= -->
 
-      <article class="product">
+      <article class="product-card">
 
-        <div class="carousel" data-carousel>
+        <div
+          class="carousel"
+          data-index="0">
 
           <div class="carousel-track">
 
             <div class="carousel-slide">
               <img
+                class="product-image"
                 src="IMG_6187(2).jpeg"
                 alt="Coach Y2K Valentine's Day Set"
                 draggable="false">
@@ -851,6 +1143,7 @@
 
             <div class="carousel-slide">
               <img
+                class="product-image"
                 src="IMG_6186(2).jpeg"
                 alt="Coach Y2K Valentine's Day Set"
                 draggable="false">
@@ -858,6 +1151,7 @@
 
             <div class="carousel-slide">
               <img
+                class="product-image"
                 src="IMG_6188.jpeg"
                 alt="Coach Y2K Valentine's Day Set"
                 draggable="false">
@@ -865,60 +1159,57 @@
 
           </div>
 
-          <button
-            class="arrow arrow-left"
-            type="button"
-            aria-label="Previous photo">
-            ‹
-          </button>
+          <button class="carousel-arrow carousel-prev" type="button">‹</button>
+          <button class="carousel-arrow carousel-next" type="button">›</button>
 
-          <button
-            class="arrow arrow-right"
-            type="button"
-            aria-label="Next photo">
-            ›
-          </button>
-
-          <div class="dots"></div>
+          <div class="carousel-dots">
+            <button class="carousel-dot active" type="button"></button>
+            <button class="carousel-dot" type="button"></button>
+            <button class="carousel-dot" type="button"></button>
+          </div>
 
         </div>
 
-
         <div class="product-info">
 
-          <h3>
+          <a
+            class="product-name"
+            href="https://www.depop.com/products/prior_astire-bag-in-good-condition-some-5929/"
+            target="_blank"
+            rel="noopener">
+
             Coach Y2K Valentine's Day Set
-          </h3>
+
+          </a>
 
           <div class="details">
 
-            <div>
+            <span>
               <strong>Coach Creed No.</strong> 42349
-            </div>
+            </span>
 
-            <div>
+            <span>
               <strong>Condition:</strong> Good Condition
-            </div>
+            </span>
 
           </div>
 
-
-          <div class="product-buttons">
+          <div class="button-row">
 
             <a
-              class="product-button depop-button"
+              class="buy-button"
               href="https://www.depop.com/products/prior_astire-bag-in-good-condition-some-5929/"
               target="_blank"
               rel="noopener">
-              View on Depop
+              VIEW &amp; BUY
             </a>
 
             <a
-              class="product-button messenger-button"
+              class="contact-button"
               href="https://m.me/61586747224418"
               target="_blank"
               rel="noopener">
-              Contact Me
+              CONTACT ME
             </a>
 
           </div>
@@ -929,17 +1220,20 @@
 
 
       <!-- =========================
-           LISTING 3
+           PRODUCT 3
       ========================= -->
 
-      <article class="product">
+      <article class="product-card">
 
-        <div class="carousel" data-carousel>
+        <div
+          class="carousel"
+          data-index="0">
 
           <div class="carousel-track">
 
             <div class="carousel-slide">
               <img
+                class="product-image"
                 src="IMG_6407.jpeg"
                 alt="Coach Soho Pleated Signature Jacquard Bag"
                 draggable="false">
@@ -947,62 +1241,53 @@
 
           </div>
 
-          <button
-            class="arrow arrow-left"
-            type="button"
-            aria-label="Previous photo"
-            style="display:none;">
-            ‹
-          </button>
+          <button class="carousel-arrow carousel-prev" type="button" style="display:none;">‹</button>
+          <button class="carousel-arrow carousel-next" type="button" style="display:none;">›</button>
 
-          <button
-            class="arrow arrow-right"
-            type="button"
-            aria-label="Next photo"
-            style="display:none;">
-            ›
-          </button>
-
-          <div class="dots"></div>
+          <div class="carousel-dots" style="display:none;"></div>
 
         </div>
 
-
         <div class="product-info">
 
-          <h3>
+          <a
+            class="product-name"
+            href="https://www.depop.com/products/prjor_attire-coach-soho-pleated-signature-jacquard-922f/"
+            target="_blank"
+            rel="noopener">
+
             Coach Soho Pleated Signature Jacquard Bag
-          </h3>
+
+          </a>
 
           <div class="details">
 
-            <div>
+            <span>
               <strong>Coach Creed No.</strong> 15047
-            </div>
+            </span>
 
-            <div>
+            <span>
               <strong>Condition:</strong> Good Condition
-            </div>
+            </span>
 
           </div>
 
-
-          <div class="product-buttons">
+          <div class="button-row">
 
             <a
-              class="product-button depop-button"
+              class="buy-button"
               href="https://www.depop.com/products/prjor_attire-coach-soho-pleated-signature-jacquard-922f/"
               target="_blank"
               rel="noopener">
-              View on Depop
+              VIEW &amp; BUY
             </a>
 
             <a
-              class="product-button messenger-button"
+              class="contact-button"
               href="https://m.me/61586747224418"
               target="_blank"
               rel="noopener">
-              Contact Me
+              CONTACT ME
             </a>
 
           </div>
@@ -1013,17 +1298,20 @@
 
 
       <!-- =========================
-           LISTING 4
+           PRODUCT 4
       ========================= -->
 
-      <article class="product">
+      <article class="product-card">
 
-        <div class="carousel" data-carousel>
+        <div
+          class="carousel"
+          data-index="0">
 
           <div class="carousel-track">
 
             <div class="carousel-slide">
               <img
+                class="product-image"
                 src="IMG_6427.jpeg"
                 alt="Coach Optic Metallic Signature Chain Duffle"
                 draggable="false">
@@ -1031,6 +1319,7 @@
 
             <div class="carousel-slide">
               <img
+                class="product-image"
                 src="IMG_6435(1).jpeg"
                 alt="Coach Optic Metallic Signature Chain Duffle"
                 draggable="false">
@@ -1038,6 +1327,7 @@
 
             <div class="carousel-slide">
               <img
+                class="product-image"
                 src="IMG_6434(1).jpeg"
                 alt="Coach Optic Metallic Signature Chain Duffle"
                 draggable="false">
@@ -1045,60 +1335,57 @@
 
           </div>
 
-          <button
-            class="arrow arrow-left"
-            type="button"
-            aria-label="Previous photo">
-            ‹
-          </button>
+          <button class="carousel-arrow carousel-prev" type="button">‹</button>
+          <button class="carousel-arrow carousel-next" type="button">›</button>
 
-          <button
-            class="arrow arrow-right"
-            type="button"
-            aria-label="Next photo">
-            ›
-          </button>
-
-          <div class="dots"></div>
+          <div class="carousel-dots">
+            <button class="carousel-dot active" type="button"></button>
+            <button class="carousel-dot" type="button"></button>
+            <button class="carousel-dot" type="button"></button>
+          </div>
 
         </div>
 
-
         <div class="product-info">
 
-          <h3>
+          <a
+            class="product-name"
+            href="https://www.depop.com/products/prior_atvire-coach-optic-metallic-signature-chain-5ac2/"
+            target="_blank"
+            rel="noopener">
+
             Coach Optic Metallic Signature Chain Duffle
-          </h3>
+
+          </a>
 
           <div class="details">
 
-            <div>
+            <span>
               <strong>Coach Creed No.</strong> 19820
-            </div>
+            </span>
 
-            <div>
+            <span>
               <strong>Condition:</strong> Good Condition
-            </div>
+            </span>
 
           </div>
 
-
-          <div class="product-buttons">
+          <div class="button-row">
 
             <a
-              class="product-button depop-button"
+              class="buy-button"
               href="https://www.depop.com/products/prior_atvire-coach-optic-metallic-signature-chain-5ac2/"
               target="_blank"
               rel="noopener">
-              View on Depop
+              VIEW &amp; BUY
             </a>
 
             <a
-              class="product-button messenger-button"
+              class="contact-button"
               href="https://m.me/61586747224418"
               target="_blank"
               rel="noopener">
-              Contact Me
+              CONTACT ME
             </a>
 
           </div>
@@ -1107,8 +1394,8 @@
 
       </article>
 
-
     </div>
+
   </section>
 
 
@@ -1116,21 +1403,15 @@
        ABOUT
   ========================= -->
 
-  <section class="section about">
+  <section class="about">
 
-    <div class="about-inner">
+    <h2>About Prior Attire</h2>
 
-      <h2>
-        About Prior Attire
-      </h2>
-
-      <p>
-        Prior Attire is a curated vintage shop specializing in Coach,
-        nostalgic Y2K pieces, and unique finds. Every item is selected
-        with an eye for character, style, and timeless wearability.
-      </p>
-
-    </div>
+    <p>
+      Prior Attire is a curated vintage closet focused on classic Coach,
+      Y2K nostalgia, unique accessories, and pieces with plenty of personality.
+      Every item is handpicked with vintage lovers and collectors in mind.
+    </p>
 
   </section>
 
@@ -1141,11 +1422,9 @@
 
   <section class="socials">
 
-    <h2>
-      Follow Prior Attire
-    </h2>
+    <h2>Follow Prior Attire</h2>
 
-    <div class="social-buttons">
+    <div class="social-links">
 
       <a
         href="https://www.depop.com/prior_attire/"
@@ -1185,45 +1464,43 @@
   ========================= -->
 
   <footer>
-    © 2026 Prior Attire • Vintage Coach & Curated Finds
+    © 2026 Prior Attire • Vintage Coach &amp; Curated Finds
   </footer>
 
 
   <!-- =========================
-       FULL-SIZE PHOTO VIEWER
+       FULL SCREEN VIEWER
   ========================= -->
 
-  <div class="lightbox" id="lightbox">
+  <div
+    class="lightbox"
+    id="lightbox"
+    aria-hidden="true">
 
     <button
-      class="close-lightbox"
-      id="closeLightbox"
+      class="lightbox-close"
+      id="lightboxClose"
       type="button"
-      aria-label="Close photo viewer">
+      aria-label="Close">
       ×
     </button>
 
     <button
-      class="lightbox-arrow lightbox-left"
+      class="lightbox-arrow lightbox-prev"
       id="lightboxPrev"
       type="button"
       aria-label="Previous photo">
       ‹
     </button>
 
-    <div class="lightbox-content" id="lightboxContent">
-
-      <img
-        class="lightbox-image"
-        id="lightboxImage"
-        src=""
-        alt=""
-        draggable="false">
-
-    </div>
+    <img
+      class="lightbox-image"
+      id="lightboxImage"
+      src=""
+      alt="Full size Coach photo">
 
     <button
-      class="lightbox-arrow lightbox-right"
+      class="lightbox-arrow lightbox-next"
       id="lightboxNext"
       type="button"
       aria-label="Next photo">
@@ -1231,8 +1508,9 @@
     </button>
 
     <div
-      class="lightbox-dots"
-      id="lightboxDots">
+      class="lightbox-counter"
+      id="lightboxCounter">
+      1 / 1
     </div>
 
   </div>
@@ -1244,196 +1522,130 @@
 
   <script>
 
-    const carousels =
-      document.querySelectorAll("[data-carousel]");
+    /* Always open at the top */
+    if ("scrollRestoration" in history) {
+      history.scrollRestoration = "manual";
+    }
 
-    let currentLightboxImages = [];
-    let currentLightboxIndex = 0;
+    window.addEventListener("load", function () {
+      window.scrollTo(0, 0);
+    });
 
 
     /* =========================
        CAROUSELS
     ========================= */
 
-    carousels.forEach(function(carousel) {
+    document.querySelectorAll(".carousel").forEach(function (carousel) {
 
-      const track =
-        carousel.querySelector(".carousel-track");
+      const track = carousel.querySelector(".carousel-track");
+      const slides = carousel.querySelectorAll(".carousel-slide");
+      const dots = carousel.querySelectorAll(".carousel-dot");
+      const prev = carousel.querySelector(".carousel-prev");
+      const next = carousel.querySelector(".carousel-next");
 
-      const slides =
-        carousel.querySelectorAll(".carousel-slide");
+      if (slides.length <= 1) return;
 
-      const leftButton =
-        carousel.querySelector(".arrow-left");
-
-      const rightButton =
-        carousel.querySelector(".arrow-right");
-
-      const dotsContainer =
-        carousel.querySelector(".dots");
-
-      let currentIndex = 0;
-
+      let index = 0;
       let startX = 0;
       let endX = 0;
 
+      function updateCarousel() {
 
-      /* Create small circular dots */
+        track.style.transform =
+          "translateX(-" + (index * 100) + "%)";
 
-      slides.forEach(function(slide, index) {
-
-        const dot =
-          document.createElement("button");
-
-        dot.className = "dot";
-
-        dot.type = "button";
-
-        dot.setAttribute(
-          "aria-label",
-          "Go to photo " + (index + 1)
-        );
-
-        if (index === 0) {
-          dot.classList.add("active");
-        }
-
-        dot.addEventListener("click", function(event) {
-
-          event.stopPropagation();
-
-          goToSlide(index);
-
+        dots.forEach(function (dot, i) {
+          dot.classList.toggle("active", i === index);
         });
 
-        dotsContainer.appendChild(dot);
+        carousel.dataset.index = index;
+      }
 
-      });
+      next.addEventListener("click", function (event) {
+        event.stopPropagation();
 
-
-      const dots =
-        dotsContainer.querySelectorAll(".dot");
-
-
-      function goToSlide(index) {
-
-        if (slides.length <= 1) {
-          return;
-        }
-
-        if (index < 0) {
-          index = slides.length - 1;
-        }
+        index++;
 
         if (index >= slides.length) {
           index = 0;
         }
 
-        currentIndex = index;
+        updateCarousel();
+      });
 
-        track.style.transform =
-          "translateX(-" +
-          (currentIndex * 100) +
-          "%)";
+      prev.addEventListener("click", function (event) {
+        event.stopPropagation();
 
-        dots.forEach(function(dot, dotIndex) {
+        index--;
 
-          dot.classList.toggle(
-            "active",
-            dotIndex === currentIndex
-          );
+        if (index < 0) {
+          index = slides.length - 1;
+        }
+
+        updateCarousel();
+      });
+
+      dots.forEach(function (dot, i) {
+
+        dot.addEventListener("click", function (event) {
+
+          event.stopPropagation();
+
+          index = i;
+          updateCarousel();
 
         });
 
-      }
-
-
-      leftButton.addEventListener("click", function(event) {
-
-        event.stopPropagation();
-
-        goToSlide(currentIndex - 1);
-
       });
 
 
-      rightButton.addEventListener("click", function(event) {
+      /* Swipe left/right */
 
-        event.stopPropagation();
+      carousel.addEventListener("touchstart", function (event) {
 
-        goToSlide(currentIndex + 1);
+        startX = event.touches[0].clientX;
 
-      });
-
-
-      /* =========================
-         TOUCH SWIPE
-      ========================= */
-
-      carousel.addEventListener(
-        "touchstart",
-        function(event) {
-
-          startX =
-            event.touches[0].clientX;
-
-          endX = startX;
-
-        },
-        { passive: true }
-      );
+      }, { passive: true });
 
 
-      carousel.addEventListener(
-        "touchend",
-        function(event) {
+      carousel.addEventListener("touchend", function (event) {
 
-          endX =
-            event.changedTouches[0].clientX;
+        endX = event.changedTouches[0].clientX;
 
-          const distance =
-            endX - startX;
+        const difference = startX - endX;
 
-          if (Math.abs(distance) > 45) {
+        if (Math.abs(difference) < 40) return;
 
-            if (distance < 0) {
-              goToSlide(currentIndex + 1);
-            } else {
-              goToSlide(currentIndex - 1);
-            }
+        if (difference > 0) {
+          index++;
 
+          if (index >= slides.length) {
+            index = 0;
           }
 
-        },
-        { passive: true }
-      );
+        } else {
 
+          index--;
 
-      /* =========================
-         CLICK PHOTO
-      ========================= */
-
-      slides.forEach(function(slide, index) {
-
-        slide.addEventListener("click", function() {
-
-          const distance =
-            endX - startX;
-
-          if (Math.abs(distance) > 45) {
-            return;
+          if (index < 0) {
+            index = slides.length - 1;
           }
 
-          currentLightboxImages =
-            Array.from(slides).map(function(item) {
+        }
 
-              return item.querySelector("img").src;
+        updateCarousel();
 
-            });
+      }, { passive: true });
 
-          currentLightboxIndex = index;
 
-          openLightbox();
+      /* Open full screen when photo is tapped */
+
+      slides.forEach(function (slide, slideIndex) {
+
+        slide.addEventListener("click", function () {
+
+          openLightbox(slides, slideIndex);
 
         });
 
@@ -1446,82 +1658,52 @@
        LIGHTBOX
     ========================= */
 
-    const lightbox =
-      document.getElementById("lightbox");
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImage = document.getElementById("lightboxImage");
+    const lightboxClose = document.getElementById("lightboxClose");
+    const lightboxPrev = document.getElementById("lightboxPrev");
+    const lightboxNext = document.getElementById("lightboxNext");
+    const lightboxCounter = document.getElementById("lightboxCounter");
 
-    const lightboxImage =
-      document.getElementById("lightboxImage");
-
-    const lightboxDots =
-      document.getElementById("lightboxDots");
-
-    const lightboxPrev =
-      document.getElementById("lightboxPrev");
-
-    const lightboxNext =
-      document.getElementById("lightboxNext");
-
-    const closeLightboxButton =
-      document.getElementById("closeLightbox");
-
-    const lightboxContent =
-      document.getElementById("lightboxContent");
+    let currentImages = [];
+    let currentLightboxIndex = 0;
 
 
-    function openLightbox() {
+    function openLightbox(slides, index) {
 
-      if (!currentLightboxImages.length) {
-        return;
-      }
+      currentImages = Array.from(slides).map(function (slide) {
 
-      lightbox.classList.add("show");
+        return slide.querySelector("img");
 
-      document.body.classList.add("lightbox-open");
+      });
+
+      currentLightboxIndex = index;
 
       updateLightbox();
 
-    }
+      lightbox.classList.add("open");
+      lightbox.setAttribute("aria-hidden", "false");
 
-
-    function closeLightbox() {
-
-      lightbox.classList.remove("show");
-
-      document.body.classList.remove("lightbox-open");
+      document.body.style.overflow = "hidden";
 
     }
 
 
     function updateLightbox() {
 
-      lightboxImage.src =
-        currentLightboxImages[currentLightboxIndex];
+      const image = currentImages[currentLightboxIndex];
 
-      lightboxDots.innerHTML = "";
+      if (!image) return;
 
+      lightboxImage.src = image.src;
+      lightboxImage.alt = image.alt;
 
-      currentLightboxImages.forEach(
-        function(image, index) {
+      lightboxCounter.textContent =
+        (currentLightboxIndex + 1) +
+        " / " +
+        currentImages.length;
 
-          const dot =
-            document.createElement("span");
-
-          dot.className =
-            "lightbox-dot";
-
-          if (index === currentLightboxIndex) {
-
-            dot.classList.add("active");
-
-          }
-
-          lightboxDots.appendChild(dot);
-
-        }
-      );
-
-
-      if (currentLightboxImages.length <= 1) {
+      if (currentImages.length <= 1) {
 
         lightboxPrev.style.display = "none";
         lightboxNext.style.display = "none";
@@ -1536,33 +1718,24 @@
     }
 
 
-    function nextLightboxImage() {
+    function closeLightbox() {
 
-      currentLightboxIndex++;
+      lightbox.classList.remove("open");
+      lightbox.setAttribute("aria-hidden", "true");
 
-      if (
-        currentLightboxIndex >=
-        currentLightboxImages.length
-      ) {
-
-        currentLightboxIndex = 0;
-
-      }
-
-      updateLightbox();
+      document.body.style.overflow = "";
 
     }
 
 
-    function previousLightboxImage() {
+    function showPreviousLightboxImage() {
+
+      if (currentImages.length <= 1) return;
 
       currentLightboxIndex--;
 
       if (currentLightboxIndex < 0) {
-
-        currentLightboxIndex =
-          currentLightboxImages.length - 1;
-
+        currentLightboxIndex = currentImages.length - 1;
       }
 
       updateLightbox();
@@ -1570,132 +1743,94 @@
     }
 
 
+    function showNextLightboxImage() {
+
+      if (currentImages.length <= 1) return;
+
+      currentLightboxIndex++;
+
+      if (currentLightboxIndex >= currentImages.length) {
+        currentLightboxIndex = 0;
+      }
+
+      updateLightbox();
+
+    }
+
+
+    lightboxClose.addEventListener("click", closeLightbox);
+
     lightboxPrev.addEventListener(
       "click",
-      function(event) {
-
-        event.stopPropagation();
-
-        previousLightboxImage();
-
-      }
+      showPreviousLightboxImage
     );
-
 
     lightboxNext.addEventListener(
       "click",
-      function(event) {
-
-        event.stopPropagation();
-
-        nextLightboxImage();
-
-      }
+      showNextLightboxImage
     );
 
 
-    closeLightboxButton.addEventListener(
-      "click",
-      function(event) {
+    /* Close when tapping outside photo */
 
-        event.stopPropagation();
+    lightbox.addEventListener("click", function (event) {
 
+      if (event.target === lightbox) {
         closeLightbox();
-
       }
-    );
+
+    });
 
 
-    lightbox.addEventListener(
-      "click",
-      function(event) {
+    /* Keyboard controls */
 
-        if (event.target === lightbox) {
+    document.addEventListener("keydown", function (event) {
 
-          closeLightbox();
+      if (!lightbox.classList.contains("open")) return;
 
-        }
-
+      if (event.key === "Escape") {
+        closeLightbox();
       }
-    );
+
+      if (event.key === "ArrowLeft") {
+        showPreviousLightboxImage();
+      }
+
+      if (event.key === "ArrowRight") {
+        showNextLightboxImage();
+      }
+
+    });
 
 
-    /* =========================
-       FULL-SCREEN SWIPE
-    ========================= */
+    /* Swipe inside full-screen viewer */
 
     let lightboxStartX = 0;
-
     let lightboxEndX = 0;
 
+    lightbox.addEventListener("touchstart", function (event) {
 
-    lightboxContent.addEventListener(
-      "touchstart",
-      function(event) {
+      lightboxStartX = event.touches[0].clientX;
 
-        lightboxStartX =
-          event.touches[0].clientX;
-
-      },
-      { passive: true }
-    );
+    }, { passive: true });
 
 
-    lightboxContent.addEventListener(
-      "touchend",
-      function(event) {
+    lightbox.addEventListener("touchend", function (event) {
 
-        lightboxEndX =
-          event.changedTouches[0].clientX;
+      lightboxEndX = event.changedTouches[0].clientX;
 
-        const distance =
-          lightboxEndX - lightboxStartX;
+      const difference =
+        lightboxStartX - lightboxEndX;
 
-        if (Math.abs(distance) > 45) {
+      if (Math.abs(difference) < 50) return;
 
-          if (distance < 0) {
-
-            nextLightboxImage();
-
-          } else {
-
-            previousLightboxImage();
-
-          }
-
-        }
-
-      },
-      { passive: true }
-    );
-
-
-    /* =========================
-       KEYBOARD
-    ========================= */
-
-    document.addEventListener(
-      "keydown",
-      function(event) {
-
-        if (!lightbox.classList.contains("show")) {
-          return;
-        }
-
-        if (event.key === "Escape") {
-          closeLightbox();
-        }
-
-        if (event.key === "ArrowRight") {
-          nextLightboxImage();
-        }
-
-        if (event.key === "ArrowLeft") {
-          previousLightboxImage();
-        }
-
+      if (difference > 0) {
+        showNextLightboxImage();
+      } else {
+        showPreviousLightboxImage();
       }
-    );
+
+    }, { passive: true });
 
   </script>
 
