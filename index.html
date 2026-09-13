@@ -6,7 +6,6 @@
 
   <title>Prior Attire | Vintage Coach</title>
 
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Coiny&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -18,6 +17,10 @@
     }
 
     window.addEventListener("load", function () {
+      window.scrollTo(0, 0);
+    });
+
+    window.addEventListener("pageshow", function () {
       window.scrollTo(0, 0);
     });
   </script>
@@ -34,42 +37,108 @@
     body {
       margin: 0;
       background: #2b211d;
-      color: #f4e8dc;
+      color: #f5e9df;
       font-family: "DM Sans", sans-serif;
     }
 
     /* =========================
-       HEADER
+       ORIGINAL BROWN Y2K HEADER
     ========================= */
 
     header {
-      background: #8f6b59;
-      padding: 28px 20px 25px;
-      text-align: center;
       position: relative;
       overflow: hidden;
+      background: #9c7965;
+      padding: 30px 20px 26px;
+      text-align: center;
     }
+
+    /* Glitter layer */
+
+    header::before,
+    header::after {
+      content: "";
+      position: absolute;
+      inset: -100px;
+      pointer-events: none;
+      background-image:
+        radial-gradient(circle, rgba(255,255,255,.95) 0 1px, transparent 2px),
+        radial-gradient(circle, rgba(255,225,205,.8) 0 1px, transparent 2px),
+        radial-gradient(circle, rgba(255,255,255,.7) 0 1px, transparent 2px);
+      background-size: 75px 75px, 105px 105px, 135px 135px;
+      background-position: 10px 15px, 40px 70px, 80px 25px;
+      animation: glitterMove 8s linear infinite;
+      opacity: .7;
+    }
+
+    header::after {
+      animation-duration: 5s;
+      animation-direction: reverse;
+      opacity: .45;
+    }
+
+    @keyframes glitterMove {
+      from {
+        transform: translate(0, 0);
+      }
+
+      to {
+        transform: translate(55px, 35px);
+      }
+    }
+
+    /* Only the movement of the words has changed */
 
     .brand {
+      position: relative;
+      z-index: 2;
+      display: inline-block;
+      margin: 0;
       font-family: Georgia, serif;
       font-size: 48px;
+      font-weight: normal;
       color: white;
       letter-spacing: 2px;
-      margin: 0;
-      display: inline-block;
-      animation: floatBrand 4s ease-in-out infinite,
-                 softGlow 2.8s ease-in-out infinite alternate;
+
+      animation:
+        priorAttireFloat 3.5s ease-in-out infinite,
+        priorAttireGlow 2.5s ease-in-out infinite alternate;
     }
 
-    .brand::after {
-      content: "✦";
-      display: inline-block;
-      margin-left: 10px;
-      font-size: 22px;
-      animation: twinkle 1.8s ease-in-out infinite;
+    @keyframes priorAttireFloat {
+      0%, 100% {
+        transform: translateY(0) rotate(0deg);
+      }
+
+      25% {
+        transform: translateY(-4px) rotate(-.5deg);
+      }
+
+      50% {
+        transform: translateY(2px) rotate(.5deg);
+      }
+
+      75% {
+        transform: translateY(-3px) rotate(-.3deg);
+      }
+    }
+
+    @keyframes priorAttireGlow {
+      from {
+        text-shadow:
+          0 0 2px rgba(255,255,255,.3);
+      }
+
+      to {
+        text-shadow:
+          0 0 5px rgba(255,255,255,.7),
+          0 0 12px rgba(255,220,200,.45);
+      }
     }
 
     .tagline {
+      position: relative;
+      z-index: 2;
       color: white;
       font-size: 13px;
       font-weight: 600;
@@ -78,45 +147,9 @@
       text-transform: uppercase;
     }
 
-    @keyframes floatBrand {
-      0%, 100% {
-        transform: translateY(0);
-      }
-
-      50% {
-        transform: translateY(-5px);
-      }
-    }
-
-    @keyframes softGlow {
-      from {
-        text-shadow: 0 0 3px rgba(255,255,255,.25);
-      }
-
-      to {
-        text-shadow:
-          0 0 7px rgba(255,255,255,.55),
-          0 0 14px rgba(255,225,210,.3);
-      }
-    }
-
-    @keyframes twinkle {
-      0%, 100% {
-        opacity: .35;
-        transform: scale(.8) rotate(0deg);
-      }
-
-      50% {
-        opacity: 1;
-        transform: scale(1.25) rotate(15deg);
-      }
-    }
-
-    /* =========================
-       NAV
-    ========================= */
-
     nav {
+      position: relative;
+      z-index: 2;
       margin-top: 20px;
       display: flex;
       justify-content: center;
@@ -126,8 +159,8 @@
 
     nav a {
       text-decoration: none;
-      color: #3f302a;
-      background: #ead7ca;
+      color: #46342d;
+      background: #ead6c9;
       padding: 9px 16px;
       border-radius: 30px;
       font-size: 13px;
@@ -137,7 +170,7 @@
 
     nav a:hover {
       transform: translateY(-2px);
-      background: #f4e7dd;
+      background: #f5e5dc;
     }
 
     /* =========================
@@ -147,27 +180,27 @@
     .hero {
       text-align: center;
       padding: 65px 20px 55px;
-      background: #342722;
+      background: #332621;
     }
 
     .hero h1 {
       font-family: "Coiny", cursive;
       font-size: clamp(42px, 8vw, 72px);
       margin: 0;
-      color: #e9c8b6;
+      color: #e4bba5;
       line-height: 1;
     }
 
     .hero p {
       margin: 18px auto 0;
       max-width: 600px;
-      color: #d8c3b6;
+      color: #d7c0b3;
       font-size: 16px;
       line-height: 1.7;
     }
 
     /* =========================
-       SHOP
+       SECTIONS
     ========================= */
 
     .section {
@@ -183,15 +216,19 @@
 
     .section-title h2 {
       font-family: "Coiny", cursive;
-      color: #e9c8b6;
+      color: #e4bba5;
       font-size: 34px;
       margin: 0;
     }
 
     .section-title p {
-      color: #cdb9ad;
+      color: #cbb3a5;
       margin-top: 8px;
     }
+
+    /* =========================
+       PRODUCT GRID
+    ========================= */
 
     .products {
       display: grid;
@@ -201,21 +238,20 @@
 
     /* =========================
        PRODUCT CARD
-       ========================= */
+       ORIGINAL SIZE PRESERVED
+    ========================= */
 
     .product {
-      background: #3a2b26;
-      border: 1px solid #5b453b;
+      background: #3b2b25;
+      border: 1px solid #5a4338;
       border-radius: 18px;
       overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0,0,0,.2);
+      box-shadow: 0 10px 30px rgba(0,0,0,.22);
     }
 
-    /*
-      IMPORTANT:
-      The product card size/layout is unchanged.
-      The carousel simply occupies the original image area.
-    */
+    /* =========================
+       CAROUSEL
+    ========================= */
 
     .carousel {
       position: relative;
@@ -239,69 +275,95 @@
       -webkit-user-drag: none;
     }
 
+    /*
+      3:4 photo ratio only.
+      The product card itself is NOT resized.
+    */
+
     .carousel-slide img {
       display: block;
       width: 100%;
-      height: auto;
       aspect-ratio: 3 / 4;
       object-fit: cover;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+
+    /* Small circular carousel bubbles */
+
+    .dots {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 10px;
+      z-index: 5;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .dot {
+      width: 6px;
+      height: 6px;
+      min-width: 6px;
+      padding: 0;
+      margin: 0;
+      border: 0;
+      border-radius: 50%;
+      background: rgba(255,255,255,.55);
+      cursor: pointer;
+      transition: .2s ease;
+    }
+
+    .dot.active {
+      width: 7px;
+      height: 7px;
+      min-width: 7px;
+      background: white;
     }
 
     .arrow {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      width: 36px;
-      height: 36px;
+      z-index: 5;
+
+      width: 32px;
+      height: 32px;
+
       border: none;
       border-radius: 50%;
-      background: rgba(35,25,21,.72);
+
+      background: rgba(40,28,23,.68);
       color: white;
-      font-size: 21px;
-      cursor: pointer;
-      z-index: 5;
+
+      font-size: 20px;
+      line-height: 1;
+
       display: flex;
       align-items: center;
       justify-content: center;
-      opacity: .9;
-    }
 
-    .arrow:hover {
-      background: rgba(35,25,21,.95);
-    }
-
-    .arrow-left {
-      left: 10px;
-    }
-
-    .arrow-right {
-      right: 10px;
-    }
-
-    .dots {
-      position: absolute;
-      bottom: 12px;
-      left: 0;
-      right: 0;
-      display: flex;
-      justify-content: center;
-      gap: 6px;
-      z-index: 5;
-    }
-
-    .dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: rgba(255,255,255,.55);
-      border: 1px solid rgba(255,255,255,.8);
       cursor: pointer;
     }
 
-    .dot.active {
-      background: white;
-      transform: scale(1.2);
+    .arrow:hover {
+      background: rgba(40,28,23,.9);
     }
+
+    .arrow-left {
+      left: 9px;
+    }
+
+    .arrow-right {
+      right: 9px;
+    }
+
+    /* =========================
+       PRODUCT INFO
+    ========================= */
 
     .product-info {
       padding: 20px;
@@ -352,7 +414,7 @@
     }
 
     .messenger-button {
-      background: #9dbea9;
+      background: #9dbda8;
       color: #273d31;
     }
 
@@ -377,7 +439,7 @@
 
     .about h2 {
       font-family: "Coiny", cursive;
-      color: #e9c8b6;
+      color: #e4bba5;
       font-size: 32px;
       margin-top: 0;
     }
@@ -400,7 +462,7 @@
 
     .socials h2 {
       font-family: "Coiny", cursive;
-      color: #e9c8b6;
+      color: #e4bba5;
       margin-top: 0;
     }
 
@@ -416,7 +478,7 @@
       text-decoration: none;
       padding: 10px 17px;
       border-radius: 30px;
-      background: #ead7ca;
+      background: #ead6c9;
       color: #47352e;
       font-size: 13px;
       font-weight: 700;
@@ -440,18 +502,21 @@
     }
 
     /* =========================
-       FULL-SCREEN PHOTO VIEWER
+       FULL-SIZE PHOTO VIEWER
     ========================= */
 
     .lightbox {
       position: fixed;
       inset: 0;
-      background: rgba(12,9,8,.96);
       z-index: 9999;
+
       display: none;
       align-items: center;
       justify-content: center;
+
       padding: 20px;
+
+      background: rgba(12,9,8,.96);
     }
 
     .lightbox.show {
@@ -460,11 +525,14 @@
 
     .lightbox-content {
       position: relative;
+
       width: 100%;
       height: 100%;
+
       display: flex;
       align-items: center;
       justify-content: center;
+
       overflow: hidden;
       touch-action: pan-y;
     }
@@ -472,9 +540,12 @@
     .lightbox-image {
       max-width: 92vw;
       max-height: 90vh;
+
       width: auto;
       height: auto;
+
       object-fit: contain;
+
       user-select: none;
       -webkit-user-drag: none;
     }
@@ -483,30 +554,42 @@
       position: fixed;
       top: 18px;
       right: 20px;
+      z-index: 10001;
+
       width: 43px;
       height: 43px;
+
       border: none;
       border-radius: 50%;
+
       background: rgba(255,255,255,.14);
       color: white;
+
       font-size: 27px;
       cursor: pointer;
-      z-index: 10001;
     }
 
     .lightbox-arrow {
       position: fixed;
       top: 50%;
       transform: translateY(-50%);
+      z-index: 10001;
+
       width: 46px;
       height: 46px;
+
       border: none;
       border-radius: 50%;
+
       background: rgba(255,255,255,.14);
       color: white;
+
       font-size: 27px;
       cursor: pointer;
-      z-index: 10001;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .lightbox-left {
@@ -522,17 +605,19 @@
       bottom: 20px;
       left: 0;
       right: 0;
+
       display: flex;
       justify-content: center;
-      gap: 7px;
+      gap: 6px;
+
       z-index: 10001;
     }
 
     .lightbox-dot {
-      width: 8px;
-      height: 8px;
+      width: 7px;
+      height: 7px;
       border-radius: 50%;
-      background: rgba(255,255,255,.45);
+      background: rgba(255,255,255,.4);
     }
 
     .lightbox-dot.active {
@@ -566,11 +651,6 @@
         grid-template-columns: 1fr;
       }
 
-      /*
-        Card width remains the normal single-column
-        width on mobile. Nothing is artificially resized.
-      */
-
       .product-buttons {
         flex-direction: row;
       }
@@ -600,7 +680,10 @@
   ========================= -->
 
   <header>
-    <div class="brand">Prior Attire</div>
+
+    <div class="brand">
+      Prior Attire
+    </div>
 
     <div class="tagline">
       Vintage Coach • Y2K Finds • Curated Closet
@@ -609,8 +692,11 @@
     <nav>
       <a href="#shop">Shop</a>
       <a href="sold.html">Archive</a>
-      <a href="https://www.depop.com/prior_attire/" target="_blank">Depop</a>
+      <a href="https://www.depop.com/prior_attire/" target="_blank" rel="noopener">
+        Depop
+      </a>
     </nav>
+
   </header>
 
 
@@ -619,12 +705,14 @@
   ========================= -->
 
   <section class="hero">
+
     <h1>Vintage Coach</h1>
 
     <p>
       Carefully curated vintage Coach bags and nostalgic Y2K finds,
       selected for lovers of timeless pieces with a little personality.
     </p>
+
   </section>
 
 
@@ -635,8 +723,13 @@
   <section class="section" id="shop">
 
     <div class="section-title">
+
       <h2>Current Finds</h2>
-      <p>Shop the latest pieces from Prior Attire.</p>
+
+      <p>
+        Shop the latest pieces from Prior Attire.
+      </p>
+
     </div>
 
 
@@ -649,37 +742,44 @@
 
       <article class="product">
 
-        <div class="carousel"
-             data-carousel
-             data-images="IMG_3241(1).jpeg,IMG_3243(2).jpeg,IMG_3247(1).jpeg">
+        <div class="carousel" data-carousel>
 
           <div class="carousel-track">
 
             <div class="carousel-slide">
-              <img src="IMG_3241(1).jpeg"
-                   alt="Coach Vintage Brown Mini Soho"
-                   draggable="false">
+              <img
+                src="IMG_3241(1).jpeg"
+                alt="Coach Vintage Brown Mini Soho"
+                draggable="false">
             </div>
 
             <div class="carousel-slide">
-              <img src="IMG_3243(2).jpeg"
-                   alt="Coach Vintage Brown Mini Soho"
-                   draggable="false">
+              <img
+                src="IMG_3243(2).jpeg"
+                alt="Coach Vintage Brown Mini Soho"
+                draggable="false">
             </div>
 
             <div class="carousel-slide">
-              <img src="IMG_3247(1).jpeg"
-                   alt="Coach Vintage Brown Mini Soho"
-                   draggable="false">
+              <img
+                src="IMG_3247(1).jpeg"
+                alt="Coach Vintage Brown Mini Soho"
+                draggable="false">
             </div>
 
           </div>
 
-          <button class="arrow arrow-left" type="button" aria-label="Previous photo">
+          <button
+            class="arrow arrow-left"
+            type="button"
+            aria-label="Previous photo">
             ‹
           </button>
 
-          <button class="arrow arrow-right" type="button" aria-label="Next photo">
+          <button
+            class="arrow arrow-right"
+            type="button"
+            aria-label="Next photo">
             ›
           </button>
 
@@ -687,11 +787,15 @@
 
         </div>
 
+
         <div class="product-info">
 
-          <h3>Coach Vintage Brown Mini Soho</h3>
+          <h3>
+            Coach Vintage Brown Mini Soho
+          </h3>
 
           <div class="details">
+
             <div>
               <strong>Coach Creed No.</strong> 18860
             </div>
@@ -699,7 +803,9 @@
             <div>
               <strong>Condition:</strong> Good Condition
             </div>
+
           </div>
+
 
           <div class="product-buttons">
 
@@ -722,6 +828,7 @@
           </div>
 
         </div>
+
       </article>
 
 
@@ -731,37 +838,44 @@
 
       <article class="product">
 
-        <div class="carousel"
-             data-carousel
-             data-images="IMG_6187(2).jpeg,IMG_6186(2).jpeg,IMG_6188.jpeg">
+        <div class="carousel" data-carousel>
 
           <div class="carousel-track">
 
             <div class="carousel-slide">
-              <img src="IMG_6187(2).jpeg"
-                   alt="Coach Y2K Valentine's Day Set"
-                   draggable="false">
+              <img
+                src="IMG_6187(2).jpeg"
+                alt="Coach Y2K Valentine's Day Set"
+                draggable="false">
             </div>
 
             <div class="carousel-slide">
-              <img src="IMG_6186(2).jpeg"
-                   alt="Coach Y2K Valentine's Day Set"
-                   draggable="false">
+              <img
+                src="IMG_6186(2).jpeg"
+                alt="Coach Y2K Valentine's Day Set"
+                draggable="false">
             </div>
 
             <div class="carousel-slide">
-              <img src="IMG_6188.jpeg"
-                   alt="Coach Y2K Valentine's Day Set"
-                   draggable="false">
+              <img
+                src="IMG_6188.jpeg"
+                alt="Coach Y2K Valentine's Day Set"
+                draggable="false">
             </div>
 
           </div>
 
-          <button class="arrow arrow-left" type="button" aria-label="Previous photo">
+          <button
+            class="arrow arrow-left"
+            type="button"
+            aria-label="Previous photo">
             ‹
           </button>
 
-          <button class="arrow arrow-right" type="button" aria-label="Next photo">
+          <button
+            class="arrow arrow-right"
+            type="button"
+            aria-label="Next photo">
             ›
           </button>
 
@@ -769,11 +883,15 @@
 
         </div>
 
+
         <div class="product-info">
 
-          <h3>Coach Y2K Valentine's Day Set</h3>
+          <h3>
+            Coach Y2K Valentine's Day Set
+          </h3>
 
           <div class="details">
+
             <div>
               <strong>Coach Creed No.</strong> 42349
             </div>
@@ -781,7 +899,9 @@
             <div>
               <strong>Condition:</strong> Good Condition
             </div>
+
           </div>
+
 
           <div class="product-buttons">
 
@@ -804,6 +924,7 @@
           </div>
 
         </div>
+
       </article>
 
 
@@ -813,31 +934,32 @@
 
       <article class="product">
 
-        <div class="carousel"
-             data-carousel
-             data-images="IMG_6407.jpeg">
+        <div class="carousel" data-carousel>
 
           <div class="carousel-track">
 
             <div class="carousel-slide">
-              <img src="IMG_6407.jpeg"
-                   alt="Coach Soho Pleated Signature Jacquard Bag"
-                   draggable="false">
+              <img
+                src="IMG_6407.jpeg"
+                alt="Coach Soho Pleated Signature Jacquard Bag"
+                draggable="false">
             </div>
 
           </div>
 
-          <button class="arrow arrow-left"
-                  type="button"
-                  aria-label="Previous photo"
-                  style="display:none;">
+          <button
+            class="arrow arrow-left"
+            type="button"
+            aria-label="Previous photo"
+            style="display:none;">
             ‹
           </button>
 
-          <button class="arrow arrow-right"
-                  type="button"
-                  aria-label="Next photo"
-                  style="display:none;">
+          <button
+            class="arrow arrow-right"
+            type="button"
+            aria-label="Next photo"
+            style="display:none;">
             ›
           </button>
 
@@ -845,9 +967,12 @@
 
         </div>
 
+
         <div class="product-info">
 
-          <h3>Coach Soho Pleated Signature Jacquard Bag</h3>
+          <h3>
+            Coach Soho Pleated Signature Jacquard Bag
+          </h3>
 
           <div class="details">
 
@@ -860,6 +985,7 @@
             </div>
 
           </div>
+
 
           <div class="product-buttons">
 
@@ -882,6 +1008,7 @@
           </div>
 
         </div>
+
       </article>
 
 
@@ -891,37 +1018,44 @@
 
       <article class="product">
 
-        <div class="carousel"
-             data-carousel
-             data-images="IMG_6427.jpeg,IMG_6435(1).jpeg,IMG_6434(1).jpeg">
+        <div class="carousel" data-carousel>
 
           <div class="carousel-track">
 
             <div class="carousel-slide">
-              <img src="IMG_6427.jpeg"
-                   alt="Coach Optic Metallic Signature Chain Duffle"
-                   draggable="false">
+              <img
+                src="IMG_6427.jpeg"
+                alt="Coach Optic Metallic Signature Chain Duffle"
+                draggable="false">
             </div>
 
             <div class="carousel-slide">
-              <img src="IMG_6435(1).jpeg"
-                   alt="Coach Optic Metallic Signature Chain Duffle"
-                   draggable="false">
+              <img
+                src="IMG_6435(1).jpeg"
+                alt="Coach Optic Metallic Signature Chain Duffle"
+                draggable="false">
             </div>
 
             <div class="carousel-slide">
-              <img src="IMG_6434(1).jpeg"
-                   alt="Coach Optic Metallic Signature Chain Duffle"
-                   draggable="false">
+              <img
+                src="IMG_6434(1).jpeg"
+                alt="Coach Optic Metallic Signature Chain Duffle"
+                draggable="false">
             </div>
 
           </div>
 
-          <button class="arrow arrow-left" type="button" aria-label="Previous photo">
+          <button
+            class="arrow arrow-left"
+            type="button"
+            aria-label="Previous photo">
             ‹
           </button>
 
-          <button class="arrow arrow-right" type="button" aria-label="Next photo">
+          <button
+            class="arrow arrow-right"
+            type="button"
+            aria-label="Next photo">
             ›
           </button>
 
@@ -929,9 +1063,12 @@
 
         </div>
 
+
         <div class="product-info">
 
-          <h3>Coach Optic Metallic Signature Chain Duffle</h3>
+          <h3>
+            Coach Optic Metallic Signature Chain Duffle
+          </h3>
 
           <div class="details">
 
@@ -944,6 +1081,7 @@
             </div>
 
           </div>
+
 
           <div class="product-buttons">
 
@@ -966,6 +1104,7 @@
           </div>
 
         </div>
+
       </article>
 
 
@@ -981,7 +1120,9 @@
 
     <div class="about-inner">
 
-      <h2>About Prior Attire</h2>
+      <h2>
+        About Prior Attire
+      </h2>
 
       <p>
         Prior Attire is a curated vintage shop specializing in Coach,
@@ -1000,7 +1141,9 @@
 
   <section class="socials">
 
-    <h2>Follow Prior Attire</h2>
+    <h2>
+      Follow Prior Attire
+    </h2>
 
     <div class="social-buttons">
 
@@ -1047,7 +1190,7 @@
 
 
   <!-- =========================
-       FULL-SCREEN PHOTO VIEWER
+       FULL-SIZE PHOTO VIEWER
   ========================= -->
 
   <div class="lightbox" id="lightbox">
@@ -1087,7 +1230,10 @@
       ›
     </button>
 
-    <div class="lightbox-dots" id="lightboxDots"></div>
+    <div
+      class="lightbox-dots"
+      id="lightboxDots">
+    </div>
 
   </div>
 
@@ -1098,56 +1244,80 @@
 
   <script>
 
-    /* =====================================
-       CAROUSELS
-    ===================================== */
-
-    const carousels = document.querySelectorAll("[data-carousel]");
+    const carousels =
+      document.querySelectorAll("[data-carousel]");
 
     let currentLightboxImages = [];
     let currentLightboxIndex = 0;
 
+
+    /* =========================
+       CAROUSELS
+    ========================= */
+
     carousels.forEach(function(carousel) {
 
-      const track = carousel.querySelector(".carousel-track");
-      const slides = carousel.querySelectorAll(".carousel-slide");
-      const leftButton = carousel.querySelector(".arrow-left");
-      const rightButton = carousel.querySelector(".arrow-right");
-      const dotsContainer = carousel.querySelector(".dots");
+      const track =
+        carousel.querySelector(".carousel-track");
+
+      const slides =
+        carousel.querySelectorAll(".carousel-slide");
+
+      const leftButton =
+        carousel.querySelector(".arrow-left");
+
+      const rightButton =
+        carousel.querySelector(".arrow-right");
+
+      const dotsContainer =
+        carousel.querySelector(".dots");
 
       let currentIndex = 0;
+
       let startX = 0;
       let endX = 0;
 
-      /* Create dots */
+
+      /* Create small circular dots */
 
       slides.forEach(function(slide, index) {
 
-        const dot = document.createElement("button");
+        const dot =
+          document.createElement("button");
 
         dot.className = "dot";
+
         dot.type = "button";
-        dot.setAttribute("aria-label", "Go to photo " + (index + 1));
+
+        dot.setAttribute(
+          "aria-label",
+          "Go to photo " + (index + 1)
+        );
 
         if (index === 0) {
           dot.classList.add("active");
         }
 
         dot.addEventListener("click", function(event) {
+
           event.stopPropagation();
+
           goToSlide(index);
+
         });
 
         dotsContainer.appendChild(dot);
 
       });
 
-      const dots = dotsContainer.querySelectorAll(".dot");
+
+      const dots =
+        dotsContainer.querySelectorAll(".dot");
+
 
       function goToSlide(index) {
 
         if (slides.length <= 1) {
-          currentIndex = 0;
           return;
         }
 
@@ -1162,79 +1332,103 @@
         currentIndex = index;
 
         track.style.transform =
-          "translateX(-" + (currentIndex * 100) + "%)";
+          "translateX(-" +
+          (currentIndex * 100) +
+          "%)";
 
         dots.forEach(function(dot, dotIndex) {
+
           dot.classList.toggle(
             "active",
             dotIndex === currentIndex
           );
+
         });
 
       }
 
+
       leftButton.addEventListener("click", function(event) {
+
         event.stopPropagation();
+
         goToSlide(currentIndex - 1);
+
       });
+
 
       rightButton.addEventListener("click", function(event) {
+
         event.stopPropagation();
+
         goToSlide(currentIndex + 1);
+
       });
 
 
-      /* =====================================
-         SWIPE
-      ===================================== */
+      /* =========================
+         TOUCH SWIPE
+      ========================= */
 
-      carousel.addEventListener("touchstart", function(event) {
+      carousel.addEventListener(
+        "touchstart",
+        function(event) {
 
-        startX = event.touches[0].clientX;
+          startX =
+            event.touches[0].clientX;
 
-      }, { passive: true });
+          endX = startX;
+
+        },
+        { passive: true }
+      );
 
 
-      carousel.addEventListener("touchend", function(event) {
+      carousel.addEventListener(
+        "touchend",
+        function(event) {
 
-        endX = event.changedTouches[0].clientX;
+          endX =
+            event.changedTouches[0].clientX;
 
-        const distance = endX - startX;
+          const distance =
+            endX - startX;
 
-        if (Math.abs(distance) > 45) {
+          if (Math.abs(distance) > 45) {
 
-          if (distance < 0) {
-            goToSlide(currentIndex + 1);
-          } else {
-            goToSlide(currentIndex - 1);
+            if (distance < 0) {
+              goToSlide(currentIndex + 1);
+            } else {
+              goToSlide(currentIndex - 1);
+            }
+
           }
 
-        }
+        },
+        { passive: true }
+      );
 
-      }, { passive: true });
 
-
-      /* =====================================
-         CLICK PHOTO FOR FULL SIZE
-      ===================================== */
+      /* =========================
+         CLICK PHOTO
+      ========================= */
 
       slides.forEach(function(slide, index) {
 
-        slide.addEventListener("click", function(event) {
+        slide.addEventListener("click", function() {
 
-          /*
-            Don't open the lightbox after a swipe.
-          */
+          const distance =
+            endX - startX;
 
-          if (Math.abs(endX - startX) > 45) {
-            startX = 0;
-            endX = 0;
+          if (Math.abs(distance) > 45) {
             return;
           }
 
           currentLightboxImages =
             Array.from(slides).map(function(item) {
+
               return item.querySelector("img").src;
+
             });
 
           currentLightboxIndex = index;
@@ -1248,9 +1442,9 @@
     });
 
 
-    /* =====================================
+    /* =========================
        LIGHTBOX
-    ===================================== */
+    ========================= */
 
     const lightbox =
       document.getElementById("lightbox");
@@ -1305,20 +1499,27 @@
 
       lightboxDots.innerHTML = "";
 
-      currentLightboxImages.forEach(function(image, index) {
 
-        const dot =
-          document.createElement("span");
+      currentLightboxImages.forEach(
+        function(image, index) {
 
-        dot.className = "lightbox-dot";
+          const dot =
+            document.createElement("span");
 
-        if (index === currentLightboxIndex) {
-          dot.classList.add("active");
+          dot.className =
+            "lightbox-dot";
+
+          if (index === currentLightboxIndex) {
+
+            dot.classList.add("active");
+
+          }
+
+          lightboxDots.appendChild(dot);
+
         }
+      );
 
-        lightboxDots.appendChild(dot);
-
-      });
 
       if (currentLightboxImages.length <= 1) {
 
@@ -1337,17 +1538,15 @@
 
     function nextLightboxImage() {
 
-      if (!currentLightboxImages.length) {
-        return;
-      }
-
       currentLightboxIndex++;
 
       if (
         currentLightboxIndex >=
         currentLightboxImages.length
       ) {
+
         currentLightboxIndex = 0;
+
       }
 
       updateLightbox();
@@ -1357,15 +1556,13 @@
 
     function previousLightboxImage() {
 
-      if (!currentLightboxImages.length) {
-        return;
-      }
-
       currentLightboxIndex--;
 
       if (currentLightboxIndex < 0) {
+
         currentLightboxIndex =
           currentLightboxImages.length - 1;
+
       }
 
       updateLightbox();
@@ -1376,8 +1573,11 @@
     lightboxPrev.addEventListener(
       "click",
       function(event) {
+
         event.stopPropagation();
+
         previousLightboxImage();
+
       }
     );
 
@@ -1385,8 +1585,11 @@
     lightboxNext.addEventListener(
       "click",
       function(event) {
+
         event.stopPropagation();
+
         nextLightboxImage();
+
       }
     );
 
@@ -1394,34 +1597,35 @@
     closeLightboxButton.addEventListener(
       "click",
       function(event) {
+
         event.stopPropagation();
+
         closeLightbox();
+
       }
     );
 
-
-    /*
-      Clicking the dark background closes
-      the full-screen viewer.
-    */
 
     lightbox.addEventListener(
       "click",
       function(event) {
 
         if (event.target === lightbox) {
+
           closeLightbox();
+
         }
 
       }
     );
 
 
-    /* =====================================
+    /* =========================
        FULL-SCREEN SWIPE
-    ===================================== */
+    ========================= */
 
     let lightboxStartX = 0;
+
     let lightboxEndX = 0;
 
 
@@ -1450,9 +1654,13 @@
         if (Math.abs(distance) > 45) {
 
           if (distance < 0) {
+
             nextLightboxImage();
+
           } else {
+
             previousLightboxImage();
+
           }
 
         }
@@ -1462,9 +1670,9 @@
     );
 
 
-    /* =====================================
-       KEYBOARD CONTROLS
-    ===================================== */
+    /* =========================
+       KEYBOARD
+    ========================= */
 
     document.addEventListener(
       "keydown",
@@ -1488,15 +1696,6 @@
 
       }
     );
-
-
-    /* =====================================
-       RESET SCROLL ON PAGE LOAD
-    ===================================== */
-
-    window.addEventListener("pageshow", function() {
-      window.scrollTo(0, 0);
-    });
 
   </script>
 
