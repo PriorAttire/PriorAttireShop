@@ -42,7 +42,6 @@
 
       text-align: center;
 
-      /* MATCHES POLKA-DOT COLOR */
       border-bottom: 5px solid #5a4034;
 
       position: relative;
@@ -325,9 +324,13 @@
       z-index: 2;
     }
 
-    /* GLASSY TOP BUTTONS */
+    /* GLOSSY GLASS TOP BUTTONS */
 
     nav a {
+      position: relative;
+
+      overflow: hidden;
+
       display: inline-block;
 
       color: white;
@@ -342,24 +345,48 @@
 
       font-weight: 600;
 
-      padding: 8px 15px;
+      padding: 9px 16px;
 
       border: 1px solid rgba(255,255,255,.42);
 
       border-radius: 30px;
 
-      transition: .3s ease;
+      transition: all .35s ease;
 
-      /* GLASS EFFECT */
-      background: rgba(255,255,255,.08);
+      background: rgba(255,255,255,.07);
 
-      backdrop-filter: blur(8px);
+      backdrop-filter: blur(12px);
 
-      -webkit-backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(12px);
 
       box-shadow:
-        inset 0 1px 0 rgba(255,255,255,.22),
-        inset 0 -1px 0 rgba(0,0,0,.12);
+        inset 0 1px 3px rgba(255,255,255,.38),
+        inset 0 -1px 2px rgba(0,0,0,.14),
+        0 4px 12px rgba(0,0,0,.12);
+    }
+
+    /* GLOSSY HIGHLIGHT */
+
+    nav a::before {
+      content: "";
+
+      position: absolute;
+
+      top: 0;
+      left: 8%;
+
+      width: 84%;
+      height: 48%;
+
+      background: linear-gradient(
+        to bottom,
+        rgba(255,255,255,.30),
+        rgba(255,255,255,.04)
+      );
+
+      border-radius: 30px;
+
+      pointer-events: none;
     }
 
     nav a:hover {
@@ -372,8 +399,8 @@
       transform: translateY(-2px);
 
       box-shadow:
-        inset 0 1px 0 rgba(255,255,255,.3),
-        0 4px 12px rgba(0,0,0,.18);
+        inset 0 1px 3px rgba(255,255,255,.5),
+        0 5px 14px rgba(0,0,0,.2);
     }
 
 
@@ -791,26 +818,22 @@
 
       font-weight: bold;
 
-      transition: .25s ease;
+      transition: transform .3s ease;
 
       display: inline-block;
+
+      animation-duration: 3.6s;
+
+      animation-timing-function: ease-in-out;
+
+      animation-iteration-count: infinite;
     }
 
     .socials a:hover {
       transform: translateY(-2px);
     }
 
-    /* SLOW SOCIAL FLASHING */
-
-    .socials a {
-      animation-duration: 5.5s;
-
-      animation-timing-function: ease-in-out;
-
-      animation-iteration-count: infinite;
-
-      animation-direction: alternate;
-    }
+    /* SMOOTH + MORE FREQUENT SOCIAL FLASHING */
 
     /* DEPOP */
 
@@ -820,15 +843,33 @@
 
     @keyframes depopFlash {
 
-      0%, 48% {
+      0%, 25% {
         background: #8f7770;
         border-color: rgba(214,193,182,.35);
         color: white;
       }
 
-      72%, 100% {
+      38% {
+        background: #a87873;
+        border-color: rgba(227,36,43,.35);
+        color: white;
+      }
+
+      50%, 72% {
         background: #e3242b;
         border-color: #e3242b;
+        color: white;
+      }
+
+      86% {
+        background: #b66d6d;
+        border-color: rgba(227,36,43,.55);
+        color: white;
+      }
+
+      100% {
+        background: #8f7770;
+        border-color: rgba(214,193,182,.35);
         color: white;
       }
 
@@ -842,13 +883,27 @@
 
     @keyframes instagramFlash {
 
-      0%, 48% {
+      0%, 25% {
         background: #8f7770;
         border-color: rgba(214,193,182,.35);
         color: white;
       }
 
-      72%, 100% {
+      38% {
+        background:
+          linear-gradient(
+            45deg,
+            #b99a83,
+            #c88977,
+            #b16c91,
+            #8b648f,
+            #6d729b
+          );
+        border-color: rgba(214,193,182,.5);
+        color: white;
+      }
+
+      50%, 72% {
         background:
           linear-gradient(
             45deg,
@@ -858,9 +913,27 @@
             #962fbf,
             #4f5bd5
           );
-
         border-color: #d62976;
+        color: white;
+      }
 
+      86% {
+        background:
+          linear-gradient(
+            45deg,
+            #cfa27d,
+            #d27b77,
+            #bd7395,
+            #966b9b,
+            #7479a2
+          );
+        border-color: rgba(214,193,182,.55);
+        color: white;
+      }
+
+      100% {
+        background: #8f7770;
+        border-color: rgba(214,193,182,.35);
         color: white;
       }
 
@@ -874,13 +947,25 @@
 
     @keyframes tiktokFlash {
 
-      0%, 48% {
+      0%, 25% {
         background: #8f7770;
         border-color: rgba(214,193,182,.35);
         color: white;
       }
 
-      72%, 100% {
+      38% {
+        background:
+          linear-gradient(
+            135deg,
+            #554b48,
+            #34383a,
+            #4a4b4b
+          );
+        border-color: rgba(37,244,238,.4);
+        color: white;
+      }
+
+      50%, 72% {
         background:
           linear-gradient(
             135deg,
@@ -888,9 +973,25 @@
             #111 55%,
             #000 100%
           );
-
         border-color: #25f4ee;
+        color: white;
+      }
 
+      86% {
+        background:
+          linear-gradient(
+            135deg,
+            #514c4a,
+            #333738,
+            #454747
+          );
+        border-color: rgba(37,244,238,.45);
+        color: white;
+      }
+
+      100% {
+        background: #8f7770;
+        border-color: rgba(214,193,182,.35);
         color: white;
       }
 
@@ -904,17 +1005,33 @@
 
     @keyframes facebookFlash {
 
-      0%, 48% {
+      0%, 25% {
         background: #8f7770;
         border-color: rgba(214,193,182,.35);
         color: white;
       }
 
-      72%, 100% {
+      38% {
+        background: #987f78;
+        border-color: rgba(24,119,242,.35);
+        color: white;
+      }
+
+      50%, 72% {
         background: #1877F2;
-
         border-color: #1877F2;
+        color: white;
+      }
 
+      86% {
+        background: #597fae;
+        border-color: rgba(24,119,242,.5);
+        color: white;
+      }
+
+      100% {
+        background: #8f7770;
+        border-color: rgba(214,193,182,.35);
         color: white;
       }
 
@@ -965,7 +1082,9 @@
 
       overflow: hidden;
 
-      border-top: 5px solid #8b6a5b;
+      /* MATCHES TOP LINE EXACTLY */
+
+      border-top: 5px solid #5a4034;
     }
 
     footer::before {
