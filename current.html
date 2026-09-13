@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Prior Attire | Current Items</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #111111;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* HEADER */
+
+.header {
+  background: #111111;
+  padding: 32px 36px 55px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-title {
+  font-size: clamp(38px, 7vw, 58px);
+  font-weight: 700;
+  letter-spacing: -2px;
+}
+
+.header-title span {
+  font-weight: 400;
+  letter-spacing: -1px;
+}
+
+/* FILTER BUTTON */
+
+.filter-button {
+  width: 100px;
+  height: 100px;
+  border: 3px solid white;
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sliders {
+  width: 38px;
+}
+
+.slider {
+  position: relative;
+  height: 3px;
+  background: white;
+  margin: 9px 0;
+}
+
+.slider::after {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: #111111;
+  border: 3px solid white;
+  border-radius: 50%;
+  top: -5px;
+}
+
+.slider:nth-child(1)::after {
+  left: 8px;
+}
+
+.slider:nth-child(2)::after {
+  left: 23px;
+}
+
+.slider:nth-child(3)::after {
+  left: 14px;
+}
+
+/* LISTING GRID */
+
+.listings {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3px;
+  background: #111111;
+}
+
+/* LISTING */
+
+.listing {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: #222222;
+}
+
+.listing img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .3s ease;
+}
+
+.listing:hover img {
+  transform: scale(1.03);
+}
+
+/* DARK OVERLAY */
+
+.listing::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 55%,
+    rgba(0,0,0,.35) 100%
+  );
+  pointer-events: none;
+}
+
+/* LISTING INFO */
+
+.info {
+  position: absolute;
+  left: 22px;
+  right: 22px;
+  bottom: 18px;
+  z-index: 3;
+}
+
+.name {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 5px;
+  text-shadow: 0 2px 5px rgba(0,0,0,.7);
+}
+
+.details {
+  font-size: 13px;
+  margin-bottom: 12px;
+  text-shadow: 0 2px 5px rgba(0,0,0,.7);
+}
+
+/* BUY BUTTON */
+
+.buy-button {
+  display: inline-block;
+  background: white;
+  color: #111111;
+  padding: 9px 17px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .5px;
+}
+
+.buy-button:hover {
+  background: #eeeeee;
+}
+
+/* BACK BUTTON */
+
+.bottom {
+  text-align: center;
+  padding: 40px 20px;
+  background: #111111;
+}
+
+.back-button {
+  display: inline-block;
+  border: 2px solid white;
+  color: white;
+  padding: 13px 25px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.back-button:hover {
+  background: white;
+  color: #111111;
+}
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+  .header {
+    padding: 25px 22px 38px;
+  }
+
+  .header-title {
+    font-size: 38px;
+  }
+
+  .filter-button {
+    width: 65px;
+    height: 65px;
+  }
+
+  .sliders {
+    width: 28px;
+  }
+
+  .listings {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .info {
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+  }
+
+  .name {
+    font-size: 15px;
+  }
+
+  .details {
+    font-size: 11px;
+  }
+
+  .buy-button {
+    padding: 7px 11px;
+    font-size: 10px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header class="header">
+
+  <div class="header-title">
+    Active <span>(8 listings)</span>
+  </div>
+
+  <div class="filter-button">
+    <div class="sliders">
+      <div class="slider"></div>
+      <div class="slider"></div>
+      <div class="slider"></div>
+    </div>
+  </div>
+
+</header>
+
+
+<!-- CURRENT LISTINGS -->
+
+<section class="listings">
+
+
+  <!-- LISTING 1 -->
+
+  <div class="listing">
+
+    <img
+      src="PASTE-IMAGE-URL-HERE"
+      alt="Coach Vintage Bag"
+    >
+
+    <div class="info">
+
+      <div class="name">
+        Coach Vintage Bag
+      </div>
+
+      <div class="details">
+        No. 00000 • Good Condition
+      </div>
+
+      <a
+        href="PASTE-DEPOP-LINK-HERE"
+        class="buy-button"
+        target="_blank"
+      >
+        VIEW & BUY
+      </a>
+
+    </div>
+
+  </div>
+
+
+  <!-- LISTING 2 -->
+
+  <div class="listing">
+
+    <img
+      src="PASTE-IMAGE-URL-HERE"
+      alt="Coach Vintage Bag"
+    >
+
+    <div class="info">
+
+      <div class="name">
+        Coach Vintage Bag
+      </div>
+
+      <div class="details">
+        No. 00000 • Good Condition
+      </div>
+
+      <a
+        href="PASTE-DEPOP-LINK-HERE"
+        class="buy-button"
+        target="_blank"
+      >
+        VIEW & BUY
+      </a>
+
+    </div>
+
+  </div>
+
+
+  <!-- LISTING 3 -->
+
+  <div class="listing">
+
+    <img
+      src="PASTE-IMAGE-URL-HERE"
+      alt="Coach Vintage Bag"
+    >
+
+    <div class="info">
+
+      <div class="name">
+        Coach Vintage Bag
+      </div>
+
+      <div class="details">
+        No. 00000 • Good Condition
+      </div>
+
+      <a
+        href="PASTE-DEPOP-LINK-HERE"
+        class="buy-button"
+        target="_blank"
+      >
+        VIEW & BUY
+      </a>
+
+    </div>
+
+  </div>
+
+
+  <!-- LISTING 4 -->
+
+  <div class="listing">
+
+    <img
+      src="PASTE-IMAGE-URL-HERE"
+      alt="Coach Vintage Bag"
+    >
+
+    <div class="info">
+
+      <div class="name">
+        Coach Vintage Bag
+      </div>
+
+      <div class="details">
+        No. 00000 • Good Condition
+      </div>
+
+      <a
+        href="PASTE-DEPOP-LINK-HERE"
+        class="buy-button"
+        target="_blank"
+      >
+        VIEW & BUY
+      </a>
+
+    </div>
+
+  </div>
+
+
+  <!-- LISTING 5 -->
+
+  <div class="listing">
+
+    <img
+      src="PASTE-IMAGE-URL-HERE"
+      alt="Coach Vintage Bag"
+    >
+
+    <div class="info">
+
+      <div class="name">
+        Coach Vintage Bag
+      </div>
+
+      <div class="details">
+        No. 00000 • Good Condition
+      </div>
+
+      <a
+        href="PASTE-DEPOP-LINK-HERE"
+        class="buy-button"
+        target="_blank"
+      >
+        VIEW & BUY
+      </a>
+
+    </div>
+
+  </div>
+
+
+  <!-- LISTING 6 -->
+
+  <div class="listing">
+
+    <img
+      src="PASTE-IMAGE-URL-HERE"
+      alt="Coach Vintage Bag"
+    >
+
+    <div class="info">
+
+      <div class="name">
+        Coach Vintage Bag
+      </div>
+
+      <div class="details">
+        No. 00000 • Good Condition
+      </div>
+
+      <a
+        href="PASTE-DEPOP-LINK-HERE"
+        class="buy-button"
+        target="_blank"
+      >
+        VIEW & BUY
+      </a>
+
+    </div>
+
+  </div>
+
+
+  <!-- LISTING 7 -->
+
+  <div class="listing">
+
+    <img
+      src="PASTE-IMAGE-URL-HERE"
+      alt="Coach Vintage Bag"
+    >
+
+    <div class="info">
+
+      <div class="name">
+        Coach Vintage Bag
+      </div>
+
+      <div class="details">
+        No. 00000 • Good Condition
+      </div>
+
+      <a
+        href="PASTE-DEPOP-LINK-HERE"
+        class="buy-button"
+        target="_blank"
+      >
+        VIEW & BUY
+      </a>
+
+    </div>
+
+  </div>
+
+
+  <!-- LISTING 8 -->
+
+  <div class="listing">
+
+    <img
+      src="PASTE-IMAGE-URL-HERE"
+      alt="Coach Vintage Bag"
+    >
+
+    <div class="info">
+
+      <div class="name">
+        Coach Vintage Bag
+      </div>
+
+      <div class="details">
+        No. 00000 • Good Condition
+      </div>
+
+      <a
+        href="PASTE-DEPOP-LINK-HERE"
+        class="buy-button"
+        target="_blank"
+      >
+        VIEW & BUY
+      </a>
+
+    </div>
+
+  </div>
+
+
+</section>
+
+
+<!-- BACK TO HOMEPAGE -->
+
+<div class="bottom">
+
+  <a href="index.html" class="back-button">
+    ← BACK TO PRIOR ATTIRE
+  </a>
+
+</div>
+
+
+</body>
+</html>
