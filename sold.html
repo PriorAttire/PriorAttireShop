@@ -12,10 +12,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Allura&family=Coiny&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
+
 * {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
 }
 
 html {
@@ -23,566 +22,1446 @@ html {
 }
 
 body {
+  margin: 0;
   background: #241b18;
-  color: #3f3434;
+  color: #fff;
   font-family: "DM Sans", sans-serif;
 }
 
-/* =========================
-   HEADER
-========================= */
+
+/* HEADER */
 
 header {
-  position: relative;
-  overflow: hidden;
   background:
-    radial-gradient(circle at 20% 20%, rgba(90,64,52,.55) 1px, transparent 1.5px),
-    radial-gradient(circle at 80% 70%, rgba(90,64,52,.55) 1px, transparent 1.5px),
+    radial-gradient(circle at 20% 20%, #5a4034 0 3px, transparent 4px),
+    radial-gradient(circle at 80% 70%, #5a4034 0 3px, transparent 4px),
     #1c1513;
-  background-size: 28px 28px, 34px 34px;
-  border-bottom: 5px solid #5a4034;
-  padding: 42px 20px 28px;
+
+  background-size: 35px 35px;
+
+  padding: 32px 20px 22px;
+
   text-align: center;
-  animation: headerGlow 4s ease-in-out infinite alternate;
-}
 
-@keyframes headerGlow {
-  from {
-    box-shadow: 0 0 15px rgba(214,193,182,.08);
-  }
-  to {
-    box-shadow: 0 0 35px rgba(214,193,182,.20);
-  }
-}
+  border-bottom: 5px solid #5a4034;
 
-.brand {
   position: relative;
-  z-index: 2;
-  color: #d6c1b6;
-  font-family: "Allura", cursive;
-  font-size: 58px;
-  line-height: 1;
-  letter-spacing: 2px;
-  text-shadow: 0 0 15px rgba(214,193,182,.25);
+
+  overflow: hidden;
+
+  min-height: 215px;
 }
 
-.tagline {
-  position: relative;
-  z-index: 2;
-  margin-top: 10px;
-  color: #f3e8df;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-}
 
-nav {
-  position: relative;
-  z-index: 3;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 24px;
-}
+header::before {
+  content: "";
 
-nav a {
-  display: inline-block;
-  padding: 10px 18px;
-  border-radius: 999px;
-  background: rgba(255,250,247,.12);
-  border: 1px solid rgba(214,193,182,.45);
-  color: #fffaf7;
-  text-decoration: none;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  transition: .3s ease;
-  box-shadow: 0 4px 12px rgba(0,0,0,.18);
-}
-
-nav a:hover {
-  transform: translateY(-2px);
-  background: #d6c1b6;
-  color: #241b18;
-}
-
-nav .depop-button {
-  background: #eaded7;
-  color: #3f3434;
-}
-
-.sparkle {
   position: absolute;
-  color: #f3e8df;
-  opacity: .7;
-  animation: sparkle 2.8s ease-in-out infinite;
+
+  width: 420px;
+  height: 180px;
+
+  left: 50%;
+  top: 0;
+
+  transform: translateX(-50%);
+
+  background: radial-gradient(
+    ellipse,
+    rgba(214,193,182,0.14),
+    transparent 68%
+  );
+
+  animation: glowMove 5s ease-in-out infinite;
+
   pointer-events: none;
 }
 
-.sparkle.one {
-  top: 25px;
-  left: 15%;
-  font-size: 18px;
+
+@keyframes glowMove {
+
+  0%, 100% {
+    transform: translateX(-50%) scale(1);
+    opacity: .5;
+  }
+
+  50% {
+    transform: translateX(-50%) scale(1.15);
+    opacity: 1;
+  }
+
 }
 
-.sparkle.two {
-  top: 75px;
-  left: 25%;
-  font-size: 12px;
-  animation-delay: .5s;
+
+/* FULL HEADER STAR FIELD */
+
+.sparkles {
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  z-index: 1;
 }
 
-.sparkle.three {
-  top: 35px;
-  right: 18%;
-  font-size: 16px;
-  animation-delay: 1s;
+
+.sparkle {
+  position: absolute;
+
+  color: #d6c1b6;
+
+  font-size: 9px;
+
+  opacity: .3;
+
+  animation: sparkleFlash 3.5s ease-in-out infinite;
 }
 
-.sparkle.four {
-  top: 85px;
-  right: 28%;
-  font-size: 11px;
+
+.sparkle:nth-child(1) {
+  top: 12%;
+  left: 7%;
+  animation-delay: 0s;
+}
+
+.sparkle:nth-child(2) {
+  top: 28%;
+  left: 17%;
+  animation-delay: .7s;
+}
+
+.sparkle:nth-child(3) {
+  top: 10%;
+  left: 31%;
+  animation-delay: 1.2s;
+}
+
+.sparkle:nth-child(4) {
+  top: 43%;
+  left: 8%;
+  animation-delay: 1.8s;
+}
+
+.sparkle:nth-child(5) {
+  top: 65%;
+  left: 20%;
+  animation-delay: 2.3s;
+}
+
+.sparkle:nth-child(6) {
+  top: 76%;
+  left: 38%;
+  animation-delay: .4s;
+}
+
+.sparkle:nth-child(7) {
+  top: 17%;
+  right: 8%;
   animation-delay: 1.5s;
 }
 
-@keyframes sparkle {
-  0%,100% {
-    opacity: .25;
-    transform: scale(.8) rotate(0deg);
+.sparkle:nth-child(8) {
+  top: 32%;
+  right: 20%;
+  animation-delay: .9s;
+}
+
+.sparkle:nth-child(9) {
+  top: 12%;
+  right: 34%;
+  animation-delay: 2.1s;
+}
+
+.sparkle:nth-child(10) {
+  top: 48%;
+  right: 9%;
+  animation-delay: 2.7s;
+}
+
+.sparkle:nth-child(11) {
+  top: 68%;
+  right: 22%;
+  animation-delay: 1.1s;
+}
+
+.sparkle:nth-child(12) {
+  top: 80%;
+  right: 38%;
+  animation-delay: 3s;
+}
+
+
+@keyframes sparkleFlash {
+
+  0%, 100% {
+    opacity: .15;
+
+    transform:
+      scale(.65)
+      rotate(0deg);
   }
+
+  50% {
+    opacity: .9;
+
+    transform:
+      scale(1.15)
+      rotate(20deg);
+  }
+
+}
+
+
+.logo-area {
+  position: relative;
+
+  display: inline-block;
+
+  z-index: 2;
+}
+
+
+.logo {
+  position: relative;
+
+  display: inline-block;
+
+  color: #d6c1b6;
+
+  font-family: "Allura", cursive;
+
+  font-size: clamp(58px, 12vw, 88px);
+
+  font-weight: 400;
+
+  letter-spacing: 1px;
+
+  line-height: 1;
+}
+
+
+.logo::after {
+  content: "✦  ˚  ✧  ˚  ✦";
+
+  position: absolute;
+
+  left: 50%;
+
+  bottom: -19px;
+
+  transform: translateX(-50%);
+
+  font-family: "DM Sans", sans-serif;
+
+  font-size: 11px;
+
+  letter-spacing: 7px;
+
+  white-space: nowrap;
+
+  color: #d6c1b6;
+
+  opacity: .75;
+
+  animation: letteringTwinkle 2.5s ease-in-out infinite;
+}
+
+
+@keyframes letteringTwinkle {
+
+  0%, 100% {
+    opacity: .4;
+  }
+
   50% {
     opacity: 1;
-    transform: scale(1.3) rotate(20deg);
   }
+
 }
 
-/* =========================
-   INTRO
-========================= */
 
-.intro {
-  position: relative;
-  overflow: hidden;
-  padding: 70px 20px 65px;
-  text-align: center;
-  color: #fffaf7;
-  background:
-    radial-gradient(circle at 15% 25%, rgba(255,250,247,.10) 1px, transparent 1.5px),
-    radial-gradient(circle at 75% 65%, rgba(255,250,247,.08) 1px, transparent 1.5px),
-    #382722;
-  background-size: 32px 32px, 40px 40px;
-}
+.logo-star {
+  position: absolute;
 
-.intro h1 {
-  font-family: "Allura", cursive;
-  font-size: 58px;
-  font-weight: 400;
   color: #d6c1b6;
-  margin-bottom: 8px;
-}
 
-.intro p {
-  max-width: 650px;
-  margin: 0 auto;
-  color: #f3e8df;
-  font-size: 14px;
-  line-height: 1.7;
-}
-
-/* =========================
-   SOLD SECTION
-========================= */
-
-.sold-section {
-  background: #f3e8df;
-  padding: 55px 18px 65px;
-}
-
-.sold-grid {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 25px;
-}
-
-.card {
-  background: #fffaf7;
-  border: 1px solid #d7c5bd;
-  border-radius: 10px;
-  padding: 12px;
-  text-align: center;
-  box-shadow: 0 8px 22px rgba(63,52,52,.12);
-  transition: transform .3s ease, box-shadow .3s ease;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 14px 30px rgba(63,52,52,.18);
-}
-
-.card-image {
-  width: 100%;
-  height: 250px;
-  display: block;
-  object-fit: cover;
-  border-radius: 7px;
-  cursor: pointer;
-}
-
-.card h2 {
-  margin: 14px 4px 8px;
-  color: #3f3434;
-  font-family: Georgia, serif;
-  font-size: 20px;
-  font-weight: 400;
-  line-height: 1.2;
-}
-
-.details {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 7px;
-  margin-bottom: 12px;
-}
-
-.detail {
-  display: inline-block;
-  padding: 6px 9px;
-  border-radius: 999px;
-  background: #f3e8df;
-  color: #6b5750;
-  font-size: 11px;
-  font-weight: 600;
-}
-
-.sold-pill {
-  display: inline-block;
-  margin-bottom: 12px;
-  padding: 6px 14px;
-  border-radius: 999px;
-  background: #382722;
-  color: #fffaf7;
   font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 1.5px;
+
+  animation: logoStar 2s ease-in-out infinite;
 }
 
-.view-btn {
-  display: inline-block;
-  padding: 10px 18px;
-  border-radius: 999px;
-  background: #8f7770;
-  color: #fffaf7;
-  text-decoration: none;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  transition: .3s ease;
+
+.logo-star.one {
+  top: 4px;
+  left: -28px;
 }
 
-.view-btn:hover {
-  background: #6f5a54;
-  transform: translateY(-2px);
+.logo-star.two {
+  top: 34px;
+  right: -38px;
+  animation-delay: .5s;
 }
 
-.back-wrap {
-  text-align: center;
-  margin-top: 45px;
+.logo-star.three {
+  bottom: -4px;
+  left: -18px;
+  animation-delay: 1s;
 }
 
-.back-btn {
-  display: inline-block;
-  padding: 12px 22px;
-  border-radius: 999px;
-  background: #382722;
-  color: #fffaf7;
-  text-decoration: none;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  transition: .3s ease;
+.logo-star.four {
+  bottom: 2px;
+  right: -24px;
+  animation-delay: 1.5s;
 }
 
-.back-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 7px 15px rgba(56,39,34,.2);
+
+@keyframes logoStar {
+
+  0%, 100% {
+    opacity: .25;
+
+    transform:
+      scale(.7)
+      rotate(0deg);
+  }
+
+  50% {
+    opacity: 1;
+
+    transform:
+      scale(1.2)
+      rotate(25deg);
+  }
+
 }
 
-/* =========================
-   ABOUT
-========================= */
 
-#about {
-  position: relative;
-  overflow: hidden;
-  padding: 65px 20px;
-  text-align: center;
-  color: #fffaf7;
-  background:
-    radial-gradient(circle at 18% 25%, rgba(255,250,247,.09) 1px, transparent 1.5px),
-    radial-gradient(circle at 82% 70%, rgba(255,250,247,.08) 1px, transparent 1.5px),
-    #382722;
-  background-size: 30px 30px, 38px 38px;
-}
+.tagline {
+  margin-top: 28px;
 
-#about h2 {
   color: #d6c1b6;
+
+  font-size: 12px;
+
+  letter-spacing: 3px;
+
+  text-transform: uppercase;
+
+  font-weight: 600;
+
+  position: relative;
+
+  z-index: 2;
+}
+
+
+nav {
+  margin-top: 22px;
+
+  position: relative;
+
+  z-index: 2;
+}
+
+
+/* CLEAR GLOSSY GLASS TOP BUTTONS */
+
+nav a {
+  position: relative;
+
+  overflow: hidden;
+
+  display: inline-block;
+
+  color: #fff;
+
+  text-decoration: none;
+
+  font-size: 11px;
+
+  letter-spacing: 2px;
+
+  margin: 0 5px;
+
+  font-weight: 600;
+
+  padding: 9px 16px;
+
+  border: 1px solid rgba(255,255,255,.48);
+
+  border-radius: 30px;
+
+  background: rgba(255,255,255,.035);
+
+  backdrop-filter: none;
+
+  -webkit-backdrop-filter: none;
+
+  box-shadow:
+    inset 0 1px 1px rgba(255,255,255,.5),
+    inset 0 -1px 1px rgba(0,0,0,.12),
+    0 3px 10px rgba(0,0,0,.10);
+
+  transition:
+    background .35s ease,
+    border-color .35s ease,
+    box-shadow .35s ease,
+    transform .35s ease;
+}
+
+
+nav a::before {
+  content: "";
+
+  position: absolute;
+
+  top: 1px;
+  left: 8%;
+
+  width: 84%;
+  height: 42%;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(255,255,255,.28),
+    rgba(255,255,255,.02)
+  );
+
+  border-radius: 30px;
+
+  pointer-events: none;
+}
+
+
+nav a:hover {
+  color: #fff;
+
+  background: rgba(255,255,255,.08);
+
+  border-color: rgba(255,255,255,.7);
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    inset 0 1px 2px rgba(255,255,255,.6),
+    0 5px 14px rgba(0,0,0,.16);
+}
+
+
+/* HERO */
+
+.hero {
+  background:
+    radial-gradient(circle at 10% 15%, #5a4034 0 2px, transparent 3px),
+    radial-gradient(circle at 25% 15%, #5a4034 0 2px, transparent 3px),
+    radial-gradient(circle at 40% 15%, #5a4034 0 2px, transparent 3px),
+    radial-gradient(circle at 55% 15%, #5a4034 0 2px, transparent 3px),
+    radial-gradient(circle at 70% 15%, #5a4034 0 2px, transparent 3px),
+    radial-gradient(circle at 85% 15%, #5a4034 0 2px, transparent 3px),
+
+    radial-gradient(circle at 10% 50%, #5a4034 0 2px, transparent 3px),
+    radial-gradient(circle at 25% 50%, #5a4034 0 2px, transparent 3px),
+    radial-gradient(circle at 40% 50%, #5a4034 0 2px, transparent 3px),
+    radial-gradient(circle at 55% 50%, #5a4034 0 2px, transparent 3px),
+    radial-gradient(circle at 70% 50%, #5a4034 0 2px, transparent 3px),
+    radial-gradient(circle at 85% 50%, #5a4034 0 2px, transparent 3px),
+
+    radial-gradient(circle at 10% 85%, #5a4034 0 2px, transparent 3px),
+    radial-gradient(circle at 25% 85%, #5a4034 0 2px, transparent 3px),
+    radial-gradient(circle at 40% 85%, #5a4034 0 2px, transparent 3px),
+    radial-gradient(circle at 55% 85%, #5a4034 0 2px, transparent 3px),
+    radial-gradient(circle at 70% 85%, #5a4034 0 2px, transparent 3px),
+    radial-gradient(circle at 85% 85%, #5a4034 0 2px, transparent 3px),
+
+    #382722;
+
+  background-size: 100% 100%;
+
+  text-align: center;
+
+  padding: 55px 20px;
+}
+
+
+.hero h1 {
+  margin: 0 0 8px;
+
   font-family: "Allura", cursive;
-  font-size: 52px;
+
+  font-size: clamp(48px, 9vw, 65px);
+
   font-weight: 400;
-  margin-bottom: 15px;
+
+  color: #d6c1b6;
 }
 
-#about p {
-  max-width: 700px;
-  margin: 0 auto 28px;
-  color: #f3e8df;
+
+.hero p {
+  max-width: 650px;
+
+  margin: 0 auto;
+
   font-size: 14px;
+
   line-height: 1.8;
+
+  color: #eee5df;
 }
 
-.socials {
+
+/* LISTING SECTION */
+
+.shop-section {
+  padding: 55px 20px;
+
+  background: #f3e8df;
+
+  color: #3f3434;
+}
+
+
+.section-title {
+  text-align: center;
+
+  font-family: Georgia, serif;
+
+  font-size: clamp(32px, 7vw, 50px);
+
+  font-weight: normal;
+
+  color: #3f3434;
+
+  margin: 0 0 35px;
+
+  letter-spacing: 1px;
+
+  text-shadow: none;
+
   display: flex;
+
+  align-items: center;
+
   justify-content: center;
-  flex-wrap: wrap;
+
   gap: 12px;
 }
 
-.socials a {
+
+.section-title::before,
+.section-title::after {
+  content: "✦";
+
+  color: #5a4034;
+
+  font-family: Georgia, serif;
+
+  font-size: 14px;
+
   display: inline-block;
-  min-width: 110px;
-  padding: 12px 18px;
-  border-radius: 999px;
-  text-decoration: none;
-  color: #3f3434;
-  background: #eaded7;
-  border: 1px solid rgba(255,250,247,.55);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  box-shadow: 0 6px 15px rgba(0,0,0,.15);
-  transition: .3s ease;
+
+  animation: featuredSparkle 2.8s ease-in-out infinite;
 }
+
+
+.section-title::after {
+  animation-delay: 1.4s;
+}
+
+
+@keyframes featuredSparkle {
+
+  0%, 100% {
+    opacity: .35;
+
+    transform: scale(.7);
+  }
+
+  50% {
+    opacity: 1;
+
+    transform: scale(1);
+  }
+
+}
+
+
+/* 3 COLUMNS */
+
+.products {
+  max-width: 1200px;
+
+  margin: auto;
+
+  padding: 0 18px;
+
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 25px;
+}
+
+
+.product-card {
+  background: #fffaf7;
+
+  border: 1px solid #d7c5bd;
+
+  border-radius: 10px;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 5px 15px rgba(63,52,52,.08);
+
+  position: relative;
+}
+
+
+.carousel {
+  position: relative;
+
+  width: 100%;
+
+  height: 250px;
+
+  overflow: hidden;
+
+  background: #eaded7;
+}
+
+
+.carousel-track {
+  display: flex;
+
+  height: 100%;
+
+  transition: transform .35s ease;
+}
+
+
+.carousel-slide {
+  min-width: 100%;
+
+  height: 100%;
+}
+
+
+.product-image {
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: cover;
+
+  display: block;
+
+  background: #eaded7;
+
+  cursor: pointer;
+}
+
+
+/* SOLD LABEL */
+
+.sold-pill {
+  display: inline-block;
+
+  background: #382722;
+
+  color: #fff;
+
+  border-radius: 30px;
+
+  padding: 9px 18px;
+
+  font-family: Arial, sans-serif;
+
+  font-size: 11px;
+
+  letter-spacing: 2px;
+
+  font-weight: bold;
+}
+
+
+/* PRODUCT INFO */
+
+.product-info {
+  padding: 14px;
+
+  text-align: center;
+}
+
+
+.product-name {
+  display: block;
+
+  text-decoration: none;
+
+  font-family: Georgia, serif;
+
+  color: #3f3434;
+
+  font-size: 20px;
+
+  font-weight: normal;
+
+  margin: 16px 0 6px;
+
+  line-height: 1.2;
+}
+
+
+.product-name:hover {
+  color: #6c4f43;
+}
+
+
+.details {
+  font-size: 13px;
+
+  line-height: 1.7;
+
+  margin-bottom: 12px;
+
+  color: #3f3434;
+}
+
+
+.details span {
+  display: block;
+}
+
+
+.details strong {
+  color: #3f3434;
+
+  font-weight: 600;
+}
+
+
+/* SOLD + VIEW SIDE BY SIDE */
+
+.button-row {
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  gap: 8px;
+
+  flex-wrap: nowrap;
+}
+
+
+.view-button {
+  display: inline-block;
+
+  text-decoration: none;
+
+  border: none;
+
+  border-radius: 30px;
+
+  padding: 9px 18px;
+
+  font-family: Arial, sans-serif;
+
+  font-size: 11px;
+
+  letter-spacing: 2px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition: .2s ease;
+
+  background: #8f7770;
+
+  color: white;
+}
+
+
+.view-button:hover {
+  transform: translateY(-1px);
+
+  opacity: .85;
+}
+
+
+.sold-pill {
+  transition: .2s ease;
+}
+
+
+.sold-pill:hover {
+  transform: translateY(-1px);
+
+  opacity: .85;
+}
+
+
+/* ABOUT */
+
+.about {
+  position: relative;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(circle at 10% 15%, #5a4034 0 2px, transparent 3px),
+    radial-gradient(circle at 25% 15%, #5a4034 0 2px, transparent 3px),
+    radial-gradient(circle at 40% 15%, #5a4034 0 2px, transparent 3px),
+    radial-gradient(circle at 55% 15%, #5a4034 0 2px, transparent 3px),
+    radial-gradient(circle at 70% 15%, #5a4034 0 2px, transparent 3px),
+    radial-gradient(circle at 85% 15%, #5a4034 0 2px, transparent 3px),
+
+    radial-gradient(circle at 10% 50%, #5a4034 0 2px, transparent 3px),
+    radial-gradient(circle at 25% 50%, #5a4034 0 2px, transparent 3px),
+    radial-gradient(circle at 40% 50%, #5a4034 0 2px, transparent 3px),
+    radial-gradient(circle at 55% 50%, #5a4034 0 2px, transparent 3px),
+    radial-gradient(circle at 70% 50%, #5a4034 0 2px, transparent 3px),
+    radial-gradient(circle at 85% 50%, #5a4034 0 2px, transparent 3px),
+
+    radial-gradient(circle at 10% 85%, #5a4034 0 2px, transparent 3px),
+    radial-gradient(circle at 25% 85%, #5a4034 0 2px, transparent 3px),
+    radial-gradient(circle at 40% 85%, #5a4034 0 2px, transparent 3px),
+    radial-gradient(circle at 55% 85%, #5a4034 0 2px, transparent 3px),
+    radial-gradient(circle at 70% 85%, #5a4034 0 2px, transparent 3px),
+    radial-gradient(circle at 85% 85%, #5a4034 0 2px, transparent 3px),
+
+    #382722;
+
+  background-size: 100% 100%;
+
+  padding: 60px 20px;
+
+  text-align: center;
+}
+
+
+.about h2 {
+  margin: 0 0 20px;
+
+  font-family: "Allura", cursive;
+
+  font-size: clamp(42px, 9vw, 60px);
+
+  font-weight: 400;
+
+  color: #d6c1b6;
+}
+
+
+.about p {
+  max-width: 650px;
+
+  margin: auto;
+
+  color: #eee5df;
+
+  line-height: 1.8;
+
+  font-size: 14px;
+}
+
+
+.socials {
+  margin-top: 28px;
+
+  display: flex;
+
+  justify-content: center;
+
+  flex-wrap: wrap;
+
+  gap: 10px;
+}
+
+
+/* GLOSSY GLASS SOCIAL BUTTONS */
+
+.socials a {
+  position: relative;
+
+  overflow: hidden;
+
+  text-decoration: none;
+
+  color: white;
+
+  background: rgba(143,119,112,.72);
+
+  border: 1px solid rgba(255,255,255,.42);
+
+  border-radius: 30px;
+
+  padding: 10px 18px;
+
+  font-size: 11px;
+
+  letter-spacing: 1.5px;
+
+  font-weight: bold;
+
+  display: inline-block;
+
+  backdrop-filter: blur(8px);
+
+  -webkit-backdrop-filter: blur(8px);
+
+  box-shadow:
+    inset 0 1px 2px rgba(255,255,255,.5),
+    inset 0 -1px 2px rgba(0,0,0,.16),
+    0 4px 12px rgba(0,0,0,.14);
+
+  transition:
+    transform .3s ease,
+    border-color .35s ease,
+    box-shadow .35s ease;
+
+  animation-duration: 5s;
+
+  animation-timing-function: ease-in-out;
+
+  animation-iteration-count: infinite;
+
+  isolation: isolate;
+}
+
+
+.socials a::before {
+  content: "";
+
+  position: absolute;
+
+  top: 1px;
+
+  left: 7%;
+
+  width: 86%;
+
+  height: 48%;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(255,255,255,.34),
+    rgba(255,255,255,.03)
+  );
+
+  border-radius: 30px;
+
+  pointer-events: none;
+
+  z-index: 1;
+}
+
+
+.socials a::after {
+  content: "";
+
+  position: absolute;
+
+  top: -60%;
+
+  left: -35%;
+
+  width: 28%;
+
+  height: 220%;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,.22),
+    transparent
+  );
+
+  transform: rotate(18deg);
+
+  animation: socialSheen 4.8s ease-in-out infinite;
+
+  pointer-events: none;
+
+  z-index: 2;
+}
+
+
+@keyframes socialSheen {
+
+  0%, 55% {
+    left: -35%;
+    opacity: 0;
+  }
+
+  65% {
+    opacity: 1;
+  }
+
+  82% {
+    left: 115%;
+    opacity: .25;
+  }
+
+  100% {
+    left: 115%;
+    opacity: 0;
+  }
+
+}
+
 
 .socials a:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 22px rgba(0,0,0,.22);
+  transform: translateY(-2px);
+
+  border-color: rgba(255,255,255,.72);
+
+  box-shadow:
+    inset 0 1px 3px rgba(255,255,255,.6),
+    0 6px 15px rgba(0,0,0,.2);
 }
 
-.socials a:nth-child(2) {
-  background: #d6c1b6;
+
+/* DEPOP */
+
+.socials a.depop-button {
+  animation-name: depopFlash;
 }
 
-.socials a:nth-child(3) {
-  background: #f3e8df;
+
+@keyframes depopFlash {
+
+  0%, 28% {
+    background: rgba(143,119,112,.72);
+    border-color: rgba(255,255,255,.42);
+    color: white;
+  }
+
+  45%, 65% {
+    background: rgba(227,36,43,.82);
+    border-color: rgba(227,36,43,.95);
+    color: white;
+  }
+
+  82%, 100% {
+    background: rgba(143,119,112,.72);
+    border-color: rgba(255,255,255,.42);
+    color: white;
+  }
+
 }
 
-.socials a:nth-child(4) {
-  background: #cbb7ad;
+
+/* INSTAGRAM */
+
+.socials a.instagram-button {
+  animation-name: instagramFlash;
 }
 
-/* =========================
-   FOOTER
-========================= */
+
+@keyframes instagramFlash {
+
+  0%, 28% {
+    background: rgba(143,119,112,.72);
+    border-color: rgba(255,255,255,.42);
+    color: white;
+  }
+
+  45%, 65% {
+    background:
+      linear-gradient(
+        45deg,
+        rgba(254,218,117,.82),
+        rgba(250,126,30,.82),
+        rgba(214,41,118,.82),
+        rgba(150,47,191,.82),
+        rgba(79,91,213,.82)
+      );
+
+    border-color: rgba(214,41,118,.95);
+
+    color: white;
+  }
+
+  82%, 100% {
+    background: rgba(143,119,112,.72);
+    border-color: rgba(255,255,255,.42);
+    color: white;
+  }
+
+}
+
+
+/* TIKTOK */
+
+.socials a.tiktok-button {
+  animation-name: tiktokFlash;
+}
+
+
+@keyframes tiktokFlash {
+
+  0%, 28% {
+    background: rgba(143,119,112,.72);
+    border-color: rgba(255,255,255,.42);
+    color: white;
+  }
+
+  45%, 65% {
+    background:
+      linear-gradient(
+        135deg,
+        rgba(0,0,0,.92) 0%,
+        rgba(17,17,17,.92) 55%,
+        rgba(0,0,0,.92) 100%
+      );
+
+    border-color: #25f4ee;
+
+    color: white;
+  }
+
+  82%, 100% {
+    background: rgba(143,119,112,.72);
+    border-color: rgba(255,255,255,.42);
+    color: white;
+  }
+
+}
+
+
+/* FACEBOOK */
+
+.socials a.facebook-button {
+  animation-name: facebookFlash;
+}
+
+
+@keyframes facebookFlash {
+
+  0%, 28% {
+    background: rgba(143,119,112,.72);
+    border-color: rgba(255,255,255,.42);
+    color: white;
+  }
+
+  45%, 65% {
+    background: rgba(24,119,242,.82);
+    border-color: rgba(24,119,242,.95);
+    color: white;
+  }
+
+  82%, 100% {
+    background: rgba(143,119,112,.72);
+    border-color: rgba(255,255,255,.42);
+    color: white;
+  }
+
+}
+
+
+/* TIKTOK LOGO */
+
+.tiktok-logo {
+  display: inline-block;
+
+  font-size: 15px;
+
+  margin-right: 5px;
+
+  vertical-align: -2px;
+
+  font-weight: 900;
+
+  color: #fff;
+
+  text-shadow:
+    -1px 0 #25f4ee,
+    1px 0 #fe2c55;
+}
+
+
+/* FOOTER */
 
 footer {
-  position: relative;
-  overflow: hidden;
-  padding: 35px 20px 40px;
-  text-align: center;
-  color: #fffaf7;
   background:
-    radial-gradient(circle at 20% 25%, rgba(90,64,52,.55) 1px, transparent 1.5px),
-    radial-gradient(circle at 80% 75%, rgba(90,64,52,.55) 1px, transparent 1.5px),
+    radial-gradient(circle at 20% 20%, #5a4034 0 3px, transparent 4px),
+    radial-gradient(circle at 80% 70%, #5a4034 0 3px, transparent 4px),
     #1c1513;
-  background-size: 28px 28px, 34px 34px;
+
+  background-size: 35px 35px;
+
+  color: #eee5df;
+
+  text-align: center;
+
+  padding: 42px 20px 35px;
+
+  font-size: 11px;
+
+  letter-spacing: 1px;
+
+  position: relative;
+
+  overflow: hidden;
+
+  border-top: 5px solid #5a4034;
 }
+
+
+footer::before {
+  content: "✦  ✧  ✦  ✧  ✦";
+
+  position: absolute;
+
+  top: 8px;
+
+  left: 0;
+
+  right: 0;
+
+  color: rgba(255,255,255,.45);
+
+  letter-spacing: 18px;
+
+  animation: footerSparkle 3s ease-in-out infinite;
+}
+
+
+@keyframes footerSparkle {
+
+  0%, 100% {
+    opacity: .3;
+
+    transform: translateY(0);
+  }
+
+  50% {
+    opacity: 1;
+
+    transform: translateY(-2px);
+  }
+
+}
+
 
 .footer-brand {
   color: #d6c1b6;
+
   font-family: "Allura", cursive;
+
   font-size: 40px;
+
+  font-weight: 400;
+
+  letter-spacing: 1px;
 }
 
-footer p {
-  margin-top: 5px;
-  color: #f3e8df;
+
+.footer-line {
+  margin-top: 8px;
+
+  color: #d6c1b6;
+
   font-size: 10px;
-  letter-spacing: 1.5px;
+
+  letter-spacing: 2px;
+
   text-transform: uppercase;
 }
 
-.footer-stars {
-  color: #d6c1b6;
-  margin-bottom: 10px;
-  letter-spacing: 10px;
-  animation: footerSparkle 2.5s ease-in-out infinite;
+
+.footer-copy {
+  margin-top: 18px;
+
+  color: #eee5df;
+
+  font-size: 10px;
+
+  letter-spacing: 1px;
+
+  opacity: .75;
 }
 
-@keyframes footerSparkle {
-  0%,100% {
-    opacity: .4;
-  }
-  50% {
-    opacity: 1;
-  }
+
+/* LIGHTBOX */
+
+.lightbox {
+  display: none;
+
+  position: fixed;
+
+  inset: 0;
+
+  background: rgba(0,0,0,.9);
+
+  z-index: 9999;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 20px;
 }
 
-/* =========================
-   MOBILE
-========================= */
 
-@media (max-width: 600px) {
+.lightbox.show {
+  display: flex;
+}
+
+
+.lightbox img {
+  max-width: 95vw;
+
+  max-height: 90vh;
+
+  object-fit: contain;
+}
+
+
+.lightbox-close {
+  position: absolute;
+
+  top: 18px;
+
+  right: 22px;
+
+  color: white;
+
+  font-size: 35px;
+
+  cursor: pointer;
+
+  line-height: 1;
+}
+
+
+@media (max-width: 700px) {
 
   header {
-    padding: 34px 10px 22px;
+    min-height: 215px;
   }
 
-  .brand {
-    font-size: 48px;
-  }
-
-  .tagline {
-    font-size: 9px;
-    letter-spacing: 1.2px;
-  }
-
-  nav {
-    gap: 6px;
-    margin-top: 20px;
-  }
 
   nav a {
-    padding: 8px 10px;
-    font-size: 9px;
-    letter-spacing: .7px;
+    margin: 3px 2px;
+
+    padding: 8px 11px;
   }
 
-  .intro {
-    padding: 50px 15px 45px;
+
+  .carousel {
+    height: 330px;
   }
 
-  .intro h1 {
-    font-size: 48px;
+
+  .products {
+    grid-template-columns: 1fr;
+
+    padding: 0 18px;
   }
 
-  .intro p {
-    font-size: 12px;
+
+  .hero,
+  .about {
+    padding-left: 20px;
+
+    padding-right: 20px;
   }
 
-  .sold-section {
-    padding: 30px 7px 45px;
-  }
-
-  .sold-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 7px;
-  }
-
-  .card {
-    padding: 5px;
-    border-radius: 7px;
-  }
-
-  .card-image {
-    height: 115px;
-    border-radius: 5px;
-  }
-
-  .card h2 {
-    font-size: 11px;
-    margin: 8px 2px 5px;
-  }
-
-  .details {
-    gap: 3px;
-    margin-bottom: 6px;
-  }
-
-  .detail {
-    padding: 4px 4px;
-    font-size: 7px;
-  }
-
-  .sold-pill {
-    margin-bottom: 6px;
-    padding: 4px 6px;
-    font-size: 6px;
-    letter-spacing: .8px;
-  }
-
-  .view-btn {
-    padding: 6px 8px;
-    font-size: 7px;
-    letter-spacing: .5px;
-  }
-
-  .back-wrap {
-    margin-top: 30px;
-  }
-
-  .back-btn {
-    padding: 10px 15px;
-    font-size: 9px;
-  }
-
-  #about {
-    padding: 50px 15px;
-  }
-
-  #about h2 {
-    font-size: 45px;
-  }
-
-  #about p {
-    font-size: 12px;
-  }
-
-  .socials {
-    gap: 7px;
-  }
-
-  .socials a {
-    min-width: 85px;
-    padding: 9px 10px;
-    font-size: 8px;
-  }
-
-  footer {
-    padding: 30px 15px 35px;
-  }
-
-  .footer-brand {
-    font-size: 36px;
-  }
 }
+
 </style>
 </head>
 
+
 <body>
+
+
+<script>
+
+  if ("scrollRestoration" in history) {
+    history.scrollRestoration = "manual";
+  }
+
+  window.scrollTo(0, 0);
+
+
+  window.addEventListener("beforeunload", function () {
+    window.scrollTo(0, 0);
+  });
+
+
+  window.addEventListener("load", function () {
+
+    window.scrollTo(0, 0);
+
+    setTimeout(function () {
+      window.scrollTo(0, 0);
+    }, 100);
+
+  });
+
+</script>
+
 
 <header>
 
-  <span class="sparkle one">✦</span>
-  <span class="sparkle two">✧</span>
-  <span class="sparkle three">✦</span>
-  <span class="sparkle four">✧</span>
+  <div class="sparkles">
 
-  <div class="brand">Prior Attire</div>
+    <span class="sparkle">✦</span>
+    <span class="sparkle">✧</span>
+    <span class="sparkle">✦</span>
+    <span class="sparkle">★</span>
+    <span class="sparkle">✧</span>
+    <span class="sparkle">✦</span>
+    <span class="sparkle">✧</span>
+    <span class="sparkle">★</span>
+    <span class="sparkle">✦</span>
+    <span class="sparkle">✧</span>
+    <span class="sparkle">✦</span>
+    <span class="sparkle">★</span>
+
+  </div>
+
+
+  <div class="logo-area">
+
+    <span class="logo-star one">✦</span>
+    <span class="logo-star two">✧</span>
+    <span class="logo-star three">✦</span>
+    <span class="logo-star four">✧</span>
+
+    <div class="logo">
+      Prior Attire
+    </div>
+
+  </div>
+
 
   <div class="tagline">
     Vintage Coach • Y2K Finds • Curated Closet
   </div>
 
+
   <nav>
-    <a href="current.html">SHOP</a>
-    <a href="sold.html">VIEW ARCHIVE</a>
-    <a href="#about">ABOUT</a>
+
+    <a href="current.html">
+      SHOP
+    </a>
+
+    <a href="sold.html">
+      VIEW ARCHIVE
+    </a>
+
+    <a href="#about">
+      ABOUT
+    </a>
+
     <a
       class="depop-button"
       href="https://www.depop.com/prior_attire/"
@@ -591,16 +1470,17 @@ footer p {
     >
       DEPOP
     </a>
+
   </nav>
 
 </header>
 
-<section class="intro">
 
-  <span class="sparkle one">✦</span>
-  <span class="sparkle two">✧</span>
+<section class="hero">
 
-  <h1>Sold Items</h1>
+  <h1>
+    Sold Items
+  </h1>
 
   <p>
     A little archive of pieces that found new homes.
@@ -608,312 +1488,672 @@ footer p {
 
 </section>
 
-<section class="sold-section">
 
-  <div class="sold-grid">
+<section class="shop-section" id="shop">
+
+  <h2 class="section-title">
+    Sold Archive
+  </h2>
+
+
+  <div class="products">
+
 
     <!-- LISTING 1 -->
-    <div class="card">
 
-      <img
-        class="card-image"
-        src="IMG_3678.jpeg"
-        alt="Coach Floral Poppy Tote"
-      >
+    <div class="product-card">
 
-      <h2>Coach Floral Poppy Tote</h2>
+      <div class="carousel">
 
-      <div class="details">
-        <span class="detail">No. 14880</span>
-        <span class="detail">Good Condition</span>
+        <div class="carousel-track">
+
+          <div class="carousel-slide">
+
+            <img
+              src="IMG_3678.jpeg"
+              class="product-image"
+              alt="Coach Floral Poppy Tote"
+              onclick="openLightbox(this.src)"
+            >
+
+          </div>
+
+        </div>
+
       </div>
 
-      <div class="sold-pill">SOLD</div>
 
-      <br>
+      <div class="product-info">
 
-      <a
-        class="view-btn"
-        href="https://www.depop.com/products/prior_atfire-coach-floral-poppy-tote-super-88b4/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        VIEW
-      </a>
+        <div class="product-name">
+          Coach Floral Poppy Tote
+        </div>
+
+
+        <div class="details">
+
+          <span>
+            <strong>Coach Creed No.</strong>
+            14880
+          </span>
+
+          <span>
+            <strong>Condition:</strong>
+            Good Condition
+          </span>
+
+        </div>
+
+
+        <div class="button-row">
+
+          <div class="sold-pill">
+            SOLD
+          </div>
+
+
+          <a
+            class="view-button"
+            href="https://www.depop.com/products/prior_atfire-coach-floral-poppy-tote-super-88b4/"
+            target="_blank"
+            rel="noopener"
+          >
+            VIEW
+          </a>
+
+        </div>
+
+      </div>
 
     </div>
+
+
 
     <!-- LISTING 2 -->
-    <div class="card">
 
-      <img
-        class="card-image"
-        src="IMG_3874.jpeg"
-        alt="Vintage Coach Bag"
-      >
+    <div class="product-card">
 
-      <h2>Vintage Coach Bag</h2>
+      <div class="carousel">
 
-      <div class="details">
-        <span class="detail">No. 00000</span>
-        <span class="detail">Good Condition</span>
+        <div class="carousel-track">
+
+          <div class="carousel-slide">
+
+            <img
+              src="IMG_3874.jpeg"
+              class="product-image"
+              alt="Vintage Coach Bag"
+              onclick="openLightbox(this.src)"
+            >
+
+          </div>
+
+        </div>
+
       </div>
 
-      <div class="sold-pill">SOLD</div>
 
-      <br>
+      <div class="product-info">
 
-      <a
-        class="view-btn"
-        href="https://www.depop.com/products/prior_attire-3-bags-silver-with-chain-26f0/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        VIEW
-      </a>
+        <div class="product-name">
+          Vintage Coach Bag
+        </div>
+
+
+        <div class="details">
+
+          <span>
+            <strong>Coach Creed No.</strong>
+            00000
+          </span>
+
+          <span>
+            <strong>Condition:</strong>
+            Good Condition
+          </span>
+
+        </div>
+
+
+        <div class="button-row">
+
+          <div class="sold-pill">
+            SOLD
+          </div>
+
+
+          <a
+            class="view-button"
+            href="https://www.depop.com/products/prior_attire-3-bags-silver-with-chain-26f0/"
+            target="_blank"
+            rel="noopener"
+          >
+            VIEW
+          </a>
+
+        </div>
+
+      </div>
 
     </div>
+
+
 
     <!-- LISTING 3 -->
-    <div class="card">
 
-      <img
-        class="card-image"
-        src="IMG_4064.jpeg"
-        alt="Coach Flap Ergo Turnlock"
-      >
+    <div class="product-card">
 
-      <h2>Coach Flap Ergo Turnlock</h2>
+      <div class="carousel">
 
-      <div class="details">
-        <span class="detail">No. 11602</span>
-        <span class="detail">Good Condition</span>
+        <div class="carousel-track">
+
+          <div class="carousel-slide">
+
+            <img
+              src="IMG_4064.jpeg"
+              class="product-image"
+              alt="Coach Flap Ergo Turnlock"
+              onclick="openLightbox(this.src)"
+            >
+
+          </div>
+
+        </div>
+
       </div>
 
-      <div class="sold-pill">SOLD</div>
 
-      <br>
+      <div class="product-info">
 
-      <a
-        class="view-btn"
-        href="https://www.depop.com/products/prioq_attire-coach-vintage-brown-ergo-flap-6eae/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        VIEW
-      </a>
+        <div class="product-name">
+          Coach Flap Ergo Turnlock
+        </div>
+
+
+        <div class="details">
+
+          <span>
+            <strong>Coach Creed No.</strong>
+            11602
+          </span>
+
+          <span>
+            <strong>Condition:</strong>
+            Good Condition
+          </span>
+
+        </div>
+
+
+        <div class="button-row">
+
+          <div class="sold-pill">
+            SOLD
+          </div>
+
+
+          <a
+            class="view-button"
+            href="https://www.depop.com/products/prioq_attire-coach-vintage-brown-ergo-flap-6eae/"
+            target="_blank"
+            rel="noopener"
+          >
+            VIEW
+          </a>
+
+        </div>
+
+      </div>
 
     </div>
+
+
 
     <!-- LISTING 4 -->
-    <div class="card">
 
-      <img
-        class="card-image"
-        src="IMG_4134.jpeg"
-        alt="Coach Y2K Valentine's Day Set"
-      >
+    <div class="product-card">
 
-      <h2>Coach Y2K Valentine's Day Set</h2>
+      <div class="carousel">
 
-      <div class="details">
-        <span class="detail">No. 42349</span>
-        <span class="detail">Good Condition</span>
+        <div class="carousel-track">
+
+          <div class="carousel-slide">
+
+            <img
+              src="IMG_4134.jpeg"
+              class="product-image"
+              alt="Coach Y2K Valentine's Day Set"
+              onclick="openLightbox(this.src)"
+            >
+
+          </div>
+
+        </div>
+
       </div>
 
-      <div class="sold-pill">SOLD</div>
 
-      <br>
+      <div class="product-info">
 
-      <a
-        class="view-btn"
-        href="https://www.depop.com/products/priorjattire-vintage-coach-valentines-scarf-print-39de/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        VIEW
-      </a>
+        <div class="product-name">
+          Coach Y2K Valentine's Day Set
+        </div>
+
+
+        <div class="details">
+
+          <span>
+            <strong>Coach Creed No.</strong>
+            42349
+          </span>
+
+          <span>
+            <strong>Condition:</strong>
+            Good Condition
+          </span>
+
+        </div>
+
+
+        <div class="button-row">
+
+          <div class="sold-pill">
+            SOLD
+          </div>
+
+
+          <a
+            class="view-button"
+            href="https://www.depop.com/products/priorjattire-vintage-coach-valentines-scarf-print-39de/"
+            target="_blank"
+            rel="noopener"
+          >
+            VIEW
+          </a>
+
+        </div>
+
+      </div>
 
     </div>
+
+
 
     <!-- LISTING 5 -->
-    <div class="card">
 
-      <img
-        class="card-image"
-        src="IMG_4152.jpeg"
-        alt="Coach Poppy Floral Graffiti Bag"
-      >
+    <div class="product-card">
 
-      <h2>Coach Poppy Floral Graffiti Bag</h2>
+      <div class="carousel">
 
-      <div class="details">
-        <span class="detail">No. 00000</span>
-        <span class="detail">Good Condition</span>
+        <div class="carousel-track">
+
+          <div class="carousel-slide">
+
+            <img
+              src="IMG_4152.jpeg"
+              class="product-image"
+              alt="Coach Poppy Floral Graffiti Bag"
+              onclick="openLightbox(this.src)"
+            >
+
+          </div>
+
+        </div>
+
       </div>
 
-      <div class="sold-pill">SOLD</div>
 
-      <br>
+      <div class="product-info">
 
-      <a
-        class="view-btn"
-        href="https://www.depop.com/products/prior_attqre-coach-poppy-floral-graffitti-bag-093c/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        VIEW
-      </a>
+        <div class="product-name">
+          Coach Poppy Floral Graffiti Bag
+        </div>
+
+
+        <div class="details">
+
+          <span>
+            <strong>Coach Creed No.</strong>
+            00000
+          </span>
+
+          <span>
+            <strong>Condition:</strong>
+            Good Condition
+          </span>
+
+        </div>
+
+
+        <div class="button-row">
+
+          <div class="sold-pill">
+            SOLD
+          </div>
+
+
+          <a
+            class="view-button"
+            href="https://www.depop.com/products/prior_attqre-coach-poppy-floral-graffitti-bag-093c/"
+            target="_blank"
+            rel="noopener"
+          >
+            VIEW
+          </a>
+
+        </div>
+
+      </div>
 
     </div>
+
+
 
     <!-- LISTING 6 -->
-    <div class="card">
 
-      <img
-        class="card-image"
-        src="IMG_4252.jpeg"
-        alt="Vintage Coach Bag"
-      >
+    <div class="product-card">
 
-      <h2>Vintage Coach Bag</h2>
+      <div class="carousel">
 
-      <div class="details">
-        <span class="detail">No. 00000</span>
-        <span class="detail">Good Condition</span>
+        <div class="carousel-track">
+
+          <div class="carousel-slide">
+
+            <img
+              src="IMG_4252.jpeg"
+              class="product-image"
+              alt="Vintage Coach Bag"
+              onclick="openLightbox(this.src)"
+            >
+
+          </div>
+
+        </div>
+
       </div>
 
-      <div class="sold-pill">SOLD</div>
+
+      <div class="product-info">
+
+        <div class="product-name">
+          Vintage Coach Bag
+        </div>
+
+
+        <div class="details">
+
+          <span>
+            <strong>Coach Creed No.</strong>
+            00000
+          </span>
+
+          <span>
+            <strong>Condition:</strong>
+            Good Condition
+          </span>
+
+        </div>
+
+
+        <div class="button-row">
+
+          <div class="sold-pill">
+            SOLD
+          </div>
+
+        </div>
+
+      </div>
 
     </div>
+
+
 
     <!-- LISTING 7 -->
-    <div class="card">
 
-      <img
-        class="card-image"
-        src="IMG_4458.jpeg"
-        alt="Coach Brown Turnlock Shoulder Bag"
-      >
+    <div class="product-card">
 
-      <h2>Coach Brown Turnlock Shoulder Bag</h2>
+      <div class="carousel">
 
-      <div class="details">
-        <span class="detail">No. 15171</span>
-        <span class="detail">Fair Condition</span>
+        <div class="carousel-track">
+
+          <div class="carousel-slide">
+
+            <img
+              src="IMG_4458.jpeg"
+              class="product-image"
+              alt="Coach Brown Turnlock Shoulder Bag"
+              onclick="openLightbox(this.src)"
+            >
+
+          </div>
+
+        </div>
+
       </div>
 
-      <div class="sold-pill">SOLD</div>
 
-      <br>
+      <div class="product-info">
 
-      <a
-        class="view-btn"
-        href="https://www.depop.com/products/prior_at6ire-coach-brown-turn-lock-shoulder-bag-66b3/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        VIEW
-      </a>
+        <div class="product-name">
+          Coach Brown Turnlock Shoulder Bag
+        </div>
+
+
+        <div class="details">
+
+          <span>
+            <strong>Coach Creed No.</strong>
+            15171
+          </span>
+
+          <span>
+            <strong>Condition:</strong>
+            Fair Condition
+          </span>
+
+        </div>
+
+
+        <div class="button-row">
+
+          <div class="sold-pill">
+            SOLD
+          </div>
+
+
+          <a
+            class="view-button"
+            href="https://www.depop.com/products/prior_at6ire-coach-brown-turn-lock-shoulder-bag-66b3/"
+            target="_blank"
+            rel="noopener"
+          >
+            VIEW
+          </a>
+
+        </div>
+
+      </div>
 
     </div>
+
+
 
     <!-- LISTING 8 -->
-    <div class="card">
 
-      <img
-        class="card-image"
-        src="IMG_4566.jpeg"
-        alt="Vintage Coach Bag"
-      >
+    <div class="product-card">
 
-      <h2>Vintage Coach Bag</h2>
+      <div class="carousel">
 
-      <div class="details">
-        <span class="detail">No. 00000</span>
-        <span class="detail">Good Condition</span>
+        <div class="carousel-track">
+
+          <div class="carousel-slide">
+
+            <img
+              src="IMG_4566.jpeg"
+              class="product-image"
+              alt="Vintage Coach Bag"
+              onclick="openLightbox(this.src)"
+            >
+
+          </div>
+
+        </div>
+
       </div>
 
-      <div class="sold-pill">SOLD</div>
+
+      <div class="product-info">
+
+        <div class="product-name">
+          Vintage Coach Bag
+        </div>
+
+
+        <div class="details">
+
+          <span>
+            <strong>Coach Creed No.</strong>
+            00000
+          </span>
+
+          <span>
+            <strong>Condition:</strong>
+            Good Condition
+          </span>
+
+        </div>
+
+
+        <div class="button-row">
+
+          <div class="sold-pill">
+            SOLD
+          </div>
+
+        </div>
+
+      </div>
 
     </div>
+
+
 
     <!-- LISTING 9 -->
-    <div class="card">
 
-      <img
-        class="card-image"
-        src="IMG_6186.jpeg"
-        alt="Vintage Coach Bag"
-      >
+    <div class="product-card">
 
-      <h2>Vintage Coach Bag</h2>
+      <div class="carousel">
 
-      <div class="details">
-        <span class="detail">No. 00000</span>
-        <span class="detail">Good Condition</span>
+        <div class="carousel-track">
+
+          <div class="carousel-slide">
+
+            <img
+              src="IMG_6186.jpeg"
+              class="product-image"
+              alt="Vintage Coach Bag"
+              onclick="openLightbox(this.src)"
+            >
+
+          </div>
+
+        </div>
+
       </div>
 
-      <div class="sold-pill">SOLD</div>
+
+      <div class="product-info">
+
+        <div class="product-name">
+          Vintage Coach Bag
+        </div>
+
+
+        <div class="details">
+
+          <span>
+            <strong>Coach Creed No.</strong>
+            00000
+          </span>
+
+          <span>
+            <strong>Condition:</strong>
+            Good Condition
+          </span>
+
+        </div>
+
+
+        <div class="button-row">
+
+          <div class="sold-pill">
+            SOLD
+          </div>
+
+        </div>
+
+      </div>
 
     </div>
 
-  </div>
-
-  <div class="back-wrap">
-
-    <a
-      class="back-btn"
-      href="current.html"
-    >
-      ← VIEW CURRENT ITEMS
-    </a>
 
   </div>
 
 </section>
 
-<!-- ABOUT -->
 
-<section id="about">
 
-  <h2>About Prior Attire</h2>
+<section class="about" id="about">
+
+  <h2>
+    About Prior Attire
+  </h2>
+
 
   <p>
     Prior Attire is a curated vintage Coach shop focused on finding
     unique pieces with timeless character and giving them a second life.
   </p>
 
-  <div class="socials">
+
+  <div class="socials" id="socials">
 
     <a
+      class="depop-button"
       href="https://www.depop.com/prior_attire/"
       target="_blank"
-      rel="noopener noreferrer"
+      rel="noopener"
     >
-      DEPOP ♪
+      DEPOP
     </a>
 
+
     <a
+      class="instagram-button"
       href="https://www.instagram.com/prior_attire/"
       target="_blank"
-      rel="noopener noreferrer"
+      rel="noopener"
     >
-      INSTAGRAM ♪
+      INSTAGRAM
     </a>
 
+
     <a
+      class="tiktok-button"
       href="https://www.tiktok.com/@priorattire7"
       target="_blank"
-      rel="noopener noreferrer"
+      rel="noopener"
     >
-      TIKTOK ♪
+      <span class="tiktok-logo">♪</span>TIKTOK
     </a>
 
+
     <a
+      class="facebook-button"
       href="https://m.facebook.com/profile.php?id=61586747224418"
       target="_blank"
-      rel="noopener noreferrer"
+      rel="noopener"
     >
       FACEBOOK
     </a>
@@ -922,43 +2162,90 @@ footer p {
 
 </section>
 
-<!-- FOOTER -->
+
 
 <footer>
-
-  <div class="footer-stars">
-    ✦ ✧ ✦ ✧ ✦
-  </div>
 
   <div class="footer-brand">
     Prior Attire
   </div>
 
-  <p>
+
+  <div class="footer-line">
     Vintage Coach • Y2K Finds • Curated Closet
-  </p>
+  </div>
+
+
+  <div class="footer-copy">
+    © 2026 Prior Attire • Vintage Coach
+  </div>
 
 </footer>
 
+
+
+<div
+  class="lightbox"
+  id="lightbox"
+  onclick="closeLightbox()"
+>
+
+  <span class="lightbox-close">
+    ×
+  </span>
+
+
+  <img
+    id="lightbox-image"
+    src=""
+    alt=""
+  >
+
+</div>
+
+
+
 <script>
-  if ("scrollRestoration" in history) {
-    history.scrollRestoration = "manual";
+
+  function openLightbox(src) {
+
+    const lightbox =
+      document.getElementById("lightbox");
+
+    const image =
+      document.getElementById("lightbox-image");
+
+
+    image.src = src;
+
+
+    lightbox.classList.add("show");
+
   }
 
-  window.scrollTo(0, 0);
 
-  window.addEventListener("beforeunload", function () {
-    window.scrollTo(0, 0);
-  });
+  function closeLightbox() {
 
-  window.addEventListener("load", function () {
-    window.scrollTo(0, 0);
+    document
+      .getElementById("lightbox")
+      .classList.remove("show");
 
-    setTimeout(function () {
-      window.scrollTo(0, 0);
-    }, 100);
-  });
+  }
+
+
+  document.addEventListener(
+    "keydown",
+    function(event) {
+
+      if (event.key === "Escape") {
+        closeLightbox();
+      }
+
+    }
+  );
+
 </script>
+
 
 </body>
 </html>
