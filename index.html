@@ -1,674 +1,1838 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Prior Attire | Vintage Coach</title>
-
-<style>
-
-* {
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  margin: 0;
-  background: #f7eeee;
-  color: #3f3434;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-
-/* =========================
-   HEADER
-========================= */
-
-header {
-  background: #9cd4d1;
-  text-align: center;
-  padding: 55px 20px 48px;
-  position: relative;
-  overflow: hidden;
-}
-
-.brand {
-  margin: 0;
-  color: white;
-  font-family: Georgia, serif;
-  font-size: clamp(46px, 10vw, 72px);
-  font-weight: normal;
-  letter-spacing: 3px;
-  display: inline-block;
-  position: relative;
-  animation: brandGlow 3s ease-in-out infinite;
-}
-
-
-/* SPARKLES AROUND LETTERING */
-
-.brand::before,
-.brand::after {
-  content: "✦";
-  position: absolute;
-  color: white;
-  font-family: Georgia, serif;
-  font-size: 17px;
-  animation: sparkle 2.3s ease-in-out infinite;
-}
-
-.brand::before {
-  left: -28px;
-  top: 5px;
-}
-
-.brand::after {
-  right: -28px;
-  bottom: 5px;
-  animation-delay: 1.1s;
-}
-
-
-@keyframes sparkle {
-
-  0%, 65%, 100% {
-    opacity: 0;
-    transform: scale(.4) rotate(0deg);
-  }
-
-  75% {
-    opacity: 1;
-    transform: scale(1.25) rotate(20deg);
-  }
-
-  88% {
-    opacity: .5;
-    transform: scale(.8) rotate(45deg);
-  }
-
-}
-
-
-@keyframes brandGlow {
-
-  0%, 100% {
-    text-shadow:
-      0 0 0 rgba(255,255,255,0);
-  }
-
-  50% {
-    text-shadow:
-      0 0 8px rgba(255,255,255,.7),
-      0 0 18px rgba(255,255,255,.35);
-  }
-
-}
-
-
-.tagline {
-  margin: 12px 0 0;
-  color: white;
-  font-size: 12px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-}
-
-
-/* =========================
-   INTRO
-========================= */
-
-.intro {
-  text-align: center;
-  padding: 38px 20px 25px;
-}
-
-.intro h2 {
-  margin: 0;
-  font-family: Georgia, serif;
-  font-size: 29px;
-  font-weight: normal;
-  letter-spacing: 1px;
-}
-
-.intro p {
-  max-width: 600px;
-  margin: 12px auto 0;
-  font-size: 14px;
-  line-height: 1.7;
-  color: #675858;
-}
-
-
-/* =========================
-   BUTTONS
-========================= */
-
-.button-area {
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-  flex-wrap: wrap;
-  padding: 5px 20px 35px;
-}
-
-.main-button {
-  display: inline-block;
-  text-decoration: none;
-  background: #8f7770;
-  color: white;
-  padding: 14px 25px;
-  border-radius: 30px;
-  font-size: 12px;
-  font-weight: bold;
-  letter-spacing: 1.5px;
-  transition: all .25s ease;
-}
-
-.main-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 7px 18px rgba(63,52,52,.18);
-}
-
-
-/* =========================
-   FEATURED ITEMS
-========================= */
-
-.featured-section {
-  padding: 20px 18px 55px;
-}
-
-.section-heading {
-  max-width: 1100px;
-  margin: 0 auto 22px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 15px;
-}
-
-.section-heading h2 {
-  margin: 0;
-  font-family: Georgia, serif;
-  font-size: 28px;
-  font-weight: normal;
-  letter-spacing: 1px;
-}
-
-.section-heading a {
-  text-decoration: none;
-  background: #8f7770;
-  color: white;
-  padding: 10px 17px;
-  border-radius: 25px;
-  font-size: 10px;
-  letter-spacing: 1px;
-  font-weight: bold;
-}
-
-
-/* FEATURED GRID */
-
-.featured-grid {
-  max-width: 1100px;
-  margin: auto;
-
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
-}
-
-
-/* FEATURED CARD */
-
-.card {
-  background: #fffaf7;
-  border: 1px solid #d9c8c1;
-  border-radius: 10px;
-  padding: 12px;
-  text-align: center;
-  box-shadow: 0 5px 16px rgba(63,52,52,.08);
-  overflow: hidden;
-}
-
-.card-image {
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-  display: block;
-  border-radius: 7px;
-  background: #eaded8;
-}
-
-.card h3 {
-  margin: 14px 0 5px;
-  font-family: Georgia, serif;
-  font-size: 19px;
-  font-weight: normal;
-}
-
-.card-details {
-  font-size: 12px;
-  line-height: 1.6;
-  margin-bottom: 12px;
-  color: #665858;
-}
-
-
-/* BUY BUTTON */
-
-.buy-button {
-  display: inline-block;
-  background: #9cd4d1;
-  color: #263b3a;
-  text-decoration: none;
-  padding: 9px 18px;
-  border-radius: 25px;
-  font-size: 11px;
-  font-weight: bold;
-  letter-spacing: 1px;
-  transition: .25s ease;
-}
-
-.buy-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 5px 12px rgba(63,52,52,.15);
-}
-
-
-/* =========================
-   SHOP CURRENT SECTION
-========================= */
-
-.shop-section {
-  background: #8f7770;
-  text-align: center;
-  padding: 48px 20px;
-  color: white;
-}
-
-.shop-section h2 {
-  margin: 0 0 10px;
-  font-family: Georgia, serif;
-  font-size: 29px;
-  font-weight: normal;
-}
-
-.shop-section p {
-  margin: 0 auto 22px;
-  font-size: 13px;
-  opacity: .9;
-}
-
-.shop-current {
-  display: inline-block;
-  background: white;
-  color: #3f3434;
-  text-decoration: none;
-  padding: 14px 28px;
-  border-radius: 30px;
-  font-size: 12px;
-  font-weight: bold;
-  letter-spacing: 1.5px;
-  transition: .25s ease;
-}
-
-.shop-current:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 7px 18px rgba(0,0,0,.18);
-}
-
-
-/* =========================
-   SOLD ARCHIVE
-========================= */
-
-.archive-section {
-  text-align: center;
-  padding: 45px 20px 50px;
-}
-
-.archive-section h2 {
-  margin: 0 0 9px;
-  font-family: Georgia, serif;
-  font-size: 27px;
-  font-weight: normal;
-}
-
-.archive-section p {
-  margin: 0 auto 20px;
-  font-size: 13px;
-  color: #675858;
-}
-
-.archive-button {
-  display: inline-block;
-  background: #8f7770;
-  color: white;
-  text-decoration: none;
-  padding: 13px 26px;
-  border-radius: 30px;
-  font-size: 11px;
-  font-weight: bold;
-  letter-spacing: 1.5px;
-  transition: .25s ease;
-}
-
-.archive-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 7px 18px rgba(63,52,52,.18);
-}
-
-
-/* =========================
-   FOOTER
-========================= */
-
-footer {
-  background: #9cd4d1;
-  color: white;
-  text-align: center;
-  padding: 28px 20px;
-}
-
-.footer-brand {
-  font-family: Georgia, serif;
-  font-size: 22px;
-  letter-spacing: 2px;
-  margin-bottom: 7px;
-}
-
-footer p {
-  margin: 0;
-  font-size: 10px;
-  letter-spacing: 1px;
-}
-
-
-/* =========================
-   MOBILE
-========================= */
-
-@media (max-width: 700px) {
-
-  header {
-    padding: 42px 15px 38px;
-  }
-
-  .brand {
-    font-size: 48px;
-  }
-
-  .featured-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-  }
-
-  .section-heading {
-    align-items: flex-start;
-  }
-
-  .section-heading h2 {
-    font-size: 24px;
-  }
-
-  .section-heading a {
-    font-size: 9px;
-    padding: 8px 12px;
-  }
-
-  .card {
-    padding: 8px;
-  }
-
-  .card h3 {
-    font-size: 16px;
-  }
-
-  .card-details {
-    font-size: 10px;
-  }
-
-  .buy-button {
-    font-size: 9px;
-    padding: 8px 11px;
-  }
-
-}
-
-
-@media (max-width: 430px) {
-
-  .featured-grid {
-    grid-template-columns: 1fr;
-    max-width: 380px;
-  }
-
-  .brand {
-    font-size: 43px;
-  }
-
-}
-
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Prior Attire | Vintage Coach</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Coiny&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: #241b18;
+      color: #302522;
+      overflow-x: hidden;
+    }
+
+    /* =========================
+       SPARKLY HEADER
+    ========================= */
+
+    header {
+      background:
+        radial-gradient(circle at 20% 20%, #5a4034 0 3px, transparent 4px),
+        radial-gradient(circle at 80% 70%, #5a4034 0 3px, transparent 4px),
+        #1c1513;
+      background-size: 35px 35px;
+      padding: 32px 20px 22px;
+      text-align: center;
+      border-bottom: 5px solid #8b6a5b;
+      position: relative;
+      overflow: hidden;
+      min-height: 215px;
+    }
+
+    header::before {
+      content: "";
+      position: absolute;
+      width: 420px;
+      height: 180px;
+      left: 50%;
+      top: 0;
+      transform: translateX(-50%);
+      background: radial-gradient(
+        ellipse,
+        rgba(214,193,182,0.14),
+        transparent 68%
+      );
+      animation: glowMove 5s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    @keyframes glowMove {
+      0%, 100% {
+        opacity: 0.35;
+        transform: translateX(-50%) scale(0.9);
+      }
+
+      50% {
+        opacity: 1;
+        transform: translateX(-50%) scale(1.15);
+      }
+    }
+
+    /* =========================
+       FLOATING SPARKLES
+    ========================= */
+
+    .sparkles {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .sparkle {
+      position: absolute;
+      color: #d6c1b6;
+      font-size: 22px;
+      line-height: 1;
+      opacity: 0;
+      text-shadow:
+        0 0 5px #b89b8c,
+        0 0 12px #765446;
+      animation: sparkleFloat 4s ease-in-out infinite;
+    }
+
+    .sparkle:nth-child(1) {
+      left: 9%;
+      top: 25px;
+      font-size: 24px;
+      animation-delay: 0s;
+    }
+
+    .sparkle:nth-child(2) {
+      left: 18%;
+      top: 105px;
+      font-size: 15px;
+      animation-delay: 1.2s;
+    }
+
+    .sparkle:nth-child(3) {
+      left: 30%;
+      top: 28px;
+      font-size: 13px;
+      animation-delay: 2.2s;
+    }
+
+    .sparkle:nth-child(4) {
+      right: 9%;
+      top: 32px;
+      font-size: 26px;
+      animation-delay: 0.7s;
+    }
+
+    .sparkle:nth-child(5) {
+      right: 19%;
+      top: 110px;
+      font-size: 15px;
+      animation-delay: 1.8s;
+    }
+
+    .sparkle:nth-child(6) {
+      right: 31%;
+      top: 25px;
+      font-size: 13px;
+      animation-delay: 2.8s;
+    }
+
+    .sparkle:nth-child(7) {
+      left: 5%;
+      top: 145px;
+      font-size: 13px;
+      animation-delay: 3s;
+    }
+
+    .sparkle:nth-child(8) {
+      right: 5%;
+      top: 145px;
+      font-size: 14px;
+      animation-delay: 1.5s;
+    }
+
+    @keyframes sparkleFloat {
+      0% {
+        opacity: 0;
+        transform: translateY(12px) scale(0.4) rotate(0deg);
+      }
+
+      25% {
+        opacity: 1;
+        transform: translateY(0) scale(1.2) rotate(45deg);
+      }
+
+      50% {
+        opacity: 0.75;
+        transform: translateY(-8px) scale(0.9) rotate(90deg);
+      }
+
+      75% {
+        opacity: 1;
+        transform: translateY(-2px) scale(1.25) rotate(135deg);
+      }
+
+      100% {
+        opacity: 0;
+        transform: translateY(-14px) scale(0.4) rotate(180deg);
+      }
+    }
+
+    /* =========================
+       LOGO
+    ========================= */
+
+    .logo-area {
+      position: relative;
+      display: inline-block;
+      z-index: 3;
+    }
+
+    .logo {
+      font-family: 'Coiny', cursive;
+      font-size: clamp(42px, 10vw, 72px);
+      color: #d6c1b6;
+      letter-spacing: 2px;
+      line-height: 1;
+
+      text-shadow:
+        3px 3px 0 #5b4035,
+        6px 6px 0 #17100e;
+
+      display: inline-block;
+
+      animation: priorAttireMove 3.6s ease-in-out infinite;
+      transform-origin: center;
+    }
+
+    /* NEW: only the words Prior Attire move */
+    @keyframes priorAttireMove {
+      0%, 100% {
+        transform: translateX(0) translateY(0) rotate(0deg) scale(1);
+        filter: brightness(1);
+      }
+
+      20% {
+        transform: translateX(-3px) translateY(-2px) rotate(-1deg) scale(1.01);
+        filter: brightness(1.08);
+      }
+
+      40% {
+        transform: translateX(4px) translateY(1px) rotate(1deg) scale(1.035);
+        filter: brightness(1.16);
+      }
+
+      55% {
+        transform: translateX(-2px) translateY(-1px) rotate(-0.5deg) scale(1.02);
+        filter: brightness(1.12);
+      }
+
+      75% {
+        transform: translateX(3px) translateY(0) rotate(0.5deg) scale(1.01);
+        filter: brightness(1.05);
+      }
+    }
+
+    .logo-star {
+      position: absolute;
+      color: #c7afa1;
+      font-size: 18px;
+      text-shadow: 0 0 9px #b89b8c;
+      animation: logoStar 2s ease-in-out infinite;
+    }
+
+    .logo-star.one {
+      left: -28px;
+      top: 5px;
+      animation-delay: 0.3s;
+    }
+
+    .logo-star.two {
+      right: -28px;
+      top: 38px;
+      animation-delay: 1s;
+    }
+
+    .logo-star.three {
+      left: 18px;
+      bottom: -20px;
+      font-size: 13px;
+      animation-delay: 1.5s;
+    }
+
+    .logo-star.four {
+      right: 20px;
+      top: -17px;
+      font-size: 13px;
+      animation-delay: 0.7s;
+    }
+
+    @keyframes logoStar {
+      0%, 100% {
+        opacity: 0.25;
+        transform: scale(0.5) rotate(0deg);
+      }
+
+      50% {
+        opacity: 1;
+        transform: scale(1.35) rotate(90deg);
+      }
+    }
+
+    /* =========================
+       TAGLINE
+    ========================= */
+
+    .tagline {
+      position: relative;
+      z-index: 3;
+      color: #c7b2a6;
+      font-size: 14px;
+      letter-spacing: 2px;
+      margin-top: 10px;
+      text-transform: uppercase;
+
+      animation: taglineGlow 3s ease-in-out infinite;
+    }
+
+    @keyframes taglineGlow {
+      0%, 100% {
+        opacity: 0.72;
+      }
+
+      50% {
+        opacity: 1;
+      }
+    }
+
+    /* =========================
+       NAV
+    ========================= */
+
+    nav {
+      position: relative;
+      z-index: 4;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #302522;
+      background: #c8afa1;
+      padding: 9px 18px;
+      border-radius: 25px;
+      border: 2px solid #17100e;
+      font-weight: 700;
+      box-shadow: 4px 4px 0 #5b4035;
+      transition: 0.2s ease;
+    }
+
+    nav a:hover {
+      transform: translateY(-2px);
+      background: #ddd0c8;
+      box-shadow: 5px 5px 0 #3b2922;
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+      text-align: center;
+      padding: 65px 20px 55px;
+
+      background:
+        radial-gradient(circle, rgba(193,164,148,0.12) 1px, transparent 2px),
+        linear-gradient(135deg, #4a342c, #2a201d 60%, #392824);
+
+      background-size: 18px 18px, cover;
+      color: #f0e5de;
+    }
+
+    .hero h1 {
+      font-family: 'Coiny', cursive;
+      font-size: clamp(40px, 9vw, 70px);
+      color: #eee2da;
+      text-shadow:
+        4px 4px 0 #765446,
+        7px 7px 0 #18110f;
+      margin-bottom: 18px;
+    }
+
+    .hero p {
+      max-width: 650px;
+      margin: auto;
+      font-size: 17px;
+      line-height: 1.7;
+      color: #d8c7be;
+    }
+
+    .hero-buttons {
+      margin-top: 28px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .hero-button {
+      display: inline-block;
+      text-decoration: none;
+      font-family: 'Coiny', cursive;
+      padding: 14px 25px;
+      border-radius: 30px;
+      border: 3px solid #17100e;
+      box-shadow: 5px 5px 0 #17100e;
+      transition: 0.2s ease;
+    }
+
+    .shop-button {
+      background: #b99a89;
+      color: #211815;
+    }
+
+    .archive-button {
+      background: #6c4f43;
+      color: #f5ebe5;
+    }
+
+    .hero-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 7px 7px 0 #17100e;
+    }
+
+    /* =========================
+       PRODUCTS
+    ========================= */
+
+    .shop-section {
+      padding: 55px 20px;
+      background: #c4afa3;
+    }
+
+    .section-title {
+      text-align: center;
+      font-family: 'Coiny', cursive;
+      font-size: clamp(32px, 7vw, 50px);
+      color: #382722;
+      margin-bottom: 35px;
+      text-shadow: 3px 3px 0 #96766a;
+    }
+
+    .products {
+      max-width: 1100px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+    }
+
+    .product-card {
+      background: #eee5df;
+      border: 3px solid #211815;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow:
+        8px 8px 0 #5b4035,
+        0 0 0 3px #96776a;
+      position: relative;
+    }
+
+    .product-card::after {
+      content: "✦";
+      position: absolute;
+      top: 12px;
+      right: 15px;
+      font-size: 25px;
+      color: #96766a;
+      z-index: 5;
+      pointer-events: none;
+    }
+
+    /* =========================
+       CAROUSEL
+    ========================= */
+
+    .carousel {
+      position: relative;
+      width: 100%;
+      height: 315px;
+      overflow: hidden;
+      border-bottom: 3px solid #211815;
+      touch-action: pan-y;
+    }
+
+    .carousel-track {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.35s ease;
+    }
+
+    .carousel-slide {
+      min-width: 100%;
+      width: 100%;
+      height: 100%;
+      position: relative;
+      cursor: zoom-in;
+    }
+
+    .product-image {
+      width: 100%;
+      height: 315px;
+      object-fit: cover;
+      display: block;
+      transition: 0.25s ease;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+
+    .carousel-slide:hover .product-image {
+      transform: scale(1.02);
+      filter: brightness(0.92);
+    }
+
+    .carousel-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 2px solid #211815;
+      background: rgba(238,229,223,0.86);
+      color: #382722;
+      font-size: 22px;
+      font-weight: bold;
+      z-index: 4;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 2px 2px 0 #5b4035;
+      transition: 0.2s ease;
+    }
+
+    .carousel-arrow:hover {
+      background: #fff8f4;
+      transform: translateY(-50%) scale(1.05);
+    }
+
+    .carousel-prev {
+      left: 10px;
+    }
+
+    .carousel-next {
+      right: 10px;
+    }
+
+    .carousel-dots {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 7px;
+      z-index: 4;
+    }
+
+    .carousel-dot {
+      width: 7px;
+      height: 7px;
+      padding: 0;
+      border-radius: 50%;
+      border: 1px solid #211815;
+      background: rgba(238,229,223,0.55);
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .carousel-dot.active {
+      background: #5b4035;
+      transform: scale(1.25);
+    }
+
+    /* =========================
+       PRODUCT INFO
+    ========================= */
+
+    .product-info {
+      padding: 22px;
+      text-align: center;
+    }
+
+    .product-name {
+      display: block;
+      text-decoration: none;
+      font-family: 'Coiny', cursive;
+      color: #382722;
+      font-size: 23px;
+      margin-bottom: 12px;
+      line-height: 1.2;
+    }
+
+    .product-name:hover {
+      color: #765446;
+    }
+
+    .details {
+      margin-bottom: 18px;
+      color: #59463e;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .details span {
+      display: block;
+    }
+
+    .details strong {
+      color: #382722;
+      font-weight: 700;
+    }
+
+    .button-row {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .buy-button,
+    .contact-button {
+      display: inline-block;
+      text-decoration: none;
+      padding: 12px 18px;
+      border-radius: 25px;
+      font-family: 'Coiny', cursive;
+      border: 3px solid #211815;
+      box-shadow: 4px 4px 0 #211815;
+      transition: 0.2s ease;
+    }
+
+    .buy-button {
+      background: #6d5145;
+      color: #f7eee9;
+    }
+
+    .contact-button {
+      background: #bda497;
+      color: #261b18;
+    }
+
+    .buy-button:hover,
+    .contact-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 6px 6px 0 #211815;
+    }
+
+    .buy-button:hover {
+      background: #4b342c;
+    }
+
+    .contact-button:hover {
+      background: #dfd0c8;
+    }
+
+    /* =========================
+       FULL SCREEN PHOTO VIEWER
+    ========================= */
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(17,11,9,0.96);
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 25px;
+    }
+
+    .lightbox.open {
+      display: flex;
+    }
+
+    .lightbox-image {
+      max-width: 92vw;
+      max-height: 88vh;
+      object-fit: contain;
+      border: 3px solid #c8afa1;
+      border-radius: 12px;
+      box-shadow: 0 0 30px rgba(200,175,161,0.22);
+      user-select: none;
+    }
+
+    .lightbox-close {
+      position: fixed;
+      top: 18px;
+      right: 20px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 2px solid #c8afa1;
+      background: #382722;
+      color: #eee5df;
+      font-size: 28px;
+      cursor: pointer;
+      z-index: 10001;
+    }
+
+    .lightbox-arrow {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 2px solid #c8afa1;
+      background: #382722;
+      color: #eee5df;
+      font-size: 27px;
+      cursor: pointer;
+      z-index: 10001;
+    }
+
+    .lightbox-prev {
+      left: 18px;
+    }
+
+    .lightbox-next {
+      right: 18px;
+    }
+
+    .lightbox-counter {
+      position: fixed;
+      bottom: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #d6c1b6;
+      font-size: 14px;
+      z-index: 10001;
+      background: rgba(56,39,34,0.8);
+      padding: 7px 13px;
+      border-radius: 20px;
+    }
+
+    /* =========================
+       ABOUT
+    ========================= */
+
+    .about {
+      padding: 60px 20px;
+      background:
+        radial-gradient(circle, rgba(91,64,53,0.13) 1px, transparent 2px),
+        #e0d3cc;
+      background-size: 16px 16px;
+      text-align: center;
+    }
+
+    .about h2 {
+      font-family: 'Coiny', cursive;
+      font-size: 40px;
+      color: #382722;
+      margin-bottom: 18px;
+    }
+
+    .about p {
+      max-width: 700px;
+      margin: auto;
+      line-height: 1.8;
+      color: #59463e;
+      font-size: 16px;
+    }
+
+    /* =========================
+       SOCIALS
+    ========================= */
+
+    .socials {
+      padding: 45px 20px;
+      text-align: center;
+      background: #382722;
+    }
+
+    .socials h2 {
+      font-family: 'Coiny', cursive;
+      color: #d9c4b9;
+      font-size: 32px;
+      margin-bottom: 22px;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .social-links a {
+      text-decoration: none;
+      background: #bda497;
+      color: #261b18;
+      border: 2px solid #17100e;
+      padding: 11px 20px;
+      border-radius: 25px;
+      font-weight: 700;
+      box-shadow: 4px 4px 0 #17100e;
+      transition: 0.2s ease;
+    }
+
+    .social-links a:hover {
+      background: #dfd0c8;
+      transform: translateY(-2px);
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      text-align: center;
+      padding: 28px 20px;
+      background: #1b1311;
+      color: #a99185;
+      font-size: 13px;
+      position: relative;
+    }
+
+    footer::before {
+      content: "★  ✦  ★  ✦  ★";
+      display: block;
+      color: #765446;
+      font-size: 18px;
+      margin-bottom: 10px;
+      letter-spacing: 5px;
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 600px) {
+
+      header {
+        padding: 28px 15px 18px;
+        min-height: 205px;
+      }
+
+      .logo {
+        font-size: 47px;
+      }
+
+      .logo-star.one {
+        left: -20px;
+      }
+
+      .logo-star.two {
+        right: -20px;
+      }
+
+      .tagline {
+        font-size: 11px;
+      }
+
+      nav {
+        gap: 8px;
+      }
+
+      nav a {
+        padding: 8px 13px;
+        font-size: 13px;
+      }
+
+      .hero {
+        padding: 48px 18px;
+      }
+
+      .hero h1 {
+        font-size: 43px;
+      }
+
+      .hero p {
+        font-size: 15px;
+      }
+
+      .products {
+        grid-template-columns: 1fr;
+        gap: 25px;
+      }
+
+      .carousel,
+      .product-image {
+        height: 330px;
+      }
+
+      .shop-section {
+        padding: 45px 16px;
+      }
+
+      .section-title {
+        font-size: 38px;
+      }
+
+      .about {
+        padding: 50px 20px;
+      }
+
+      .about h2 {
+        font-size: 34px;
+      }
+
+      .sparkle:nth-child(2),
+      .sparkle:nth-child(5) {
+        display: none;
+      }
+
+      .button-row {
+        gap: 8px;
+      }
+
+      .buy-button,
+      .contact-button {
+        padding: 11px 15px;
+        font-size: 14px;
+      }
+
+      .lightbox-arrow {
+        width: 42px;
+        height: 42px;
+      }
+
+      .lightbox-prev {
+        left: 8px;
+      }
+
+      .lightbox-next {
+        right: 8px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      header,
+      .logo,
+      .tagline,
+      .sparkle,
+      .logo-star {
+        animation: none;
+      }
+    }
+  </style>
 </head>
-
 
 <body>
 
+  <!-- =========================
+       HEADER
+  ========================= -->
 
-<!-- =========================
-     HEADER
-========================= -->
+  <header>
 
-<header>
+    <div class="sparkles">
+      <span class="sparkle">✦</span>
+      <span class="sparkle">✧</span>
+      <span class="sparkle">✦</span>
+      <span class="sparkle">★</span>
+      <span class="sparkle">✧</span>
+      <span class="sparkle">✦</span>
+      <span class="sparkle">✧</span>
+      <span class="sparkle">★</span>
+    </div>
 
-  <h1 class="brand">Prior Attire</h1>
+    <div class="logo-area">
 
-  <p class="tagline">
-    Vintage Coach • Curated Finds
-  </p>
+      <span class="logo-star one">✦</span>
+      <span class="logo-star two">✧</span>
+      <span class="logo-star three">✦</span>
+      <span class="logo-star four">✧</span>
 
-</header>
-
-
-
-<!-- =========================
-     INTRO
-========================= -->
-
-<section class="intro">
-
-  <h2>Vintage Coach, Curated With Intention</h2>
-
-  <p>
-    Discover vintage Coach bags and accessories selected for
-    their character, history, and timeless style.
-  </p>
-
-</section>
-
-
-
-<!-- =========================
-     FEATURED ITEMS
-========================= -->
-
-<section class="featured-section">
-
-  <div class="section-heading">
-
-    <h2>Featured Items</h2>
-
-    <a href="current.html">
-      VIEW ALL
-    </a>
-
-  </div>
-
-
-  <div class="featured-grid">
-
-
-    <!-- FEATURED ITEM 1 -->
-
-    <div class="card">
-
-      <img
-        class="card-image"
-        src="PASTE-FEATURED-IMAGE-1-HERE"
-        alt="Vintage Coach Bag"
-      >
-
-      <h3>Coach Vintage Bag</h3>
-
-      <div class="card-details">
-        No. 00000<br>
-        Good Condition
+      <div class="logo">
+        Prior Attire
       </div>
 
+    </div>
+
+    <div class="tagline">
+      Vintage Coach • Y2K Finds • Curated Closet
+    </div>
+
+    <nav>
+      <a href="#shop">Shop</a>
+      <a href="sold.html">Archive</a>
       <a
-        href="PASTE-DEPOP-LINK-1-HERE"
+        href="https://www.depop.com/prior_attire/"
         target="_blank"
-        class="buy-button"
-      >
-        VIEW & BUY
+        rel="noopener">
+        Depop
+      </a>
+    </nav>
+
+  </header>
+
+
+  <!-- =========================
+       HERO
+  ========================= -->
+
+  <section class="hero">
+
+    <h1>Vintage Coach</h1>
+
+    <p>
+      Curated vintage Coach bags, charms, accessories &amp; nostalgic Y2K finds.
+      Shop current pieces below or browse the archive for past favorites.
+    </p>
+
+    <div class="hero-buttons">
+
+      <a
+        class="hero-button shop-button"
+        href="#shop">
+        SHOP CURRENT
+      </a>
+
+      <a
+        class="hero-button archive-button"
+        href="sold.html">
+        VIEW ARCHIVE
       </a>
 
     </div>
 
+  </section>
 
 
-    <!-- FEATURED ITEM 2 -->
+  <!-- =========================
+       SHOP
+  ========================= -->
 
-    <div class="card">
+  <section class="shop-section" id="shop">
 
-      <img
-        class="card-image"
-        src="PASTE-FEATURED-IMAGE-2-HERE"
-        alt="Vintage Coach Bag"
-      >
+    <h2 class="section-title">
+      Current Finds ✦
+    </h2>
 
-      <h3>Coach Vintage Bag</h3>
+    <div class="products">
 
-      <div class="card-details">
-        No. 00000<br>
-        Good Condition
-      </div>
+
+      <!-- =========================
+           PRODUCT 1
+      ========================= -->
+
+      <article class="product-card">
+
+        <div
+          class="carousel"
+          data-index="0">
+
+          <div class="carousel-track">
+
+            <div class="carousel-slide">
+              <img
+                class="product-image"
+                src="IMG_3241(1).jpeg"
+                alt="Coach Vintage Brown Mini Soho"
+                draggable="false">
+            </div>
+
+            <div class="carousel-slide">
+              <img
+                class="product-image"
+                src="IMG_3243(2).jpeg"
+                alt="Coach Vintage Brown Mini Soho"
+                draggable="false">
+            </div>
+
+            <div class="carousel-slide">
+              <img
+                class="product-image"
+                src="IMG_3247(1).jpeg"
+                alt="Coach Vintage Brown Mini Soho"
+                draggable="false">
+            </div>
+
+          </div>
+
+          <button class="carousel-arrow carousel-prev" type="button">‹</button>
+          <button class="carousel-arrow carousel-next" type="button">›</button>
+
+          <div class="carousel-dots">
+            <button class="carousel-dot active" type="button"></button>
+            <button class="carousel-dot" type="button"></button>
+            <button class="carousel-dot" type="button"></button>
+          </div>
+
+        </div>
+
+        <div class="product-info">
+
+          <a
+            class="product-name"
+            href="https://www.depop.com/products/prior9attire-coach-vintage-brown-mini-soho-e822/"
+            target="_blank"
+            rel="noopener">
+
+            Coach Vintage Brown Mini Soho
+
+          </a>
+
+          <div class="details">
+
+            <span>
+              <strong>Coach Creed No.</strong> 18860
+            </span>
+
+            <span>
+              <strong>Condition:</strong> Good Condition
+            </span>
+
+          </div>
+
+          <div class="button-row">
+
+            <a
+              class="buy-button"
+              href="https://www.depop.com/products/prior9attire-coach-vintage-brown-mini-soho-e822/"
+              target="_blank"
+              rel="noopener">
+              VIEW &amp; BUY
+            </a>
+
+            <a
+              class="contact-button"
+              href="https://m.me/61586747224418"
+              target="_blank"
+              rel="noopener">
+              CONTACT ME
+            </a>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- =========================
+           PRODUCT 2
+      ========================= -->
+
+      <article class="product-card">
+
+        <div
+          class="carousel"
+          data-index="0">
+
+          <div class="carousel-track">
+
+            <div class="carousel-slide">
+              <img
+                class="product-image"
+                src="IMG_6187(2).jpeg"
+                alt="Coach Y2K Valentine's Day Set"
+                draggable="false">
+            </div>
+
+            <div class="carousel-slide">
+              <img
+                class="product-image"
+                src="IMG_6186(2).jpeg"
+                alt="Coach Y2K Valentine's Day Set"
+                draggable="false">
+            </div>
+
+            <div class="carousel-slide">
+              <img
+                class="product-image"
+                src="IMG_6188.jpeg"
+                alt="Coach Y2K Valentine's Day Set"
+                draggable="false">
+            </div>
+
+          </div>
+
+          <button class="carousel-arrow carousel-prev" type="button">‹</button>
+          <button class="carousel-arrow carousel-next" type="button">›</button>
+
+          <div class="carousel-dots">
+            <button class="carousel-dot active" type="button"></button>
+            <button class="carousel-dot" type="button"></button>
+            <button class="carousel-dot" type="button"></button>
+          </div>
+
+        </div>
+
+        <div class="product-info">
+
+          <a
+            class="product-name"
+            href="https://www.depop.com/products/prior_astire-bag-in-good-condition-some-5929/"
+            target="_blank"
+            rel="noopener">
+
+            Coach Y2K Valentine's Day Set
+
+          </a>
+
+          <div class="details">
+
+            <span>
+              <strong>Coach Creed No.</strong> 42349
+            </span>
+
+            <span>
+              <strong>Condition:</strong> Good Condition
+            </span>
+
+          </div>
+
+          <div class="button-row">
+
+            <a
+              class="buy-button"
+              href="https://www.depop.com/products/prior_astire-bag-in-good-condition-some-5929/"
+              target="_blank"
+              rel="noopener">
+              VIEW &amp; BUY
+            </a>
+
+            <a
+              class="contact-button"
+              href="https://m.me/61586747224418"
+              target="_blank"
+              rel="noopener">
+              CONTACT ME
+            </a>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- =========================
+           PRODUCT 3
+      ========================= -->
+
+      <article class="product-card">
+
+        <div
+          class="carousel"
+          data-index="0">
+
+          <div class="carousel-track">
+
+            <div class="carousel-slide">
+              <img
+                class="product-image"
+                src="IMG_6407.jpeg"
+                alt="Coach Soho Pleated Signature Jacquard Bag"
+                draggable="false">
+            </div>
+
+          </div>
+
+          <button class="carousel-arrow carousel-prev" type="button" style="display:none;">‹</button>
+          <button class="carousel-arrow carousel-next" type="button" style="display:none;">›</button>
+
+          <div class="carousel-dots" style="display:none;"></div>
+
+        </div>
+
+        <div class="product-info">
+
+          <a
+            class="product-name"
+            href="https://www.depop.com/products/prjor_attire-coach-soho-pleated-signature-jacquard-922f/"
+            target="_blank"
+            rel="noopener">
+
+            Coach Soho Pleated Signature Jacquard Bag
+
+          </a>
+
+          <div class="details">
+
+            <span>
+              <strong>Coach Creed No.</strong> 15047
+            </span>
+
+            <span>
+              <strong>Condition:</strong> Good Condition
+            </span>
+
+          </div>
+
+          <div class="button-row">
+
+            <a
+              class="buy-button"
+              href="https://www.depop.com/products/prjor_attire-coach-soho-pleated-signature-jacquard-922f/"
+              target="_blank"
+              rel="noopener">
+              VIEW &amp; BUY
+            </a>
+
+            <a
+              class="contact-button"
+              href="https://m.me/61586747224418"
+              target="_blank"
+              rel="noopener">
+              CONTACT ME
+            </a>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- =========================
+           PRODUCT 4
+      ========================= -->
+
+      <article class="product-card">
+
+        <div
+          class="carousel"
+          data-index="0">
+
+          <div class="carousel-track">
+
+            <div class="carousel-slide">
+              <img
+                class="product-image"
+                src="IMG_6427.jpeg"
+                alt="Coach Optic Metallic Signature Chain Duffle"
+                draggable="false">
+            </div>
+
+            <div class="carousel-slide">
+              <img
+                class="product-image"
+                src="IMG_6435(1).jpeg"
+                alt="Coach Optic Metallic Signature Chain Duffle"
+                draggable="false">
+            </div>
+
+            <div class="carousel-slide">
+              <img
+                class="product-image"
+                src="IMG_6434(1).jpeg"
+                alt="Coach Optic Metallic Signature Chain Duffle"
+                draggable="false">
+            </div>
+
+          </div>
+
+          <button class="carousel-arrow carousel-prev" type="button">‹</button>
+          <button class="carousel-arrow carousel-next" type="button">›</button>
+
+          <div class="carousel-dots">
+            <button class="carousel-dot active" type="button"></button>
+            <button class="carousel-dot" type="button"></button>
+            <button class="carousel-dot" type="button"></button>
+          </div>
+
+        </div>
+
+        <div class="product-info">
+
+          <a
+            class="product-name"
+            href="https://www.depop.com/products/prior_atvire-coach-optic-metallic-signature-chain-5ac2/"
+            target="_blank"
+            rel="noopener">
+
+            Coach Optic Metallic Signature Chain Duffle
+
+          </a>
+
+          <div class="details">
+
+            <span>
+              <strong>Coach Creed No.</strong> 19820
+            </span>
+
+            <span>
+              <strong>Condition:</strong> Good Condition
+            </span>
+
+          </div>
+
+          <div class="button-row">
+
+            <a
+              class="buy-button"
+              href="https://www.depop.com/products/prior_atvire-coach-optic-metallic-signature-chain-5ac2/"
+              target="_blank"
+              rel="noopener">
+              VIEW &amp; BUY
+            </a>
+
+            <a
+              class="contact-button"
+              href="https://m.me/61586747224418"
+              target="_blank"
+              rel="noopener">
+              CONTACT ME
+            </a>
+
+          </div>
+
+        </div>
+
+      </article>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       ABOUT
+  ========================= -->
+
+  <section class="about">
+
+    <h2>About Prior Attire</h2>
+
+    <p>
+      Prior Attire is a curated vintage closet focused on classic Coach,
+      Y2K nostalgia, unique accessories, and pieces with plenty of personality.
+      Every item is handpicked with vintage lovers and collectors in mind.
+    </p>
+
+  </section>
+
+
+  <!-- =========================
+       SOCIALS
+  ========================= -->
+
+  <section class="socials">
+
+    <h2>Follow Prior Attire</h2>
+
+    <div class="social-links">
 
       <a
-        href="PASTE-DEPOP-LINK-2-HERE"
+        href="https://www.depop.com/prior_attire/"
         target="_blank"
-        class="buy-button"
-      >
-        VIEW & BUY
+        rel="noopener">
+        Depop
+      </a>
+
+      <a
+        href="https://www.instagram.com/prior_attire/"
+        target="_blank"
+        rel="noopener">
+        Instagram
+      </a>
+
+      <a
+        href="https://www.tiktok.com/@priorattire7"
+        target="_blank"
+        rel="noopener">
+        TikTok
+      </a>
+
+      <a
+        href="https://m.facebook.com/profile.php?id=61586747224418"
+        target="_blank"
+        rel="noopener">
+        Facebook
       </a>
 
     </div>
 
+  </section>
 
 
-    <!-- FEATURED ITEM 3 -->
+  <!-- =========================
+       FOOTER
+  ========================= -->
 
-    <div class="card">
+  <footer>
+    © 2026 Prior Attire • Vintage Coach &amp; Curated Finds
+  </footer>
 
-      <img
-        class="card-image"
-        src="PASTE-FEATURED-IMAGE-3-HERE"
-        alt="Vintage Coach Bag"
-      >
 
-      <h3>Coach Vintage Bag</h3>
+  <!-- =========================
+       FULL SCREEN VIEWER
+  ========================= -->
 
-      <div class="card-details">
-        No. 00000<br>
-        Good Condition
-      </div>
+  <div
+    class="lightbox"
+    id="lightbox"
+    aria-hidden="true">
 
-      <a
-        href="PASTE-DEPOP-LINK-3-HERE"
-        target="_blank"
-        class="buy-button"
-      >
-        VIEW & BUY
-      </a>
+    <button
+      class="lightbox-close"
+      id="lightboxClose"
+      type="button"
+      aria-label="Close">
+      ×
+    </button>
 
+    <button
+      class="lightbox-arrow lightbox-prev"
+      id="lightboxPrev"
+      type="button"
+      aria-label="Previous photo">
+      ‹
+    </button>
+
+    <img
+      class="lightbox-image"
+      id="lightboxImage"
+      src=""
+      alt="Full size Coach photo">
+
+    <button
+      class="lightbox-arrow lightbox-next"
+      id="lightboxNext"
+      type="button"
+      aria-label="Next photo">
+      ›
+    </button>
+
+    <div
+      class="lightbox-counter"
+      id="lightboxCounter">
+      1 / 1
     </div>
 
-
   </div>
 
-</section>
+
+  <!-- =========================
+       JAVASCRIPT
+  ========================= -->
+
+  <script>
+
+    /* Always open at the top */
+    if ("scrollRestoration" in history) {
+      history.scrollRestoration = "manual";
+    }
+
+    window.addEventListener("load", function () {
+      window.scrollTo(0, 0);
+    });
 
 
+    /* =========================
+       CAROUSELS
+    ========================= */
 
-<!-- =========================
-     SHOP CURRENT ITEMS
-========================= -->
+    document.querySelectorAll(".carousel").forEach(function (carousel) {
 
-<section class="shop-section">
+      const track = carousel.querySelector(".carousel-track");
+      const slides = carousel.querySelectorAll(".carousel-slide");
+      const dots = carousel.querySelectorAll(".carousel-dot");
+      const prev = carousel.querySelector(".carousel-prev");
+      const next = carousel.querySelector(".carousel-next");
 
-  <h2>Shop Current Items</h2>
+      if (slides.length <= 1) return;
 
-  <p>
-    Browse all currently available Prior Attire pieces.
-  </p>
+      let index = 0;
+      let startX = 0;
+      let endX = 0;
 
-  <a
-    href="current.html"
-    class="shop-current"
-  >
-    SHOP CURRENT ITEMS
-  </a>
+      function updateCarousel() {
 
-</section>
+        track.style.transform =
+          "translateX(-" + (index * 100) + "%)";
+
+        dots.forEach(function (dot, i) {
+          dot.classList.toggle("active", i === index);
+        });
+
+        carousel.dataset.index = index;
+      }
+
+      next.addEventListener("click", function (event) {
+        event.stopPropagation();
+
+        index++;
+
+        if (index >= slides.length) {
+          index = 0;
+        }
+
+        updateCarousel();
+      });
+
+      prev.addEventListener("click", function (event) {
+        event.stopPropagation();
+
+        index--;
+
+        if (index < 0) {
+          index = slides.length - 1;
+        }
+
+        updateCarousel();
+      });
+
+      dots.forEach(function (dot, i) {
+
+        dot.addEventListener("click", function (event) {
+
+          event.stopPropagation();
+
+          index = i;
+          updateCarousel();
+
+        });
+
+      });
 
 
+      /* Swipe left/right */
 
-<!-- =========================
-     SOLD ARCHIVE
-========================= -->
+      carousel.addEventListener("touchstart", function (event) {
 
-<section class="archive-section">
+        startX = event.touches[0].clientX;
 
-  <h2>Prior Attire Archive</h2>
-
-  <p>
-    See pieces that have already found new homes.
-  </p>
-
-  <a
-    href="sold.html"
-    class="archive-button"
-  >
-    VIEW SOLD ITEMS
-  </a>
-
-</section>
+      }, { passive: true });
 
 
+      carousel.addEventListener("touchend", function (event) {
 
-<!-- =========================
-     FOOTER
-========================= -->
+        endX = event.changedTouches[0].clientX;
 
-<footer>
+        const difference = startX - endX;
 
-  <div class="footer-brand">
-    Prior Attire
-  </div>
+        if (Math.abs(difference) < 40) return;
 
-  <p>
-    Vintage Coach • Curated Finds
-  </p>
+        if (difference > 0) {
+          index++;
 
-</footer>
+          if (index >= slides.length) {
+            index = 0;
+          }
 
+        } else {
+
+          index--;
+
+          if (index < 0) {
+            index = slides.length - 1;
+          }
+
+        }
+
+        updateCarousel();
+
+      }, { passive: true });
+
+
+      /* Open full screen when photo is tapped */
+
+      slides.forEach(function (slide, slideIndex) {
+
+        slide.addEventListener("click", function () {
+
+          openLightbox(slides, slideIndex);
+
+        });
+
+      });
+
+    });
+
+
+    /* =========================
+       LIGHTBOX
+    ========================= */
+
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImage = document.getElementById("lightboxImage");
+    const lightboxClose = document.getElementById("lightboxClose");
+    const lightboxPrev = document.getElementById("lightboxPrev");
+    const lightboxNext = document.getElementById("lightboxNext");
+    const lightboxCounter = document.getElementById("lightboxCounter");
+
+    let currentImages = [];
+    let currentLightboxIndex = 0;
+
+
+    function openLightbox(slides, index) {
+
+      currentImages = Array.from(slides).map(function (slide) {
+
+        return slide.querySelector("img");
+
+      });
+
+      currentLightboxIndex = index;
+
+      updateLightbox();
+
+      lightbox.classList.add("open");
+      lightbox.setAttribute("aria-hidden", "false");
+
+      document.body.style.overflow = "hidden";
+
+    }
+
+
+    function updateLightbox() {
+
+      const image = currentImages[currentLightboxIndex];
+
+      if (!image) return;
+
+      lightboxImage.src = image.src;
+      lightboxImage.alt = image.alt;
+
+      lightboxCounter.textContent =
+        (currentLightboxIndex + 1) +
+        " / " +
+        currentImages.length;
+
+      if (currentImages.length <= 1) {
+
+        lightboxPrev.style.display = "none";
+        lightboxNext.style.display = "none";
+
+      } else {
+
+        lightboxPrev.style.display = "flex";
+        lightboxNext.style.display = "flex";
+
+      }
+
+    }
+
+
+    function closeLightbox() {
+
+      lightbox.classList.remove("open");
+      lightbox.setAttribute("aria-hidden", "true");
+
+      document.body.style.overflow = "";
+
+    }
+
+
+    function showPreviousLightboxImage() {
+
+      if (currentImages.length <= 1) return;
+
+      currentLightboxIndex--;
+
+      if (currentLightboxIndex < 0) {
+        currentLightboxIndex = currentImages.length - 1;
+      }
+
+      updateLightbox();
+
+    }
+
+
+    function showNextLightboxImage() {
+
+      if (currentImages.length <= 1) return;
+
+      currentLightboxIndex++;
+
+      if (currentLightboxIndex >= currentImages.length) {
+        currentLightboxIndex = 0;
+      }
+
+      updateLightbox();
+
+    }
+
+
+    lightboxClose.addEventListener("click", closeLightbox);
+
+    lightboxPrev.addEventListener(
+      "click",
+      showPreviousLightboxImage
+    );
+
+    lightboxNext.addEventListener(
+      "click",
+      showNextLightboxImage
+    );
+
+
+    /* Close when tapping outside photo */
+
+    lightbox.addEventListener("click", function (event) {
+
+      if (event.target === lightbox) {
+        closeLightbox();
+      }
+
+    });
+
+
+    /* Keyboard controls */
+
+    document.addEventListener("keydown", function (event) {
+
+      if (!lightbox.classList.contains("open")) return;
+
+      if (event.key === "Escape") {
+        closeLightbox();
+      }
+
+      if (event.key === "ArrowLeft") {
+        showPreviousLightboxImage();
+      }
+
+      if (event.key === "ArrowRight") {
+        showNextLightboxImage();
+      }
+
+    });
+
+
+    /* Swipe inside full-screen viewer */
+
+    let lightboxStartX = 0;
+    let lightboxEndX = 0;
+
+    lightbox.addEventListener("touchstart", function (event) {
+
+      lightboxStartX = event.touches[0].clientX;
+
+    }, { passive: true });
+
+
+    lightbox.addEventListener("touchend", function (event) {
+
+      lightboxEndX = event.changedTouches[0].clientX;
+
+      const difference =
+        lightboxStartX - lightboxEndX;
+
+      if (Math.abs(difference) < 50) return;
+
+      if (difference > 0) {
+        showNextLightboxImage();
+      } else {
+        showPreviousLightboxImage();
+      }
+
+    }, { passive: true });
+
+  </script>
 
 </body>
 </html>
