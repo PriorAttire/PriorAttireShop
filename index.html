@@ -42,7 +42,8 @@
 
       text-align: center;
 
-      border-bottom: 5px solid #8f7770;
+      /* MATCHES POLKA-DOT COLOR */
+      border-bottom: 5px solid #5a4034;
 
       position: relative;
 
@@ -205,8 +206,6 @@
       letter-spacing: 1px;
 
       line-height: 1;
-
-      animation: logoSparkle 3s ease-in-out infinite;
     }
 
     .logo::after {
@@ -233,18 +232,6 @@
       opacity: .75;
 
       animation: letteringTwinkle 2.5s ease-in-out infinite;
-    }
-
-    @keyframes logoSparkle {
-
-      0%, 100% {
-        opacity: .85;
-      }
-
-      50% {
-        opacity: 1;
-      }
-
     }
 
     @keyframes letteringTwinkle {
@@ -328,20 +315,6 @@
       position: relative;
 
       z-index: 2;
-
-      animation: taglineGlow 3s ease-in-out infinite;
-    }
-
-    @keyframes taglineGlow {
-
-      0%, 100% {
-        opacity: .7;
-      }
-
-      50% {
-        opacity: 1;
-      }
-
     }
 
     nav {
@@ -352,7 +325,7 @@
       z-index: 2;
     }
 
-    /* TOP BUTTONS */
+    /* GLASSY TOP BUTTONS */
 
     nav a {
       display: inline-block;
@@ -371,33 +344,36 @@
 
       padding: 8px 15px;
 
-      border: 1px solid rgba(214,193,182,.35);
+      border: 1px solid rgba(255,255,255,.42);
 
       border-radius: 30px;
 
-      transition: .25s ease;
+      transition: .3s ease;
 
-      background: #8f7770;
+      /* GLASS EFFECT */
+      background: rgba(255,255,255,.08);
+
+      backdrop-filter: blur(8px);
+
+      -webkit-backdrop-filter: blur(8px);
+
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.22),
+        inset 0 -1px 0 rgba(0,0,0,.12);
     }
 
     nav a:hover {
       color: #fff;
 
-      border-color: #d6c1b6;
+      border-color: rgba(255,255,255,.7);
 
-      background: #8f7770;
+      background: rgba(255,255,255,.16);
 
       transform: translateY(-2px);
-    }
 
-    /* DEPOP CLICK */
-
-    nav a.depop-button:active {
-      background: #e3242b;
-
-      border-color: #e3242b;
-
-      color: white;
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.3),
+        0 4px 12px rgba(0,0,0,.18);
     }
 
 
@@ -816,61 +792,152 @@
       font-weight: bold;
 
       transition: .25s ease;
+
+      display: inline-block;
     }
 
     .socials a:hover {
-      background: #8f7770;
-
-      border-color: #d6c1b6;
-
-      color: #fff;
-
       transform: translateY(-2px);
     }
 
-    /* INSTAGRAM CLICK */
+    /* SLOW SOCIAL FLASHING */
 
-    .socials a.instagram-button:active {
-      background:
-        linear-gradient(
-          45deg,
-          #feda75,
-          #fa7e1e,
-          #d62976,
-          #962fbf,
-          #4f5bd5
-        );
+    .socials a {
+      animation-duration: 5.5s;
 
-      border-color: #d62976;
+      animation-timing-function: ease-in-out;
 
-      color: white;
+      animation-iteration-count: infinite;
+
+      animation-direction: alternate;
     }
 
-    /* TIKTOK CLICK */
+    /* DEPOP */
 
-    .socials a.tiktok-button:active {
-      background:
-        linear-gradient(
-          135deg,
-          #000000 0%,
-          #25f4ee 45%,
-          #fe2c55 75%,
-          #000000 100%
-        );
-
-      border-color: #25f4ee;
-
-      color: white;
+    .socials a.depop-button {
+      animation-name: depopFlash;
     }
 
-    /* FACEBOOK CLICK */
+    @keyframes depopFlash {
 
-    .socials a.facebook-button:active {
-      background: #1877F2;
+      0%, 48% {
+        background: #8f7770;
+        border-color: rgba(214,193,182,.35);
+        color: white;
+      }
 
-      border-color: #1877F2;
+      72%, 100% {
+        background: #e3242b;
+        border-color: #e3242b;
+        color: white;
+      }
 
-      color: white;
+    }
+
+    /* INSTAGRAM */
+
+    .socials a.instagram-button {
+      animation-name: instagramFlash;
+    }
+
+    @keyframes instagramFlash {
+
+      0%, 48% {
+        background: #8f7770;
+        border-color: rgba(214,193,182,.35);
+        color: white;
+      }
+
+      72%, 100% {
+        background:
+          linear-gradient(
+            45deg,
+            #feda75,
+            #fa7e1e,
+            #d62976,
+            #962fbf,
+            #4f5bd5
+          );
+
+        border-color: #d62976;
+
+        color: white;
+      }
+
+    }
+
+    /* TIKTOK */
+
+    .socials a.tiktok-button {
+      animation-name: tiktokFlash;
+    }
+
+    @keyframes tiktokFlash {
+
+      0%, 48% {
+        background: #8f7770;
+        border-color: rgba(214,193,182,.35);
+        color: white;
+      }
+
+      72%, 100% {
+        background:
+          linear-gradient(
+            135deg,
+            #000 0%,
+            #111 55%,
+            #000 100%
+          );
+
+        border-color: #25f4ee;
+
+        color: white;
+      }
+
+    }
+
+    /* FACEBOOK */
+
+    .socials a.facebook-button {
+      animation-name: facebookFlash;
+    }
+
+    @keyframes facebookFlash {
+
+      0%, 48% {
+        background: #8f7770;
+        border-color: rgba(214,193,182,.35);
+        color: white;
+      }
+
+      72%, 100% {
+        background: #1877F2;
+
+        border-color: #1877F2;
+
+        color: white;
+      }
+
+    }
+
+    /* TIKTOK LOGO */
+
+    .tiktok-logo {
+      display: inline-block;
+
+      font-size: 15px;
+
+      margin-right: 5px;
+
+      vertical-align: -2px;
+
+      font-weight: 900;
+
+      color: #fff;
+
+      text-shadow:
+        -1px 0 #25f4ee,
+        1px 0 #fe2c55;
     }
 
 
@@ -1699,6 +1766,7 @@
   <div class="socials" id="socials">
 
     <a
+      class="depop-button"
       href="https://www.depop.com/prior_attire/"
       target="_blank"
       rel="noopener"
@@ -1723,7 +1791,7 @@
       target="_blank"
       rel="noopener"
     >
-      TIKTOK
+      <span class="tiktok-logo">♪</span>TIKTOK
     </a>
 
 
