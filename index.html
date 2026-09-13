@@ -39,20 +39,26 @@
       background-size: 35px 35px;
 
       padding: 32px 20px 22px;
+
       text-align: center;
 
-      border-bottom: 5px solid #120d0b;
+      border-bottom: 5px solid #8f7770;
 
       position: relative;
+
       overflow: hidden;
+
       min-height: 215px;
     }
 
     header::before {
       content: "";
+
       position: absolute;
+
       width: 420px;
       height: 180px;
+
       left: 50%;
       top: 0;
 
@@ -65,6 +71,7 @@
       );
 
       animation: glowMove 5s ease-in-out infinite;
+
       pointer-events: none;
     }
 
@@ -84,16 +91,23 @@
 
     .sparkles {
       position: absolute;
+
       inset: 0;
+
       pointer-events: none;
+
       z-index: 1;
     }
 
     .sparkle {
       position: absolute;
+
       color: #d6c1b6;
+
       font-size: 13px;
+
       opacity: .45;
+
       animation: sparkleFloat 4s ease-in-out infinite;
     }
 
@@ -149,33 +163,47 @@
 
       0%, 100% {
         opacity: .2;
-        transform: translateY(0) scale(.8) rotate(0deg);
+
+        transform:
+          translateY(0)
+          scale(.8)
+          rotate(0deg);
       }
 
       50% {
         opacity: 1;
-        transform: translateY(-8px) scale(1.35) rotate(20deg);
+
+        transform:
+          translateY(-8px)
+          scale(1.35)
+          rotate(20deg);
       }
 
     }
 
     .logo-area {
       position: relative;
+
       display: inline-block;
+
       z-index: 2;
     }
 
     .logo {
       position: relative;
+
       display: inline-block;
 
       color: #d6c1b6;
 
       font-family: "Allura", cursive;
+
       font-size: clamp(58px, 12vw, 88px);
+
       font-weight: 400;
 
       letter-spacing: 1px;
+
       line-height: 1;
 
       animation: logoSparkle 3s ease-in-out infinite;
@@ -187,17 +215,21 @@
       position: absolute;
 
       left: 50%;
+
       bottom: -19px;
 
       transform: translateX(-50%);
 
       font-family: "DM Sans", sans-serif;
+
       font-size: 11px;
+
       letter-spacing: 7px;
 
       white-space: nowrap;
 
       color: #d6c1b6;
+
       opacity: .75;
 
       animation: letteringTwinkle 2.5s ease-in-out infinite;
@@ -229,7 +261,9 @@
 
     .logo-star {
       position: absolute;
+
       color: #d6c1b6;
+
       font-size: 14px;
 
       animation: logoStar 2s ease-in-out infinite;
@@ -262,12 +296,18 @@
 
       0%, 100% {
         opacity: .25;
-        transform: scale(.7) rotate(0deg);
+
+        transform:
+          scale(.7)
+          rotate(0deg);
       }
 
       50% {
         opacity: 1;
-        transform: scale(1.35) rotate(25deg);
+
+        transform:
+          scale(1.35)
+          rotate(25deg);
       }
 
     }
@@ -278,11 +318,15 @@
       color: #d6c1b6;
 
       font-size: 12px;
+
       letter-spacing: 3px;
+
       text-transform: uppercase;
+
       font-weight: 600;
 
       position: relative;
+
       z-index: 2;
 
       animation: taglineGlow 3s ease-in-out infinite;
@@ -304,17 +348,21 @@
       margin-top: 22px;
 
       position: relative;
+
       z-index: 2;
     }
+
+    /* TOP BUTTONS */
 
     nav a {
       display: inline-block;
 
-      color: #d6c1b6;
+      color: white;
 
       text-decoration: none;
 
       font-size: 11px;
+
       letter-spacing: 2px;
 
       margin: 0 5px;
@@ -329,7 +377,7 @@
 
       transition: .25s ease;
 
-      background: rgba(28,21,19,.35);
+      background: #8f7770;
     }
 
     nav a:hover {
@@ -337,15 +385,23 @@
 
       border-color: #d6c1b6;
 
-      background: rgba(214,193,182,.12);
+      background: #8f7770;
 
       transform: translateY(-2px);
+    }
 
-      box-shadow: 0 0 12px rgba(214,193,182,.15);
+    /* DEPOP CLICK */
+
+    nav a.depop-button:active {
+      background: #e3242b;
+
+      border-color: #e3242b;
+
+      color: white;
     }
 
 
-    /* HERO / DESCRIPTION */
+    /* HERO */
 
     .hero {
 
@@ -386,6 +442,7 @@
       margin: 0 auto;
 
       font-size: 14px;
+
       line-height: 1.8;
 
       color: #eee5df;
@@ -416,6 +473,8 @@
       margin: 0 0 35px;
 
       letter-spacing: 1px;
+
+      text-shadow: none;
     }
 
     .products {
@@ -427,10 +486,8 @@
 
       display: grid;
 
-      grid-template-columns: repeat(
-        auto-fit,
-        minmax(240px, 1fr)
-      );
+      grid-template-columns:
+        repeat(auto-fit, minmax(240px, 1fr));
 
       gap: 25px;
     }
@@ -444,7 +501,8 @@
 
       overflow: hidden;
 
-      box-shadow: 0 5px 15px rgba(63,52,52,.08);
+      box-shadow:
+        0 5px 15px rgba(63,52,52,.08);
 
       position: relative;
     }
@@ -453,6 +511,7 @@
       position: relative;
 
       width: 100%;
+
       height: 315px;
 
       overflow: hidden;
@@ -476,6 +535,7 @@
 
     .product-image {
       width: 100%;
+
       height: 100%;
 
       object-fit: cover;
@@ -495,6 +555,7 @@
       transform: translateY(-50%);
 
       width: 34px;
+
       height: 34px;
 
       border: none;
@@ -526,6 +587,7 @@
       bottom: 10px;
 
       left: 0;
+
       right: 0;
 
       display: flex;
@@ -539,6 +601,7 @@
 
     .carousel-dot {
       width: 7px;
+
       height: 7px;
 
       border-radius: 50%;
@@ -756,15 +819,58 @@
     }
 
     .socials a:hover {
-      background: rgba(214,193,182,.15);
+      background: #8f7770;
 
       border-color: #d6c1b6;
 
       color: #fff;
 
       transform: translateY(-2px);
+    }
 
-      box-shadow: 0 0 14px rgba(214,193,182,.15);
+    /* INSTAGRAM CLICK */
+
+    .socials a.instagram-button:active {
+      background:
+        linear-gradient(
+          45deg,
+          #feda75,
+          #fa7e1e,
+          #d62976,
+          #962fbf,
+          #4f5bd5
+        );
+
+      border-color: #d62976;
+
+      color: white;
+    }
+
+    /* TIKTOK CLICK */
+
+    .socials a.tiktok-button:active {
+      background:
+        linear-gradient(
+          135deg,
+          #000000 0%,
+          #25f4ee 45%,
+          #fe2c55 75%,
+          #000000 100%
+        );
+
+      border-color: #25f4ee;
+
+      color: white;
+    }
+
+    /* FACEBOOK CLICK */
+
+    .socials a.facebook-button:active {
+      background: #1877F2;
+
+      border-color: #1877F2;
+
+      color: white;
     }
 
 
@@ -803,6 +909,7 @@
       top: 8px;
 
       left: 0;
+
       right: 0;
 
       color: rgba(255,255,255,.45);
@@ -948,6 +1055,7 @@
   </style>
 </head>
 
+
 <body>
 
 
@@ -959,9 +1067,11 @@
 
   window.scrollTo(0, 0);
 
+
   window.addEventListener("beforeunload", function () {
     window.scrollTo(0, 0);
   });
+
 
   window.addEventListener("load", function () {
 
@@ -1026,9 +1136,11 @@
     </a>
 
     <a
+      class="depop-button"
       href="https://www.depop.com/prior_attire/"
       target="_blank"
-      rel="noopener">
+      rel="noopener"
+    >
       DEPOP
     </a>
 
@@ -1105,14 +1217,16 @@
 
         <button
           class="carousel-arrow left"
-          onclick="moveSlide(this,-1)">
+          onclick="moveSlide(this,-1)"
+        >
           ‹
         </button>
 
 
         <button
           class="carousel-arrow right"
-          onclick="moveSlide(this,1)">
+          onclick="moveSlide(this,1)"
+        >
           ›
         </button>
 
@@ -1121,18 +1235,18 @@
 
           <button
             class="carousel-dot active"
-            onclick="goToSlide(this,0)">
-          </button>
+            onclick="goToSlide(this,0)"
+          ></button>
 
           <button
             class="carousel-dot"
-            onclick="goToSlide(this,1)">
-          </button>
+            onclick="goToSlide(this,1)"
+          ></button>
 
           <button
             class="carousel-dot"
-            onclick="goToSlide(this,2)">
-          </button>
+            onclick="goToSlide(this,2)"
+          ></button>
 
         </div>
 
@@ -1243,14 +1357,16 @@
 
         <button
           class="carousel-arrow left"
-          onclick="moveSlide(this,-1)">
+          onclick="moveSlide(this,-1)"
+        >
           ‹
         </button>
 
 
         <button
           class="carousel-arrow right"
-          onclick="moveSlide(this,1)">
+          onclick="moveSlide(this,1)"
+        >
           ›
         </button>
 
@@ -1259,18 +1375,18 @@
 
           <button
             class="carousel-dot active"
-            onclick="goToSlide(this,0)">
-          </button>
+            onclick="goToSlide(this,0)"
+          ></button>
 
           <button
             class="carousel-dot"
-            onclick="goToSlide(this,1)">
-          </button>
+            onclick="goToSlide(this,1)"
+          ></button>
 
           <button
             class="carousel-dot"
-            onclick="goToSlide(this,2)">
-          </button>
+            onclick="goToSlide(this,2)"
+          ></button>
 
         </div>
 
@@ -1466,14 +1582,16 @@
 
         <button
           class="carousel-arrow left"
-          onclick="moveSlide(this,-1)">
+          onclick="moveSlide(this,-1)"
+        >
           ‹
         </button>
 
 
         <button
           class="carousel-arrow right"
-          onclick="moveSlide(this,1)">
+          onclick="moveSlide(this,1)"
+        >
           ›
         </button>
 
@@ -1482,18 +1600,18 @@
 
           <button
             class="carousel-dot active"
-            onclick="goToSlide(this,0)">
-          </button>
+            onclick="goToSlide(this,0)"
+          ></button>
 
           <button
             class="carousel-dot"
-            onclick="goToSlide(this,1)">
-          </button>
+            onclick="goToSlide(this,1)"
+          ></button>
 
           <button
             class="carousel-dot"
-            onclick="goToSlide(this,2)">
-          </button>
+            onclick="goToSlide(this,2)"
+          ></button>
 
         </div>
 
@@ -1590,6 +1708,7 @@
 
 
     <a
+      class="instagram-button"
       href="https://www.instagram.com/prior_attire/"
       target="_blank"
       rel="noopener"
@@ -1599,6 +1718,7 @@
 
 
     <a
+      class="tiktok-button"
       href="https://www.tiktok.com/@priorattire7"
       target="_blank"
       rel="noopener"
@@ -1608,6 +1728,7 @@
 
 
     <a
+      class="facebook-button"
       href="https://m.facebook.com/profile.php?id=61586747224418"
       target="_blank"
       rel="noopener"
@@ -1651,6 +1772,7 @@
     ×
   </span>
 
+
   <img
     id="lightbox-image"
     src=""
@@ -1668,7 +1790,8 @@
 
   function moveSlide(button, direction) {
 
-    const carousel = button.closest(".carousel");
+    const carousel =
+      button.closest(".carousel");
 
     const track =
       carousel.querySelector(".carousel-track");
@@ -1704,7 +1827,6 @@
   }
 
 
-
   function goToSlide(button, index) {
 
     const carousel =
@@ -1720,7 +1842,6 @@
     updateCarousel(carousel);
 
   }
-
 
 
   function updateCarousel(carousel) {
@@ -1739,7 +1860,7 @@
     track.style.transform =
       "translateX(-" +
       (index * 100) +
-      "%)";
+      "%";
 
 
     const dots =
@@ -1756,7 +1877,6 @@
     });
 
   }
-
 
 
   function openLightbox(src) {
@@ -1776,7 +1896,6 @@
   }
 
 
-
   function closeLightbox() {
 
     document
@@ -1784,7 +1903,6 @@
       .classList.remove("show");
 
   }
-
 
 
   document.addEventListener(
