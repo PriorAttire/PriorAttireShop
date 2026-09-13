@@ -20,6 +20,7 @@
 
     html {
       scroll-behavior: smooth;
+      scroll-padding-top: 0;
     }
 
     body {
@@ -204,36 +205,66 @@
         6px 6px 0 #17100e;
 
       display: inline-block;
+      position: relative;
 
-      animation: priorAttireMove 3.6s ease-in-out infinite;
-      transform-origin: center;
+      /* STATIONARY */
+      animation: none;
+      transform: none;
     }
 
-    /* NEW: only the words Prior Attire move */
-    @keyframes priorAttireMove {
+    /* SPARKLES AROUND PRIOR ATTIRE LETTERING */
+
+    .logo::after {
+      content: "✦  ˚  ✧  ˚  ✦";
+
+      position: absolute;
+      inset: -10px -22px;
+
+      color: #f3e5dc;
+
+      font-family: Arial, sans-serif;
+      font-size: 15px;
+      letter-spacing: 8px;
+
+      pointer-events: none;
+
+      opacity: 0;
+
+      animation: letteringTwinkle 3s ease-in-out infinite;
+
+      text-shadow:
+        0 0 5px #fff,
+        0 0 10px #d6c1b6,
+        0 0 18px #b89b8c;
+    }
+
+    @keyframes letteringTwinkle {
+
       0%, 100% {
-        transform: translateX(0) translateY(0) rotate(0deg) scale(1);
-        filter: brightness(1);
+        opacity: 0;
+        transform: scale(.95);
       }
 
       20% {
-        transform: translateX(-3px) translateY(-2px) rotate(-1deg) scale(1.01);
-        filter: brightness(1.08);
+        opacity: .35;
       }
 
       40% {
-        transform: translateX(4px) translateY(1px) rotate(1deg) scale(1.035);
-        filter: brightness(1.16);
+        opacity: 1;
+        transform: scale(1.03);
       }
 
       55% {
-        transform: translateX(-2px) translateY(-1px) rotate(-0.5deg) scale(1.02);
-        filter: brightness(1.12);
+        opacity: .25;
       }
 
-      75% {
-        transform: translateX(3px) translateY(0) rotate(0.5deg) scale(1.01);
-        filter: brightness(1.05);
+      70% {
+        opacity: .9;
+      }
+
+      85% {
+        opacity: 0;
+        transform: scale(.98);
       }
     }
 
@@ -447,14 +478,7 @@
     }
 
     .product-card::after {
-      content: "✦";
-      position: absolute;
-      top: 12px;
-      right: 15px;
-      font-size: 25px;
-      color: #96766a;
-      z-index: 5;
-      pointer-events: none;
+      content: "";
     }
 
     /* =========================
@@ -619,7 +643,7 @@
     }
 
     .buy-button {
-      background: #6d5145;
+      background: #382722;
       color: #f7eee9;
     }
 
@@ -930,6 +954,33 @@
 
 <body>
 
+  <script>
+    /*
+      FORCE PAGE TO OPEN AT THE VERY TOP
+      Prevents the browser from restoring the previous scroll position.
+    */
+    if ("scrollRestoration" in history) {
+      history.scrollRestoration = "manual";
+    }
+
+    window.scrollTo(0, 0);
+
+    window.addEventListener("beforeunload", function () {
+      window.scrollTo(0, 0);
+    });
+
+    window.addEventListener("load", function () {
+      setTimeout(function () {
+        window.scrollTo(0, 0);
+      }, 0);
+
+      setTimeout(function () {
+        window.scrollTo(0, 0);
+      }, 100);
+    });
+  </script>
+
+
   <!-- =========================
        HEADER
   ========================= -->
@@ -994,8 +1045,7 @@
     <div class="hero-buttons">
 
       <a class="hero-button shop-button" href="current.html">
-  SHOP CURRENT
-</a>
+        SHOP CURRENT
       </a>
 
       <a
@@ -1022,9 +1072,7 @@
     <div class="products">
 
 
-      <!-- =========================
-           PRODUCT 1
-      ========================= -->
+      <!-- PRODUCT 1 -->
 
       <article class="product-card">
 
@@ -1078,9 +1126,7 @@
             href="https://www.depop.com/products/prior9attire-coach-vintage-brown-mini-soho-e822/"
             target="_blank"
             rel="noopener">
-
             Coach Vintage Brown Mini Soho
-
           </a>
 
           <div class="details">
@@ -1120,9 +1166,7 @@
       </article>
 
 
-      <!-- =========================
-           PRODUCT 2
-      ========================= -->
+      <!-- PRODUCT 2 -->
 
       <article class="product-card">
 
@@ -1176,9 +1220,7 @@
             href="https://www.depop.com/products/prior_astire-bag-in-good-condition-some-5929/"
             target="_blank"
             rel="noopener">
-
             Coach Y2K Valentine's Day Set
-
           </a>
 
           <div class="details">
@@ -1218,9 +1260,7 @@
       </article>
 
 
-      <!-- =========================
-           PRODUCT 3
-      ========================= -->
+      <!-- PRODUCT 3 -->
 
       <article class="product-card">
 
@@ -1240,10 +1280,24 @@
 
           </div>
 
-          <button class="carousel-arrow carousel-prev" type="button" style="display:none;">‹</button>
-          <button class="carousel-arrow carousel-next" type="button" style="display:none;">›</button>
+          <button
+            class="carousel-arrow carousel-prev"
+            type="button"
+            style="display:none;">
+            ‹
+          </button>
 
-          <div class="carousel-dots" style="display:none;"></div>
+          <button
+            class="carousel-arrow carousel-next"
+            type="button"
+            style="display:none;">
+            ›
+          </button>
+
+          <div
+            class="carousel-dots"
+            style="display:none;">
+          </div>
 
         </div>
 
@@ -1254,9 +1308,7 @@
             href="https://www.depop.com/products/prjor_attire-coach-soho-pleated-signature-jacquard-922f/"
             target="_blank"
             rel="noopener">
-
             Coach Soho Pleated Signature Jacquard Bag
-
           </a>
 
           <div class="details">
@@ -1296,9 +1348,7 @@
       </article>
 
 
-      <!-- =========================
-           PRODUCT 4
-      ========================= -->
+      <!-- PRODUCT 4 -->
 
       <article class="product-card">
 
@@ -1352,9 +1402,7 @@
             href="https://www.depop.com/products/prior_atvire-coach-optic-metallic-signature-chain-5ac2/"
             target="_blank"
             rel="noopener">
-
             Coach Optic Metallic Signature Chain Duffle
-
           </a>
 
           <div class="details">
@@ -1521,16 +1569,6 @@
 
   <script>
 
-    /* Always open at the top */
-    if ("scrollRestoration" in history) {
-      history.scrollRestoration = "manual";
-    }
-
-    window.addEventListener("load", function () {
-      window.scrollTo(0, 0);
-    });
-
-
     /* =========================
        CAROUSELS
     ========================= */
@@ -1617,6 +1655,7 @@
         if (Math.abs(difference) < 40) return;
 
         if (difference > 0) {
+
           index++;
 
           if (index >= slides.length) {
@@ -1657,12 +1696,23 @@
        LIGHTBOX
     ========================= */
 
-    const lightbox = document.getElementById("lightbox");
-    const lightboxImage = document.getElementById("lightboxImage");
-    const lightboxClose = document.getElementById("lightboxClose");
-    const lightboxPrev = document.getElementById("lightboxPrev");
-    const lightboxNext = document.getElementById("lightboxNext");
-    const lightboxCounter = document.getElementById("lightboxCounter");
+    const lightbox =
+      document.getElementById("lightbox");
+
+    const lightboxImage =
+      document.getElementById("lightboxImage");
+
+    const lightboxClose =
+      document.getElementById("lightboxClose");
+
+    const lightboxPrev =
+      document.getElementById("lightboxPrev");
+
+    const lightboxNext =
+      document.getElementById("lightboxNext");
+
+    const lightboxCounter =
+      document.getElementById("lightboxCounter");
 
     let currentImages = [];
     let currentLightboxIndex = 0;
@@ -1690,7 +1740,8 @@
 
     function updateLightbox() {
 
-      const image = currentImages[currentLightboxIndex];
+      const image =
+        currentImages[currentLightboxIndex];
 
       if (!image) return;
 
@@ -1734,7 +1785,8 @@
       currentLightboxIndex--;
 
       if (currentLightboxIndex < 0) {
-        currentLightboxIndex = currentImages.length - 1;
+        currentLightboxIndex =
+          currentImages.length - 1;
       }
 
       updateLightbox();
@@ -1757,7 +1809,10 @@
     }
 
 
-    lightboxClose.addEventListener("click", closeLightbox);
+    lightboxClose.addEventListener(
+      "click",
+      closeLightbox
+    );
 
     lightboxPrev.addEventListener(
       "click",
